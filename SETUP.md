@@ -181,6 +181,13 @@ never commit it.
 
 ## 4. Publishing the page
 
+If you are running this under a **different GitHub account**, repoint it first —
+this rewrites the footer link, the README and SETUP.md, then rebuilds the page:
+
+```bash
+python3 scripts/set_owner.py YOUR-GITHUB-USERNAME
+```
+
 GitHub Pages serves `index.html` from the repository root.
 
 1. **github.com/Vishal-bhandary/composio-app-research/settings/pages**
