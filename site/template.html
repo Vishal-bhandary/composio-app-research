@@ -141,6 +141,8 @@ h2{font-size:clamp(1.3rem,3vw,1.65rem)}
 .arrow{color:var(--ink-3);font-size:1.1rem}
 .dnote{font-size:12px;color:var(--ink-2);margin-top:.6rem}
 table.t{width:100%;border-collapse:collapse;font-size:12.5px}
+.tier-tbl{width:auto;min-width:min(430px,100%);margin-bottom:1rem}
+.tier-tbl th,.tier-tbl td{padding-right:1.4rem}
 table.t th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;
   text-transform:uppercase;color:var(--ink-3);font-weight:500;padding:.4rem .5rem;
   border-bottom:1px solid var(--line-2);white-space:nowrap}
@@ -456,7 +458,7 @@ footer a{margin-right:1rem}
       <p>Sampled across evidence tier and access class, deliberately over-sampling the weakest
         tier. Verdicts: {{AUD_OK}} OK, {{AUD_WEAK}} defensible-but-under-evidenced, {{AUD_MISS}}
         wrong. Strict accuracy {{AUD_STRICT}}%; {{AUD_LEN}}% counting WEAK rows as acceptable.</p>
-      <table class="t" style="margin-bottom:1rem">
+      <table class="t tier-tbl">
         <thead><tr><th>Evidence tier</th><th>Sampled</th><th>OK</th><th>Weak</th><th>Miss</th>
           <th>Strict</th></tr></thead>
         <tbody>{{TIER_TABLE}}</tbody>

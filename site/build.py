@@ -233,7 +233,7 @@ for k, v in REPL.items():
 
 (ROOT / "site" / "artifact.html").write_text(tpl)
 
-(ROOT / "site" / "index.html").write_text(
+(ROOT / "index.html").write_text(
     "<!doctype html>\n<html lang=\"en\">\n<head>\n"
     "<meta charset=\"utf-8\">\n"
     "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,viewport-fit=cover\">\n"
@@ -243,6 +243,6 @@ for k, v in REPL.items():
     "img{max-width:100%}[hidden]{display:none!important}</style>\n"
     "</head>\n<body>\n" + tpl + "\n</body>\n</html>\n")
 
-print("wrote site/index.html (%d bytes) and site/artifact.html (%d bytes)" %
-      ((ROOT / "site" / "index.html").stat().st_size,
+print("wrote index.html (%d bytes) and site/artifact.html (%d bytes)" %
+      ((ROOT / "index.html").stat().st_size,
        (ROOT / "site" / "artifact.html").stat().st_size))
