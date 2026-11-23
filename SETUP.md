@@ -201,7 +201,24 @@ python3 agent/run.py && git add -A && git commit -m "Refresh findings" && git pu
 
 ---
 
-## 5. Checking your keys
+## 5. Making a PDF of the case study
+
+Some submission forms take a file rather than a link, and most previewers will
+not render an uploaded HTML file. This flattens the page to PDF, unhiding every
+table row and printing both URLs as readable text:
+
+```bash
+npm install playwright && npx playwright install chromium
+```
+
+```bash
+node scripts/make_pdf.js YOUR-GITHUB-USERNAME
+```
+
+Writes `case-study.pdf` (~0.5 MB, 10 pages). The live page remains the real
+artifact; this is the offline fallback.
+
+## 6. Checking your keys
 
 If a key is rejected, run the diagnostic before changing anything. It reports
 where each key was read from, flags a stale `GOOGLE_API_KEY` shadowing your
@@ -211,7 +228,7 @@ Gemini key, and makes one live call to each service:
 python3 scripts/check_keys.py
 ```
 
-## 6. Troubleshooting
+## 7. Troubleshooting
 
 | Symptom | Cause | Fix |
 |---|---|---|
