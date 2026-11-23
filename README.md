@@ -34,6 +34,9 @@ outreach rather than engineering.
 
 ## Running it
 
+Full prerequisites, API-key sources and costs, and the GitHub Pages steps are in
+**[SETUP.md](SETUP.md)**. The short version:
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -57,7 +60,8 @@ python3 agent/run.py --research
 Single stages, if you want to poke at one:
 
 ```bash
-python3 agent/composio_catalog.py            # stage 2 — probe Composio's catalog
+python3 agent/composio_catalog.py            # stage 2  — probe Composio's catalog
+python3 agent/composio_api.py --selftest     # stage 2b — authenticated, needs COMPOSIO_API_KEY
 python3 agent/research.py --only 5 17 94     # stage 3 — research three apps
 python3 agent/verify.py                      # stage 4 — loops A and B
 python3 agent/cluster.py                     # stage 5 — recompute every statistic
