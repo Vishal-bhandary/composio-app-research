@@ -69,15 +69,55 @@ analysis reproduced from scratch.
 **You need none of these to reproduce the published results.** Each one unlocks
 an extra stage.
 
-### `ANTHROPIC_API_KEY` — unlocks stage 3 (documentation research)
+Stage 3 takes **either** an Anthropic key **or** a Gemini key. Pick one.
+
+### Option A — `GEMINI_API_KEY`
 
 | | |
 |---|---|
-| Where | https://platform.claude.com → **API keys** → *Create key* |
+| Where | https://aistudio.google.com/apikey (`GOOGLE_API_KEY` also works) |
+| Install | `pip install google-genai` |
+| Cost | Gemini has a free tier with daily quota; 100 apps x 2 calls usually fits or costs well under a dollar |
+
+Gemini's Google Search grounding and `response_schema` do not reliably combine
+— the API has rejected the pair outright, and where it is allowed, grounding
+metadata comes back empty. So the Gemini path makes **two** calls per app:
+a grounded research call, then a structuring call with the schema enforced.
+Source URLs come from the grounding metadata, not from the model's prose.
+
+Check what your key can see first — Google's model IDs change often, and the
+code picks the best available rather than hardcoding one:
+
+```bash
+export GEMINI_API_KEY=...
+```
+
+```bash
+python3 agent/research.py --list-models
+```
+
+Then try three apps before spending on all 100:
+
+```bash
+python3 agent/research.py --only 5 17 94
+```
+
+```bash
+python3 agent/run.py --research
+```
+
+### Option B — `ANTHROPIC_API_KEY`
+
+| | |
+|---|---|
+| Where | https://platform.claude.com -> **API keys** -> *Create key* |
+| Install | `pip install anthropic` |
 | Format | `sk-ant-...` |
-| Unlocks | `agent/research.py` — Claude + server-side web search produces one schema-valid finding per app |
-| Cost | ~100 requests with web search. On `claude-opus-5-5` roughly **$3–8** for all 100; `--model claude-sonnet-5-5` is roughly a quarter of that |
-| Billing | Pay-as-you-go. Add credit in the Console before the first call or requests 400 |
+| Cost | ~**$3-8** for all 100 on `claude-opus-5-5`; `--model claude-sonnet-5-5` is roughly a quarter of that |
+| Billing | Pay-as-you-go — add credit in the Console first or requests 400 |
+
+One call per app: server-side web search and structured output compose, so the
+model researches and emits schema-valid JSON in a single turn.
 
 ```bash
 export ANTHROPIC_API_KEY=sk-ant-...
@@ -87,12 +127,8 @@ export ANTHROPIC_API_KEY=sk-ant-...
 python3 agent/research.py --only 5 17 94
 ```
 
-Start with `--only` on three apps. That costs cents and confirms the key works
-before you spend on all 100. Then:
-
-```bash
-python3 agent/run.py --research
-```
+With both keys set, Anthropic wins. Force the other with
+`--provider gemini`.
 
 ### `COMPOSIO_API_KEY` — unlocks stage 2b (authenticated catalog check)
 
@@ -168,7 +204,9 @@ python3 agent/run.py && git add -A && git commit -m "Refresh findings" && git pu
 |---|---|---|
 | `ModuleNotFoundError: httpx` | deps not installed | `pip install -r requirements.txt` |
 | Stage 2 finds 0 toolkits | no egress to `composio.dev` | check proxy/firewall; the probe needs that one host |
-| `ANTHROPIC_API_KEY is not set` | only stage 3 needs it | run `python3 agent/run.py` without `--research` |
+| `No model key found` | only stage 3 needs a key | run `python3 agent/run.py` without `--research` |
+| `could not list Gemini models` | bad or unset `GEMINI_API_KEY` | regenerate at aistudio.google.com/apikey |
+| Gemini returns schema errors | model ignored the schema | `--list-models`, then pin a different one with `--model` |
 | `401 - check COMPOSIO_API_KEY` | wrong or expired key | regenerate in the Composio dashboard |
 | Stage 3 reports `schema:` errors | model returned off-schema JSON | re-run those ids with `--only`; the row is skipped, not corrupted |
 | Pages shows a 404 | source not set to root | Settings → Pages → branch `main`, folder `/ (root)` |

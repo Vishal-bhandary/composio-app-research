@@ -1,6 +1,12 @@
-# Stages 2, 4 and 5 (catalog probe, verification, clustering, render)
+# Stages 2, 4 and 5 (catalog probe, verification, clustering, render).
+# These are the only hard requirements — `python3 agent/run.py` needs nothing else.
 httpx>=0.27,<1
 
-# Stage 3 only — the documentation research pass
+# Stage 3 (agent/research.py) — install the one matching your model key.
+# Anthropic:
 anthropic>=1.0,<2
+# Gemini:
+google-genai>=1.0,<2
+
+# Shared by stage 3 for the AppFinding schema.
 pydantic>=2.7,<3
