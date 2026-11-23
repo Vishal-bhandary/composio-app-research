@@ -29,9 +29,14 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--research", action="store_true",
                     help="also run stage 3 (needs ANTHROPIC_API_KEY)")
+    ap.add_argument("--composio-api", action="store_true",
+                    help="also run stage 2b, the authenticated catalog check "
+                         "(needs COMPOSIO_API_KEY)")
     args = ap.parse_args()
 
     stages = list(STAGES)
+    if args.composio_api:
+        stages.insert(1, ("2b authenticated catalog", [sys.executable, "agent/composio_api.py"]))
     if args.research:
         stages.insert(1, ("3  doc research", [sys.executable, "agent/research.py"]))
 
