@@ -109,7 +109,13 @@ class GeminiProvider:
     def __init__(self, model: str | None = None):
         from google import genai
         self.genai = genai
-        self.client = genai.Client()  # reads GEMINI_API_KEY or GOOGLE_API_KEY
+        # Pass the key explicitly. genai.Client() with no argument reads both
+        # GEMINI_API_KEY and GOOGLE_API_KEY from the ambient environment, and a
+        # stale GOOGLE_API_KEY left over from unrelated Google Cloud work then
+        # silently wins over the key in .env - which surfaces as a confusing
+        # "API key not valid" against a key that is perfectly good.
+        key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+        self.client = genai.Client(api_key=key)
         self.model = model or self.resolve_model()
 
     def available_models(self) -> list[str]:

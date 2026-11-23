@@ -201,7 +201,17 @@ python3 agent/run.py && git add -A && git commit -m "Refresh findings" && git pu
 
 ---
 
-## 5. Troubleshooting
+## 5. Checking your keys
+
+If a key is rejected, run the diagnostic before changing anything. It reports
+where each key was read from, flags a stale `GOOGLE_API_KEY` shadowing your
+Gemini key, and makes one live call to each service:
+
+```bash
+python3 scripts/check_keys.py
+```
+
+## 6. Troubleshooting
 
 | Symptom | Cause | Fix |
 |---|---|---|
