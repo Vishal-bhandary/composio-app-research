@@ -1,0 +1,2369 @@
+[
+  {
+    "app": "Salesforce",
+    "slug": "salesforce",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "crm"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "OAuth2",
+      "custom"
+    ],
+    "auth_types_raw": [
+      "custom",
+      "oauth2"
+    ],
+    "tool_count": 556,
+    "trigger_count": 7,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Salesforce MCP or direct API to fetch account details, update leads, log activities, and manage opportunities through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/salesforce",
+    "evidence_url": "https://composio.dev/toolkits/salesforce.md",
+    "tried": [
+      "salesforce"
+    ]
+  },
+  {
+    "app": "HubSpot",
+    "slug": "hubspot",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "crm"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "OAuth2",
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key",
+      "oauth2"
+    ],
+    "tool_count": 354,
+    "trigger_count": 2,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with HubSpot MCP or direct API to manage contacts, automate email campaigns, update deal pipelines, and retrieve analytics through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/hubspot",
+    "evidence_url": "https://composio.dev/toolkits/hubspot.md",
+    "tried": [
+      "hubspot"
+    ]
+  },
+  {
+    "app": "Pipedrive",
+    "slug": "pipedrive",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "crm"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "OAuth2",
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key",
+      "oauth2"
+    ],
+    "tool_count": 404,
+    "trigger_count": 3,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Pipedrive MCP or direct API to manage deals, update leads, add activities, and automate pipeline actions through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/pipedrive",
+    "evidence_url": "https://composio.dev/toolkits/pipedrive.md",
+    "tried": [
+      "pipedrive"
+    ]
+  },
+  {
+    "app": "Attio",
+    "slug": "attio",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "crm"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 105,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Attio MCP or direct API to manage contacts, automate workflows, track interactions, and sync relationship data through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/attio",
+    "evidence_url": "https://composio.dev/toolkits/attio.md",
+    "tried": [
+      "attio"
+    ]
+  },
+  {
+    "app": "Twenty",
+    "slug": "twenty",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "crm"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key"
+    ],
+    "tool_count": 23,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Twenty MCP or direct API to create and update contacts, manage deals and pipelines, log activities and notes, and run CRM searches and reports through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/twenty",
+    "evidence_url": "https://composio.dev/toolkits/twenty.md",
+    "tried": [
+      "twenty"
+    ]
+  },
+  {
+    "app": "Podio",
+    "slug": "podio",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "productivity & project management"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 143,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Podio MCP or direct API to create items, manage tasks, update workflows, and access files through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/podio",
+    "evidence_url": "https://composio.dev/toolkits/podio.md",
+    "tried": [
+      "podio"
+    ]
+  },
+  {
+    "app": "Zoho CRM",
+    "slug": "zoho",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "crm"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 115,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Zoho MCP or direct API to send emails, manage CRM contacts, update deals, and automate campaign tasks through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/zoho",
+    "evidence_url": "https://composio.dev/toolkits/zoho.md",
+    "tried": [
+      "zoho"
+    ]
+  },
+  {
+    "app": "Close",
+    "slug": "close",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "crm"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key"
+    ],
+    "tool_count": 75,
+    "trigger_count": 45,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Close MCP or direct API to manage leads, automate follow-ups, send emails, and track sales activities through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/close",
+    "evidence_url": "https://composio.dev/toolkits/close.md",
+    "tried": [
+      "close"
+    ]
+  },
+  {
+    "app": "Copper",
+    "slug": "copper",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "crm"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key"
+    ],
+    "tool_count": 65,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Copper MCP or direct API to create leads, update contacts, manage opportunities, and log activities through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/copper",
+    "evidence_url": "https://composio.dev/toolkits/copper.md",
+    "tried": [
+      "copper"
+    ]
+  },
+  {
+    "app": "DealCloud",
+    "slug": null,
+    "found": false,
+    "is_composio_managed": null,
+    "categories": [],
+    "auth_page": false,
+    "auth_schemes": [],
+    "auth_types_raw": [],
+    "tool_count": null,
+    "trigger_count": 0,
+    "one_liner": "",
+    "toolkit_url": null,
+    "evidence_url": null,
+    "tried": [
+      "dealcloud"
+    ]
+  },
+  {
+    "app": "Zendesk",
+    "slug": "zendesk",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "sales & customer support"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 483,
+    "trigger_count": 2,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Zendesk MCP or direct API to create tickets, reply to customers, update ticket statuses, and search knowledge base articles through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/zendesk",
+    "evidence_url": "https://composio.dev/toolkits/zendesk.md",
+    "tried": [
+      "zendesk"
+    ]
+  },
+  {
+    "app": "Intercom",
+    "slug": "intercom",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "sales & customer support"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 138,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Intercom MCP or direct API to send messages, fetch conversations, update contacts, and automate support workflows through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/intercom",
+    "evidence_url": "https://composio.dev/toolkits/intercom.md",
+    "tried": [
+      "intercom"
+    ]
+  },
+  {
+    "app": "Freshdesk",
+    "slug": "freshdesk",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "sales & customer support",
+      "productivity & project management"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key"
+    ],
+    "tool_count": 184,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Freshdesk MCP or direct API to create tickets, update support requests, manage conversations, and automate customer support workflows through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/freshdesk",
+    "evidence_url": "https://composio.dev/toolkits/freshdesk.md",
+    "tried": [
+      "freshdesk"
+    ]
+  },
+  {
+    "app": "Front",
+    "slug": "front",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "collaboration & communication",
+      "sales & customer support"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "API key",
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "api_key",
+      "oauth2"
+    ],
+    "tool_count": 180,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Front MCP or direct API to search conversations, send replies, assign messages, and manage shared inboxes through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/front",
+    "evidence_url": "https://composio.dev/toolkits/front.md",
+    "tried": [
+      "front"
+    ]
+  },
+  {
+    "app": "Pylon",
+    "slug": null,
+    "found": false,
+    "is_composio_managed": null,
+    "categories": [],
+    "auth_page": false,
+    "auth_schemes": [],
+    "auth_types_raw": [],
+    "tool_count": null,
+    "trigger_count": 0,
+    "one_liner": "",
+    "toolkit_url": null,
+    "evidence_url": null,
+    "tried": [
+      "pylon"
+    ]
+  },
+  {
+    "app": "LiveAgent",
+    "slug": null,
+    "found": false,
+    "is_composio_managed": null,
+    "categories": [],
+    "auth_page": false,
+    "auth_schemes": [],
+    "auth_types_raw": [],
+    "tool_count": null,
+    "trigger_count": 0,
+    "one_liner": "",
+    "toolkit_url": null,
+    "evidence_url": null,
+    "tried": [
+      "liveagent"
+    ]
+  },
+  {
+    "app": "Plain",
+    "slug": "plain",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "sales & customer support"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key"
+    ],
+    "tool_count": 119,
+    "trigger_count": 11,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Plain MCP or direct API to triage support conversations, label and prioritize tickets, draft customer replies, and automate inbox workflows through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/plain",
+    "evidence_url": "https://composio.dev/toolkits/plain.md",
+    "tried": [
+      "plain"
+    ]
+  },
+  {
+    "app": "Help Scout",
+    "slug": "help_scout",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "sales & customer support"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 129,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Help Scout MCP or direct API to triage conversations, draft replies, update customers, search mailboxes, and manage support workflows through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/help_scout",
+    "evidence_url": "https://composio.dev/toolkits/help_scout.md",
+    "tried": [
+      "helpscout",
+      "help_scout"
+    ]
+  },
+  {
+    "app": "Gorgias",
+    "slug": "gorgias",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "sales & customer support"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "API key",
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "api_key",
+      "oauth2"
+    ],
+    "tool_count": 51,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Gorgias MCP or direct API to automate ticket replies, update order statuses, assign conversations, and tag customers through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/gorgias",
+    "evidence_url": "https://composio.dev/toolkits/gorgias.md",
+    "tried": [
+      "gorgias"
+    ]
+  },
+  {
+    "app": "Gladly",
+    "slug": null,
+    "found": false,
+    "is_composio_managed": null,
+    "categories": [],
+    "auth_page": false,
+    "auth_schemes": [],
+    "auth_types_raw": [],
+    "tool_count": null,
+    "trigger_count": 0,
+    "one_liner": "",
+    "toolkit_url": null,
+    "evidence_url": null,
+    "tried": [
+      "gladly"
+    ]
+  },
+  {
+    "app": "Slack",
+    "slug": "slack",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "collaboration & communication"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 165,
+    "trigger_count": 9,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Slack MCP or direct API to send messages, fetch channels, read conversations, and manage users through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/slack",
+    "evidence_url": "https://composio.dev/toolkits/slack.md",
+    "tried": [
+      "slack"
+    ]
+  },
+  {
+    "app": "Twilio",
+    "slug": "twilio",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "collaboration & communication"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "API key",
+      "basic_auth",
+      "custom"
+    ],
+    "auth_types_raw": [
+      "api_key",
+      "basic_auth",
+      "custom"
+    ],
+    "tool_count": 452,
+    "trigger_count": 45,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Twilio MCP or direct API to send SMS messages, place voice calls, manage phone numbers, and track delivery through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/twilio",
+    "evidence_url": "https://composio.dev/toolkits/twilio.md",
+    "tried": [
+      "twilio"
+    ]
+  },
+  {
+    "app": "Zoho Cliq",
+    "slug": "zoho_cliq",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "collaboration & communication"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 162,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Zoho Cliq MCP or direct API to send channel messages, read conversations, manage bots, and find team updates through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/zoho_cliq",
+    "evidence_url": "https://composio.dev/toolkits/zoho_cliq.md",
+    "tried": [
+      "zoho_cliq"
+    ]
+  },
+  {
+    "app": "Lark (Larksuite)",
+    "slug": "lark",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "collaboration & communication"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 451,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Lark MCP or direct API to send messages, schedule meetings, manage calendars, and create documents through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/lark",
+    "evidence_url": "https://composio.dev/toolkits/lark.md",
+    "tried": [
+      "lark"
+    ]
+  },
+  {
+    "app": "Pumble",
+    "slug": "pumble",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "collaboration & communication"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key"
+    ],
+    "tool_count": 9,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Pumble MCP or direct API to send channel messages, manage direct messages, schedule announcements, and search workspace conversations through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/pumble",
+    "evidence_url": "https://composio.dev/toolkits/pumble.md",
+    "tried": [
+      "pumble"
+    ]
+  },
+  {
+    "app": "Discord",
+    "slug": "discord",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "collaboration & communication"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 23,
+    "trigger_count": 1,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Discord MCP or direct API to send messages, fetch channel history, manage roles, and automate server tasks through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/discord",
+    "evidence_url": "https://composio.dev/toolkits/discord.md",
+    "tried": [
+      "discord"
+    ]
+  },
+  {
+    "app": "Telegram",
+    "slug": "telegram",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "collaboration & communication"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key"
+    ],
+    "tool_count": 18,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Telegram MCP or direct API to send messages, automate group chats, manage channels, and interact with users through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/telegram",
+    "evidence_url": "https://composio.dev/toolkits/telegram.md",
+    "tried": [
+      "telegram"
+    ]
+  },
+  {
+    "app": "WhatsApp Business",
+    "slug": "whatsapp",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "collaboration & communication"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2",
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key",
+      "oauth2"
+    ],
+    "tool_count": 127,
+    "trigger_count": 1,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Whatsapp MCP or direct API to send messages, fetch conversations, automate replies, and manage contacts through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/whatsapp",
+    "evidence_url": "https://composio.dev/toolkits/whatsapp.md",
+    "tried": [
+      "whatsapp"
+    ]
+  },
+  {
+    "app": "Aircall",
+    "slug": "aircall",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "collaboration & communication"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2",
+      "basic_auth"
+    ],
+    "auth_types_raw": [
+      "basic_auth",
+      "oauth2"
+    ],
+    "tool_count": 48,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Aircall MCP or direct API to manage calls, search contacts, organize teams, and update phone numbers through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/aircall",
+    "evidence_url": "https://composio.dev/toolkits/aircall.md",
+    "tried": [
+      "aircall"
+    ]
+  },
+  {
+    "app": "Vonage",
+    "slug": null,
+    "found": false,
+    "is_composio_managed": null,
+    "categories": [],
+    "auth_page": false,
+    "auth_schemes": [],
+    "auth_types_raw": [],
+    "tool_count": null,
+    "trigger_count": 0,
+    "one_liner": "",
+    "toolkit_url": null,
+    "evidence_url": null,
+    "tried": [
+      "vonage"
+    ]
+  },
+  {
+    "app": "Google Ads",
+    "slug": "googleads",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "advertising & marketing"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 78,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Google Ads MCP or direct API to monitor campaign performance, update ad groups, generate reports, and launch new ads through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/googleads",
+    "evidence_url": "https://composio.dev/toolkits/googleads.md",
+    "tried": [
+      "google_ads",
+      "googleads"
+    ]
+  },
+  {
+    "app": "Meta Ads",
+    "slug": "facebook",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "marketing & social media"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 72,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Facebook MCP or direct API to post updates, fetch messages, manage comments, and gather page analytics through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/facebook",
+    "evidence_url": "https://composio.dev/toolkits/facebook.md",
+    "tried": [
+      "meta_ads",
+      "facebook_ads",
+      "facebook"
+    ]
+  },
+  {
+    "app": "LinkedIn Ads",
+    "slug": "linkedin_ads",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "advertising & marketing"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 28,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Linkedin Ads MCP or direct API to manage campaigns, review ad performance, analyze spend, and publish organization social content through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/linkedin_ads",
+    "evidence_url": "https://composio.dev/toolkits/linkedin_ads.md",
+    "tried": [
+      "linkedin_ads"
+    ]
+  },
+  {
+    "app": "GoHighLevel",
+    "slug": "highlevel",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "crm"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 218,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Highlevel MCP or direct API to read contacts, update pipelines, manage appointments, and send SMS follow-ups through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/highlevel",
+    "evidence_url": "https://composio.dev/toolkits/highlevel.md",
+    "tried": [
+      "gohighlevel",
+      "highlevel"
+    ]
+  },
+  {
+    "app": "Mailchimp",
+    "slug": "mailchimp",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "marketing & social media"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 275,
+    "trigger_count": 4,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Mailchimp MCP or direct API to send campaigns, segment audiences, fetch analytics, and manage subscribers through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/mailchimp",
+    "evidence_url": "https://composio.dev/toolkits/mailchimp.md",
+    "tried": [
+      "mailchimp"
+    ]
+  },
+  {
+    "app": "Klaviyo",
+    "slug": "klaviyo",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "marketing & social media"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "API key",
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "api_key",
+      "oauth2"
+    ],
+    "tool_count": 233,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Klaviyo MCP or direct API to send campaigns, segment contacts, automate messaging, and analyze marketing performance through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/klaviyo",
+    "evidence_url": "https://composio.dev/toolkits/klaviyo.md",
+    "tried": [
+      "klaviyo"
+    ]
+  },
+  {
+    "app": "systeme.io",
+    "slug": null,
+    "found": false,
+    "is_composio_managed": null,
+    "categories": [],
+    "auth_page": false,
+    "auth_schemes": [],
+    "auth_types_raw": [],
+    "tool_count": null,
+    "trigger_count": 0,
+    "one_liner": "",
+    "toolkit_url": null,
+    "evidence_url": null,
+    "tried": [
+      "systeme_io",
+      "systeme",
+      "systemeio"
+    ]
+  },
+  {
+    "app": "Pinterest",
+    "slug": "pinterest",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "social media"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 27,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Pinterest MCP or direct API to search Pins, create Pins, manage boards, and organize visual ideas through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/pinterest",
+    "evidence_url": "https://composio.dev/toolkits/pinterest.md",
+    "tried": [
+      "pinterest"
+    ]
+  },
+  {
+    "app": "Threads (Meta)",
+    "slug": "threads",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "social media"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 24,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Threads MCP or direct API to publish posts, manage replies, discover public content, and analyze profile performance through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/threads",
+    "evidence_url": "https://composio.dev/toolkits/threads.md",
+    "tried": [
+      "threads"
+    ]
+  },
+  {
+    "app": "SendGrid",
+    "slug": "sendgrid",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "marketing & social media"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key"
+    ],
+    "tool_count": 359,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Sendgrid MCP or direct API to send emails, manage templates, check delivery status, and analyze engagement\u2014all through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/sendgrid",
+    "evidence_url": "https://composio.dev/toolkits/sendgrid.md",
+    "tried": [
+      "sendgrid"
+    ]
+  },
+  {
+    "app": "Shopify",
+    "slug": "shopify",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "e-commerce"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "OAuth2",
+      "custom"
+    ],
+    "auth_types_raw": [
+      "custom",
+      "oauth2"
+    ],
+    "tool_count": 386,
+    "trigger_count": 45,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Shopify MCP or direct API to manage products, track orders, sync inventory, and automate customer workflows through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/shopify",
+    "evidence_url": "https://composio.dev/toolkits/shopify.md",
+    "tried": [
+      "shopify"
+    ]
+  },
+  {
+    "app": "WooCommerce",
+    "slug": null,
+    "found": false,
+    "is_composio_managed": null,
+    "categories": [],
+    "auth_page": false,
+    "auth_schemes": [],
+    "auth_types_raw": [],
+    "tool_count": null,
+    "trigger_count": 0,
+    "one_liner": "",
+    "toolkit_url": null,
+    "evidence_url": null,
+    "tried": [
+      "woocommerce"
+    ]
+  },
+  {
+    "app": "BigCommerce",
+    "slug": "bigcommerce",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "e-commerce"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "API key",
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "api_key",
+      "oauth2"
+    ],
+    "tool_count": 532,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with BigCommerce MCP or direct API to manage catalogs, review orders, update customers, and configure store settings through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/bigcommerce",
+    "evidence_url": "https://composio.dev/toolkits/bigcommerce.md",
+    "tried": [
+      "bigcommerce"
+    ]
+  },
+  {
+    "app": "Salesforce Commerce Cloud",
+    "slug": "salesforce",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "crm"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "OAuth2",
+      "custom"
+    ],
+    "auth_types_raw": [
+      "custom",
+      "oauth2"
+    ],
+    "tool_count": 556,
+    "trigger_count": 7,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Salesforce MCP or direct API to fetch account details, update leads, log activities, and manage opportunities through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/salesforce",
+    "evidence_url": "https://composio.dev/toolkits/salesforce.md",
+    "tried": [
+      "salesforce_commerce_cloud",
+      "sfcc",
+      "salesforcecommercecloud",
+      "salesforce"
+    ]
+  },
+  {
+    "app": "Magento (Adobe Commerce)",
+    "slug": null,
+    "found": false,
+    "is_composio_managed": null,
+    "categories": [],
+    "auth_page": false,
+    "auth_schemes": [],
+    "auth_types_raw": [],
+    "tool_count": null,
+    "trigger_count": 0,
+    "one_liner": "",
+    "toolkit_url": null,
+    "evidence_url": null,
+    "tried": [
+      "magento",
+      "adobe_commerce"
+    ]
+  },
+  {
+    "app": "Squarespace",
+    "slug": null,
+    "found": false,
+    "is_composio_managed": null,
+    "categories": [],
+    "auth_page": false,
+    "auth_schemes": [],
+    "auth_types_raw": [],
+    "tool_count": null,
+    "trigger_count": 0,
+    "one_liner": "",
+    "toolkit_url": null,
+    "evidence_url": null,
+    "tried": [
+      "squarespace"
+    ]
+  },
+  {
+    "app": "Ecwid",
+    "slug": null,
+    "found": false,
+    "is_composio_managed": null,
+    "categories": [],
+    "auth_page": false,
+    "auth_schemes": [],
+    "auth_types_raw": [],
+    "tool_count": null,
+    "trigger_count": 0,
+    "one_liner": "",
+    "toolkit_url": null,
+    "evidence_url": null,
+    "tried": [
+      "ecwid"
+    ]
+  },
+  {
+    "app": "Gumroad",
+    "slug": "gumroad",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "e-commerce"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 13,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Gumroad MCP or direct API to manage products, analyze sales, update listings, and contact customers through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/gumroad",
+    "evidence_url": "https://composio.dev/toolkits/gumroad.md",
+    "tried": [
+      "gumroad"
+    ]
+  },
+  {
+    "app": "Amazon Selling Partner",
+    "slug": "amazon",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "e-commerce"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": null,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Amazon MCP or direct API to review orders, check inventory, manage listings, and track seller operations through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/amazon",
+    "evidence_url": "https://composio.dev/toolkits/amazon.md",
+    "tried": [
+      "amazon_selling_partner",
+      "amazon"
+    ]
+  },
+  {
+    "app": "fanbasis",
+    "slug": null,
+    "found": false,
+    "is_composio_managed": null,
+    "categories": [],
+    "auth_page": false,
+    "auth_schemes": [],
+    "auth_types_raw": [],
+    "tool_count": null,
+    "trigger_count": 0,
+    "one_liner": "",
+    "toolkit_url": null,
+    "evidence_url": null,
+    "tried": [
+      "fanbasis"
+    ]
+  },
+  {
+    "app": "DataForSEO",
+    "slug": "dataforseo",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "data & analytics"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "basic_auth"
+    ],
+    "auth_types_raw": [
+      "basic_auth"
+    ],
+    "tool_count": 354,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Dataforseo MCP or direct API to fetch SERP data, analyze backlinks, research keywords, and compare competitors through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/dataforseo",
+    "evidence_url": "https://composio.dev/toolkits/dataforseo.md",
+    "tried": [
+      "dataforseo"
+    ]
+  },
+  {
+    "app": "SE Ranking",
+    "slug": null,
+    "found": false,
+    "is_composio_managed": null,
+    "categories": [],
+    "auth_page": false,
+    "auth_schemes": [],
+    "auth_types_raw": [],
+    "tool_count": null,
+    "trigger_count": 0,
+    "one_liner": "",
+    "toolkit_url": null,
+    "evidence_url": null,
+    "tried": [
+      "seranking",
+      "se_ranking",
+      "se"
+    ]
+  },
+  {
+    "app": "Ahrefs",
+    "slug": "ahrefs",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "marketing & social media"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "API key",
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "api_key",
+      "oauth2"
+    ],
+    "tool_count": 46,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Ahrefs MCP or direct API to analyze keywords, audit websites, find backlink opportunities, and monitor competitors through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/ahrefs",
+    "evidence_url": "https://composio.dev/toolkits/ahrefs.md",
+    "tried": [
+      "ahrefs"
+    ]
+  },
+  {
+    "app": "MrScraper",
+    "slug": "mrscraper",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "data & analytics"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key"
+    ],
+    "tool_count": 11,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with MrScraper MCP or direct API to scrape websites, extract structured data, fetch search results, and collect marketplace or travel data through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/mrscraper",
+    "evidence_url": "https://composio.dev/toolkits/mrscraper.md",
+    "tried": [
+      "mrscraper"
+    ]
+  },
+  {
+    "app": "Apify",
+    "slug": "apify",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "data & analytics"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key"
+    ],
+    "tool_count": 184,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Apify MCP or direct API to launch Actors, monitor task status, manage datasets, and automate web data collection through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/apify",
+    "evidence_url": "https://composio.dev/toolkits/apify.md",
+    "tried": [
+      "apify"
+    ]
+  },
+  {
+    "app": "Firecrawl",
+    "slug": "firecrawl",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "data & analytics"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key"
+    ],
+    "tool_count": 245,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Firecrawl MCP or direct API to crawl websites, extract structured data, index web content, and analyze online sources through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/firecrawl",
+    "evidence_url": "https://composio.dev/toolkits/firecrawl.md",
+    "tried": [
+      "firecrawl"
+    ]
+  },
+  {
+    "app": "Bright Data",
+    "slug": "brightdata",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "data & analytics"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key"
+    ],
+    "tool_count": 167,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Brightdata MCP or direct API to scrape websites, extract SERP results, bypass anti-bot protection, and automate web data collection through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/brightdata",
+    "evidence_url": "https://composio.dev/toolkits/brightdata.md",
+    "tried": [
+      "brightdata"
+    ]
+  },
+  {
+    "app": "Sherlock",
+    "slug": null,
+    "found": false,
+    "is_composio_managed": null,
+    "categories": [],
+    "auth_page": false,
+    "auth_schemes": [],
+    "auth_types_raw": [],
+    "tool_count": null,
+    "trigger_count": 0,
+    "one_liner": "",
+    "toolkit_url": null,
+    "evidence_url": null,
+    "tried": [
+      "sherlock"
+    ]
+  },
+  {
+    "app": "Waterfall.io",
+    "slug": null,
+    "found": false,
+    "is_composio_managed": null,
+    "categories": [],
+    "auth_page": false,
+    "auth_schemes": [],
+    "auth_types_raw": [],
+    "tool_count": null,
+    "trigger_count": 0,
+    "one_liner": "",
+    "toolkit_url": null,
+    "evidence_url": null,
+    "tried": [
+      "waterfall",
+      "waterfall_io",
+      "waterfallio"
+    ]
+  },
+  {
+    "app": "Clay",
+    "slug": "clay",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "crm"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key"
+    ],
+    "tool_count": 15,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Clay MCP or direct API to search people and companies, run routines, query workspace tables, and enrich records through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/clay",
+    "evidence_url": "https://composio.dev/toolkits/clay.md",
+    "tried": [
+      "clay"
+    ]
+  },
+  {
+    "app": "GitHub",
+    "slug": "github",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "developer tools & devops"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 883,
+    "trigger_count": 46,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with GitHub MCP or direct API to manage repositories, review pull requests, track issues, and automate code workflows through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/github",
+    "evidence_url": "https://composio.dev/toolkits/github.md",
+    "tried": [
+      "github"
+    ]
+  },
+  {
+    "app": "Vercel",
+    "slug": "vercel",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "developer tools & devops"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2",
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key",
+      "oauth2"
+    ],
+    "tool_count": 399,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Vercel MCP or direct API to deploy projects, check deployment statuses, manage team members, and fetch logs through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/vercel",
+    "evidence_url": "https://composio.dev/toolkits/vercel.md",
+    "tried": [
+      "vercel"
+    ]
+  },
+  {
+    "app": "Netlify",
+    "slug": null,
+    "found": false,
+    "is_composio_managed": null,
+    "categories": [],
+    "auth_page": false,
+    "auth_schemes": [],
+    "auth_types_raw": [],
+    "tool_count": null,
+    "trigger_count": 0,
+    "one_liner": "",
+    "toolkit_url": null,
+    "evidence_url": null,
+    "tried": [
+      "netlify"
+    ]
+  },
+  {
+    "app": "Cloudflare",
+    "slug": "cloudflare",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "developer tools & devops"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key"
+    ],
+    "tool_count": 171,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Cloudflare MCP or direct API to manage DNS records, automate firewall rules, monitor analytics, and control access settings through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/cloudflare",
+    "evidence_url": "https://composio.dev/toolkits/cloudflare.md",
+    "tried": [
+      "cloudflare"
+    ]
+  },
+  {
+    "app": "Supabase",
+    "slug": "supabase",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "developer tools & devops"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "OAuth2",
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key",
+      "oauth2"
+    ],
+    "tool_count": 230,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Supabase MCP or direct API to query databases, update records, manage authentication, and interact with storage through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/supabase",
+    "evidence_url": "https://composio.dev/toolkits/supabase.md",
+    "tried": [
+      "supabase"
+    ]
+  },
+  {
+    "app": "Neo4j",
+    "slug": "neo4j",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "data & analytics"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2",
+      "basic_auth",
+      "API key",
+      "custom"
+    ],
+    "auth_types_raw": [
+      "api_key",
+      "basic_auth",
+      "custom",
+      "oauth2"
+    ],
+    "tool_count": 21,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Neo4J MCP or direct API to run Cypher queries, inspect graph relationships, create nodes and edges, and analyze connected data through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/neo4j",
+    "evidence_url": "https://composio.dev/toolkits/neo4j.md",
+    "tried": [
+      "neo4j"
+    ]
+  },
+  {
+    "app": "Snowflake",
+    "slug": "snowflake",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "data & analytics"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 16,
+    "trigger_count": 0,
+    "one_liner": "Equip your AI agents with Snowflake MCP or direct API to run SQL queries, schedule analytics jobs, monitor data quality, create secure shares, and manage warehouse resources through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/snowflake",
+    "evidence_url": "https://composio.dev/toolkits/snowflake.md",
+    "tried": [
+      "snowflake"
+    ]
+  },
+  {
+    "app": "MongoDB Atlas",
+    "slug": "mongodb",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "developer tools & devops"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "custom"
+    ],
+    "auth_types_raw": [
+      "custom"
+    ],
+    "tool_count": 496,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with MongoDB MCP or direct API to manage Atlas organizations, projects, clusters, users, networking, and backups through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/mongodb",
+    "evidence_url": "https://composio.dev/toolkits/mongodb.md",
+    "tried": [
+      "mongodb"
+    ]
+  },
+  {
+    "app": "Datadog",
+    "slug": "datadog",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "developer tools & devops"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2",
+      "API key",
+      "Bearer token"
+    ],
+    "auth_types_raw": [
+      "api_key",
+      "bearer_token",
+      "oauth2"
+    ],
+    "tool_count": 255,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Datadog MCP or direct API to analyze logs, trigger alerts, fetch metrics, and investigate incidents through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/datadog",
+    "evidence_url": "https://composio.dev/toolkits/datadog.md",
+    "tried": [
+      "datadog"
+    ]
+  },
+  {
+    "app": "Sentry",
+    "slug": "sentry",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "developer tools & devops"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 210,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Sentry MCP or direct API to track errors, fetch incident details, update issue states, and manage alerts through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/sentry",
+    "evidence_url": "https://composio.dev/toolkits/sentry.md",
+    "tried": [
+      "sentry"
+    ]
+  },
+  {
+    "app": "Notion",
+    "slug": "notion",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "productivity & project management"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "OAuth2",
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key",
+      "oauth2"
+    ],
+    "tool_count": 57,
+    "trigger_count": 8,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Notion MCP or direct API to search workspaces, create pages, update databases, and manage tasks through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/notion",
+    "evidence_url": "https://composio.dev/toolkits/notion.md",
+    "tried": [
+      "notion"
+    ]
+  },
+  {
+    "app": "Airtable",
+    "slug": "airtable",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "productivity & project management"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "OAuth2",
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key",
+      "oauth2"
+    ],
+    "tool_count": 26,
+    "trigger_count": 6,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Airtable MCP or direct API to find, update, create, and organize records and tables through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/airtable",
+    "evidence_url": "https://composio.dev/toolkits/airtable.md",
+    "tried": [
+      "airtable"
+    ]
+  },
+  {
+    "app": "Linear",
+    "slug": "linear",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "productivity & project management"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "OAuth2",
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key",
+      "oauth2"
+    ],
+    "tool_count": 47,
+    "trigger_count": 12,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Linear MCP or direct API to create, update, assign, and comment on issues through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/linear",
+    "evidence_url": "https://composio.dev/toolkits/linear.md",
+    "tried": [
+      "linear"
+    ]
+  },
+  {
+    "app": "Jira",
+    "slug": "jira",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "productivity & project management"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "OAuth2",
+      "custom",
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key",
+      "custom",
+      "oauth2"
+    ],
+    "tool_count": 166,
+    "trigger_count": 17,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Jira MCP or direct API to create issues, update tickets, assign work, and manage agile boards through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/jira",
+    "evidence_url": "https://composio.dev/toolkits/jira.md",
+    "tried": [
+      "jira"
+    ]
+  },
+  {
+    "app": "Asana",
+    "slug": "asana",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "productivity & project management"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 247,
+    "trigger_count": 6,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Asana MCP or direct API to create tasks, update project statuses, assign teammates, and fetch work summaries through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/asana",
+    "evidence_url": "https://composio.dev/toolkits/asana.md",
+    "tried": [
+      "asana"
+    ]
+  },
+  {
+    "app": "Monday.com",
+    "slug": "monday",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "productivity & project management"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 122,
+    "trigger_count": 17,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Monday MCP or direct API to update project boards, manage tasks, automate workflows, and fetch team status through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/monday",
+    "evidence_url": "https://composio.dev/toolkits/monday.md",
+    "tried": [
+      "monday"
+    ]
+  },
+  {
+    "app": "ClickUp",
+    "slug": "clickup",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "productivity & project management"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2",
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key",
+      "oauth2"
+    ],
+    "tool_count": 163,
+    "trigger_count": 21,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Clickup MCP or direct API to create tasks, update statuses, manage projects, assign teammates, and automate workflows through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/clickup",
+    "evidence_url": "https://composio.dev/toolkits/clickup.md",
+    "tried": [
+      "clickup"
+    ]
+  },
+  {
+    "app": "Coda",
+    "slug": "coda",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "productivity & project management"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key"
+    ],
+    "tool_count": 109,
+    "trigger_count": 4,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Coda MCP or direct API to create docs, update tables, automate workflows, and fetch project data through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/coda",
+    "evidence_url": "https://composio.dev/toolkits/coda.md",
+    "tried": [
+      "coda"
+    ]
+  },
+  {
+    "app": "Smartsheet",
+    "slug": "smartsheet",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "productivity & project management"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2",
+      "Bearer token"
+    ],
+    "auth_types_raw": [
+      "bearer_token",
+      "oauth2"
+    ],
+    "tool_count": 180,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Smartsheet MCP or direct API to read sheets, update rows, manage reports, and track project work through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/smartsheet",
+    "evidence_url": "https://composio.dev/toolkits/smartsheet.md",
+    "tried": [
+      "smartsheet"
+    ]
+  },
+  {
+    "app": "Harvest",
+    "slug": "harvest",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "productivity & project management"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 57,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Harvest MCP or direct API to log hours, generate invoices, track project budgets, and pull time reports through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/harvest",
+    "evidence_url": "https://composio.dev/toolkits/harvest.md",
+    "tried": [
+      "harvest"
+    ]
+  },
+  {
+    "app": "Stripe",
+    "slug": "stripe",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "finance & accounting"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "API key",
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "api_key",
+      "oauth2"
+    ],
+    "tool_count": 428,
+    "trigger_count": 40,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Stripe MCP or direct API to create charges, manage customers, process refunds, and retrieve transaction data through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/stripe",
+    "evidence_url": "https://composio.dev/toolkits/stripe.md",
+    "tried": [
+      "stripe"
+    ]
+  },
+  {
+    "app": "Plaid",
+    "slug": "plaid",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "finance & accounting"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key"
+    ],
+    "tool_count": 70,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Plaid MCP or direct API to retrieve account balances, review transactions, access account details, and verify identity through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/plaid",
+    "evidence_url": "https://composio.dev/toolkits/plaid.md",
+    "tried": [
+      "plaid"
+    ]
+  },
+  {
+    "app": "Binance",
+    "slug": null,
+    "found": false,
+    "is_composio_managed": null,
+    "categories": [],
+    "auth_page": false,
+    "auth_schemes": [],
+    "auth_types_raw": [],
+    "tool_count": null,
+    "trigger_count": 0,
+    "one_liner": "",
+    "toolkit_url": null,
+    "evidence_url": null,
+    "tried": [
+      "binance"
+    ]
+  },
+  {
+    "app": "Paygent Connect",
+    "slug": null,
+    "found": false,
+    "is_composio_managed": null,
+    "categories": [],
+    "auth_page": false,
+    "auth_schemes": [],
+    "auth_types_raw": [],
+    "tool_count": null,
+    "trigger_count": 0,
+    "one_liner": "",
+    "toolkit_url": null,
+    "evidence_url": null,
+    "tried": [
+      "paygent",
+      "paygent_connect",
+      "nmi",
+      "paygentconnect"
+    ]
+  },
+  {
+    "app": "iPayX",
+    "slug": null,
+    "found": false,
+    "is_composio_managed": null,
+    "categories": [],
+    "auth_page": false,
+    "auth_schemes": [],
+    "auth_types_raw": [],
+    "tool_count": null,
+    "trigger_count": 0,
+    "one_liner": "",
+    "toolkit_url": null,
+    "evidence_url": null,
+    "tried": [
+      "ipayx",
+      "ipay_x"
+    ]
+  },
+  {
+    "app": "QuickBooks",
+    "slug": "quickbooks",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "finance & accounting"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 119,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Quickbooks MCP or direct API to generate invoices, track expenses, fetch transactions, and manage customers through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/quickbooks",
+    "evidence_url": "https://composio.dev/toolkits/quickbooks.md",
+    "tried": [
+      "quickbooks"
+    ]
+  },
+  {
+    "app": "Xero",
+    "slug": "xero",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "finance & accounting"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 109,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Xero MCP or direct API to create invoices, retrieve bank transactions, fetch financial reports, and manage contacts through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/xero",
+    "evidence_url": "https://composio.dev/toolkits/xero.md",
+    "tried": [
+      "xero"
+    ]
+  },
+  {
+    "app": "Brex",
+    "slug": "brex",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "finance & accounting"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2",
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key",
+      "oauth2"
+    ],
+    "tool_count": 84,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Brex MCP or direct API to automate expense reports, review transactions, manage company cards, and generate real-time spend analytics through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/brex",
+    "evidence_url": "https://composio.dev/toolkits/brex.md",
+    "tried": [
+      "brex"
+    ]
+  },
+  {
+    "app": "Ramp",
+    "slug": "ramp",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "finance & accounting"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 186,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Ramp MCP or direct API to track expenses, manage transactions, analyze spend, and automate financial workflows through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/ramp",
+    "evidence_url": "https://composio.dev/toolkits/ramp.md",
+    "tried": [
+      "ramp"
+    ]
+  },
+  {
+    "app": "PitchBook",
+    "slug": "pitchbook",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "data & analytics"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key"
+    ],
+    "tool_count": 130,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with PitchBook MCP or direct API to search companies, analyze deals, review funds, and research investors through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/pitchbook",
+    "evidence_url": "https://composio.dev/toolkits/pitchbook.md",
+    "tried": [
+      "pitchbook"
+    ]
+  },
+  {
+    "app": "NotebookLM",
+    "slug": "notebook_lm",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "ai & machine learning"
+    ],
+    "auth_page": true,
+    "auth_schemes": [
+      "OAuth2"
+    ],
+    "auth_types_raw": [
+      "oauth2"
+    ],
+    "tool_count": 11,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with NotebookLM MCP or direct API to manage notebooks, organize sources, query grounded content, and generate research summaries through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/notebook_lm",
+    "evidence_url": "https://composio.dev/toolkits/notebook_lm.md",
+    "tried": [
+      "notebook_lm"
+    ]
+  },
+  {
+    "app": "Otter AI",
+    "slug": "otter_ai_mcp",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "collaboration & communication"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "custom"
+    ],
+    "auth_types_raw": [
+      "custom"
+    ],
+    "tool_count": 3,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Otter.ai MCP or direct API to retrieve user profiles, search meetings and conversations, fetch full transcripts, and summarize conversations through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/otter_ai_mcp",
+    "evidence_url": "https://composio.dev/toolkits/otter_ai_mcp.md",
+    "tried": [
+      "otter_ai_mcp"
+    ]
+  },
+  {
+    "app": "Fathom",
+    "slug": "fathom",
+    "found": true,
+    "is_composio_managed": true,
+    "categories": [
+      "productivity & project management"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "OAuth2",
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key",
+      "oauth2"
+    ],
+    "tool_count": 10,
+    "trigger_count": 1,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Fathom MCP or direct API to record meetings, transcribe calls, generate summaries, and retrieve meeting notes through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/fathom",
+    "evidence_url": "https://composio.dev/toolkits/fathom.md",
+    "tried": [
+      "fathom"
+    ]
+  },
+  {
+    "app": "Consensus",
+    "slug": "consensus",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "education & lms"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key"
+    ],
+    "tool_count": 1,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Consensus MCP or direct API to search scientific papers, summarize evidence, extract study findings, and answer research questions through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/consensus",
+    "evidence_url": "https://composio.dev/toolkits/consensus.md",
+    "tried": [
+      "consensus"
+    ]
+  },
+  {
+    "app": "Reducto",
+    "slug": null,
+    "found": false,
+    "is_composio_managed": null,
+    "categories": [],
+    "auth_page": false,
+    "auth_schemes": [],
+    "auth_types_raw": [],
+    "tool_count": null,
+    "trigger_count": 0,
+    "one_liner": "",
+    "toolkit_url": null,
+    "evidence_url": null,
+    "tried": [
+      "reducto"
+    ]
+  },
+  {
+    "app": "Devin",
+    "slug": "devin_mcp",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "developer tools & devops"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key"
+    ],
+    "tool_count": 23,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Devin MCP or direct API to analyze codebases, summarize documentation, review pull requests, and surface repository insights through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/devin_mcp",
+    "evidence_url": "https://composio.dev/toolkits/devin_mcp.md",
+    "tried": [
+      "devin",
+      "devin_mcp"
+    ]
+  },
+  {
+    "app": "higgsfield",
+    "slug": "higgsfield",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "design & creative tools"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key"
+    ],
+    "tool_count": 13,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Higgsfield MCP or direct API to generate images, create videos, edit assets, and fetch generated asset metadata through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/higgsfield",
+    "evidence_url": "https://composio.dev/toolkits/higgsfield.md",
+    "tried": [
+      "higgsfield"
+    ]
+  },
+  {
+    "app": "Mermaid CLI",
+    "slug": null,
+    "found": false,
+    "is_composio_managed": null,
+    "categories": [],
+    "auth_page": false,
+    "auth_schemes": [],
+    "auth_types_raw": [],
+    "tool_count": null,
+    "trigger_count": 0,
+    "one_liner": "",
+    "toolkit_url": null,
+    "evidence_url": null,
+    "tried": [
+      "mermaid",
+      "mermaid_cli",
+      "mermaidcli"
+    ]
+  },
+  {
+    "app": "YouTube Transcript",
+    "slug": "youtube_transcript",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "entertainment & media"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key"
+    ],
+    "tool_count": 9,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with YouTube Transcript MCP or direct API to retrieve captions, store transcripts, check job status, and resolve playlist or channel video metadata through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/youtube_transcript",
+    "evidence_url": "https://composio.dev/toolkits/youtube_transcript.md",
+    "tried": [
+      "youtube_transcript"
+    ]
+  },
+  {
+    "app": "Grain",
+    "slug": "grain",
+    "found": true,
+    "is_composio_managed": false,
+    "categories": [
+      "collaboration & communication"
+    ],
+    "auth_page": false,
+    "auth_schemes": [
+      "API key"
+    ],
+    "auth_types_raw": [
+      "api_key"
+    ],
+    "tool_count": 17,
+    "trigger_count": 0,
+    "one_liner": "Securely connect your AI agents and chatbots (Claude, ChatGPT, Cursor, etc) with Grain MCP or direct API to search meetings, review transcripts, find key moments, and organize meeting insights through natural language.",
+    "toolkit_url": "https://composio.dev/toolkits/grain",
+    "evidence_url": "https://composio.dev/toolkits/grain.md",
+    "tried": [
+      "grain"
+    ]
+  }
+]

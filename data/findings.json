@@ -1,0 +1,3456 @@
+[
+  {
+    "id": 1,
+    "name": "Salesforce",
+    "category": "CRM and Sales",
+    "category_no": 1,
+    "hint": "salesforce.com",
+    "one_liner": "Enterprise CRM and the reference implementation for OAuth2-gated SaaS.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2",
+      "JWT bearer"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free Developer Edition org; connected app gives OAuth2 without sales contact.",
+    "surface": "REST + SOAP + GraphQL",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Per-org API call limits on low editions; sandbox setup is heavy.",
+    "evidence": [
+      "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm",
+      "https://composio.dev/toolkits/salesforce.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "salesforce",
+    "composio_managed": true,
+    "composio_tools": 556,
+    "composio_triggers": 7,
+    "composio_auth": [
+      "OAuth2",
+      "custom"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "HubSpot",
+    "category": "CRM and Sales",
+    "category_no": 1,
+    "hint": "hubspot.com",
+    "one_liner": "SMB CRM and marketing automation suite.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2",
+      "API key (legacy)",
+      "Private app token"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free developer account + private app token works immediately.",
+    "surface": "REST",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Legacy API keys deprecated in favour of private-app tokens.",
+    "evidence": [
+      "https://developers.hubspot.com/docs/api/private-apps",
+      "https://composio.dev/toolkits/hubspot.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "hubspot",
+    "composio_managed": true,
+    "composio_tools": 354,
+    "composio_triggers": 2,
+    "composio_auth": [
+      "OAuth2",
+      "API key"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Pipedrive",
+    "category": "CRM and Sales",
+    "category_no": 1,
+    "hint": "pipedrive.com",
+    "one_liner": "Sales-pipeline CRM aimed at SMB sales teams.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API key",
+      "OAuth2"
+    ],
+    "access": "SSP",
+    "access_label": "Self-serve (paid plan)",
+    "access_note": "API token lives in any paid seat; 14-day trial issues one.",
+    "surface": "REST + GraphQL",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "No permanent free tier; token dies with the trial.",
+    "evidence": [
+      "https://developers.pipedrive.com/docs/api/v1",
+      "https://composio.dev/toolkits/pipedrive.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "pipedrive",
+    "composio_managed": false,
+    "composio_tools": 404,
+    "composio_triggers": 3,
+    "composio_auth": [
+      "OAuth2",
+      "API key"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Attio",
+    "category": "CRM and Sales",
+    "category_no": 1,
+    "hint": "attio.com",
+    "one_liner": "Modern relationship-first CRM with a flexible data model.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2",
+      "API key"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free plan issues API keys from workspace settings.",
+    "surface": "REST",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "None material.",
+    "evidence": [
+      "https://developers.attio.com/reference/get_v2-objects",
+      "https://composio.dev/toolkits/attio.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "attio",
+    "composio_managed": true,
+    "composio_tools": 105,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Twenty",
+    "category": "CRM and Sales",
+    "category_no": 1,
+    "hint": "twenty.com",
+    "one_liner": "Open-source CRM positioned as a Salesforce/HubSpot alternative.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API key (Bearer)"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Open-source; self-host free, or Twenty Cloud. Key from Settings > Developers > API.",
+    "surface": "REST + GraphQL",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "GraphQL introspection disabled for API keys on self-hosted instances.",
+    "evidence": [
+      "https://docs.twenty.com/developers/extend/api",
+      "https://composio.dev/toolkits/twenty.md"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "twenty",
+    "composio_managed": false,
+    "composio_tools": 23,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "API key"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Podio",
+    "category": "CRM and Sales",
+    "category_no": 1,
+    "hint": "podio.com",
+    "one_liner": "Legacy collaborative work-management and lightweight CRM platform.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2",
+      "API key"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free tier; Podio API keys self-generated.",
+    "surface": "REST",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Product is in maintenance mode; low investment from Citrix.",
+    "evidence": [
+      "https://developers.podio.com/authentication",
+      "https://composio.dev/toolkits/podio.md"
+    ],
+    "verification": "catalog",
+    "confidence": "medium",
+    "composio_toolkit": true,
+    "composio_slug": "podio",
+    "composio_managed": false,
+    "composio_tools": 143,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Zoho CRM",
+    "category": "CRM and Sales",
+    "category_no": 1,
+    "hint": "zoho.com/crm",
+    "one_liner": "Full-suite CRM inside the broader Zoho business-app ecosystem.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free tier for up to 3 users; self-serve OAuth client in Zoho API console.",
+    "surface": "REST",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Data-centre-specific domains (.com/.eu/.in) complicate token routing.",
+    "evidence": [
+      "https://www.zoho.com/crm/developer/docs/api/v8/oauth-overview.html",
+      "https://composio.dev/toolkits/zoho.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "zoho",
+    "composio_managed": true,
+    "composio_tools": 115,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Close",
+    "category": "CRM and Sales",
+    "category_no": 1,
+    "hint": "close.com",
+    "one_liner": "Inside-sales CRM with built-in calling and email sequencing.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API key",
+      "OAuth2"
+    ],
+    "access": "SSP",
+    "access_label": "Self-serve (paid plan)",
+    "access_note": "API key in every paid plan; no free tier.",
+    "surface": "REST",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Paid plan required before a key exists.",
+    "evidence": [
+      "https://developer.close.com/resources/authentication/",
+      "https://composio.dev/toolkits/close.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "close",
+    "composio_managed": false,
+    "composio_tools": 75,
+    "composio_triggers": 45,
+    "composio_auth": [
+      "API key"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Copper",
+    "category": "CRM and Sales",
+    "category_no": 1,
+    "hint": "copper.com",
+    "one_liner": "Google-Workspace-native CRM for SMB sales teams.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API key (token + email)"
+    ],
+    "access": "SSP",
+    "access_label": "Self-serve (paid plan)",
+    "access_note": "Developer API key from user settings on a paid plan.",
+    "surface": "REST",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Paid plan required; API is narrow.",
+    "evidence": [
+      "https://developer.copper.com/introduction/authentication.html",
+      "https://composio.dev/toolkits/copper.md"
+    ],
+    "verification": "catalog",
+    "confidence": "medium",
+    "composio_toolkit": true,
+    "composio_slug": "copper",
+    "composio_managed": false,
+    "composio_tools": 65,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "API key"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "DealCloud",
+    "category": "CRM and Sales",
+    "category_no": 1,
+    "hint": "api.docs.dealcloud.com",
+    "one_liner": "Deal and relationship management for private capital markets.",
+    "auth_primary": "OAuth2 client credentials",
+    "auth_all": [
+      "OAuth2 client credentials"
+    ],
+    "access": "SALES",
+    "access_label": "Sales / partnership gate",
+    "access_note": "Client ID/secret issued by a DealCloud administrator on a licensed instance; no public signup.",
+    "surface": "REST",
+    "mcp": "official (OAuth)",
+    "buildable": "blocked",
+    "buildable_label": "Blocked",
+    "blocker": "Private-equity SaaS with no self-serve tenant; needs a customer instance plus admin-granted scopes.",
+    "evidence": [
+      "https://api.docs.dealcloud.com/docs/token",
+      "https://api.docs.dealcloud.com/mcp/authentication"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": false,
+    "composio_slug": null,
+    "composio_managed": false,
+    "composio_tools": null,
+    "composio_triggers": 0,
+    "composio_auth": []
+  },
+  {
+    "id": 11,
+    "name": "Zendesk",
+    "category": "Support and Helpdesk",
+    "category_no": 2,
+    "hint": "zendesk.com",
+    "one_liner": "Incumbent helpdesk and customer-service suite.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2",
+      "API token",
+      "Basic",
+      "JWT"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free trial subdomain; API token from admin centre.",
+    "surface": "REST + GraphQL",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Trial expiry; some endpoints need paid add-ons.",
+    "evidence": [
+      "https://developer.zendesk.com/api-reference/introduction/security-and-auth/",
+      "https://composio.dev/toolkits/zendesk.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "zendesk",
+    "composio_managed": true,
+    "composio_tools": 483,
+    "composio_triggers": 2,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Intercom",
+    "category": "Support and Helpdesk",
+    "category_no": 2,
+    "hint": "intercom.com",
+    "one_liner": "Customer messaging, support inbox and in-product engagement.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2",
+      "Access token"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Developer Hub workspace is free; access token issued instantly.",
+    "surface": "REST + GraphQL",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Production install needs an app listing for multi-workspace use.",
+    "evidence": [
+      "https://developers.intercom.com/docs/build-an-integration/learn-more/authentication/",
+      "https://composio.dev/toolkits/intercom.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "intercom",
+    "composio_managed": true,
+    "composio_tools": 138,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Freshdesk",
+    "category": "Support and Helpdesk",
+    "category_no": 2,
+    "hint": "freshdesk.com",
+    "one_liner": "Helpdesk ticketing in the Freshworks suite.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API key",
+      "Basic"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free plan; API key on the agent profile page.",
+    "surface": "REST",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Per-plan rate limits are tight on free tier.",
+    "evidence": [
+      "https://developers.freshdesk.com/api/#authentication",
+      "https://composio.dev/toolkits/freshdesk.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "freshdesk",
+    "composio_managed": false,
+    "composio_tools": 184,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "API key"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Front",
+    "category": "Support and Helpdesk",
+    "category_no": 2,
+    "hint": "front.com",
+    "one_liner": "Shared-inbox collaboration for customer-facing teams.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API token",
+      "OAuth2"
+    ],
+    "access": "SSP",
+    "access_label": "Self-serve (paid plan)",
+    "access_note": "API token from settings on a paid plan; trial available.",
+    "surface": "REST",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "No free tier.",
+    "evidence": [
+      "https://dev.frontapp.com/docs/authentication",
+      "https://composio.dev/toolkits/front.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "front",
+    "composio_managed": false,
+    "composio_tools": 180,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "API key",
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Pylon",
+    "category": "Support and Helpdesk",
+    "category_no": 2,
+    "hint": "usepylon.com",
+    "one_liner": "B2B support platform built around shared Slack/Teams channels.",
+    "auth_primary": "Bearer token",
+    "auth_all": [
+      "Bearer API token"
+    ],
+    "access": "SSP",
+    "access_label": "Self-serve (paid plan)",
+    "access_note": "Admin-only token from the Pylon dashboard; paid product, no free tier.",
+    "surface": "REST",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Token creation is admin-gated and there is no free workspace.",
+    "evidence": [
+      "https://docs.usepylon.com/pylon-docs/developer/api/authentication",
+      "https://www.usepylon.com/integrations/api-webhooks"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": false,
+    "composio_slug": null,
+    "composio_managed": false,
+    "composio_tools": null,
+    "composio_triggers": 0,
+    "composio_auth": []
+  },
+  {
+    "id": 16,
+    "name": "LiveAgent",
+    "category": "Support and Helpdesk",
+    "category_no": 2,
+    "hint": "liveagent.com",
+    "one_liner": "Helpdesk with ticketing, live chat and call-centre features.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API key (apikey header)"
+    ],
+    "access": "SSP",
+    "access_label": "Self-serve (paid plan)",
+    "access_note": "v3 key from Configuration > System > API; admin-only, paid or trial instance.",
+    "surface": "REST",
+    "mcp": "none found",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Docs are only reachable inside a logged-in instance; v1/v3 keys are not interchangeable.",
+    "evidence": [
+      "https://support.liveagent.com/567924-Documentation",
+      "https://support.liveagent.com/741982-API-key"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": false,
+    "composio_slug": null,
+    "composio_managed": false,
+    "composio_tools": null,
+    "composio_triggers": 0,
+    "composio_auth": []
+  },
+  {
+    "id": 17,
+    "name": "Plain",
+    "category": "Support and Helpdesk",
+    "category_no": 2,
+    "hint": "plain.com",
+    "one_liner": "Modern B2B support tool with a GraphQL-first API.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API key (Bearer)"
+    ],
+    "access": "SSP",
+    "access_label": "Self-serve (paid plan)",
+    "access_note": "Machine user + scoped API key from settings; paid product.",
+    "surface": "GraphQL",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "GraphQL-only surface; official MCP is OAuth-only and rejects API keys.",
+    "evidence": [
+      "https://plain.com/docs/api-reference/graphql/introduction",
+      "https://help.plain.com/article/does-the-plain-mcp-server-support-api-key-authentication-h7d83qtfdzxo4h49x4oyklwx"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "plain",
+    "composio_managed": false,
+    "composio_tools": 119,
+    "composio_triggers": 11,
+    "composio_auth": [
+      "API key"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Help Scout",
+    "category": "Support and Helpdesk",
+    "category_no": 2,
+    "hint": "helpscout.com",
+    "one_liner": "Email-first helpdesk for small support teams.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2",
+      "Personal access token"
+    ],
+    "access": "SSP",
+    "access_label": "Self-serve (paid plan)",
+    "access_note": "Free trial; OAuth app self-registered in developer settings.",
+    "surface": "REST",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Paid plan after trial.",
+    "evidence": [
+      "https://developer.helpscout.com/mailbox-api/overview/authentication/",
+      "https://composio.dev/toolkits/help_scout.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "help_scout",
+    "composio_managed": false,
+    "composio_tools": 129,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Gorgias",
+    "category": "Support and Helpdesk",
+    "category_no": 2,
+    "hint": "gorgias.com",
+    "one_liner": "Ecommerce-focused helpdesk tightly coupled to Shopify.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2",
+      "API key (Basic)"
+    ],
+    "access": "SSP",
+    "access_label": "Self-serve (paid plan)",
+    "access_note": "API key from store settings on a paid Gorgias plan.",
+    "surface": "REST + GraphQL",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Paid ecommerce-support plan required.",
+    "evidence": [
+      "https://developers.gorgias.com/reference/authentication",
+      "https://composio.dev/toolkits/gorgias.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "gorgias",
+    "composio_managed": true,
+    "composio_tools": 51,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "API key",
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Gladly",
+    "category": "Support and Helpdesk",
+    "category_no": 2,
+    "hint": "gladly.com",
+    "one_liner": "Enterprise customer-service platform organised around people, not tickets.",
+    "auth_primary": "Basic (token)",
+    "auth_all": [
+      "Basic auth with API token"
+    ],
+    "access": "SALES",
+    "access_label": "Sales / partnership gate",
+    "access_note": "Token requires an API-role user on a licensed Gladly org; no self-serve tenant.",
+    "surface": "REST",
+    "mcp": "none found",
+    "buildable": "blocked",
+    "buildable_label": "Blocked",
+    "blocker": "Enterprise-only contract; no trial org to obtain credentials from.",
+    "evidence": [
+      "https://developer.gladly.com/rest/",
+      "https://help.gladly.com/docs/generate-api-tokens-and-create-webhooks.md"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": false,
+    "composio_slug": null,
+    "composio_managed": false,
+    "composio_tools": null,
+    "composio_triggers": 0,
+    "composio_auth": []
+  },
+  {
+    "id": 21,
+    "name": "Slack",
+    "category": "Communications and Messaging",
+    "category_no": 3,
+    "hint": "slack.com",
+    "one_liner": "Team chat and the de-facto surface for workplace bots.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2",
+      "Bot token"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free workspace; bot token issued instantly from api.slack.com/apps.",
+    "surface": "REST (Web API)",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Granular scope model; some events need app review for distribution.",
+    "evidence": [
+      "https://api.slack.com/authentication/token-types",
+      "https://composio.dev/toolkits/slack.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "slack",
+    "composio_managed": true,
+    "composio_tools": 165,
+    "composio_triggers": 9,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Twilio",
+    "category": "Communications and Messaging",
+    "category_no": 3,
+    "hint": "twilio.com",
+    "one_liner": "Programmable messaging, voice and verification APIs.",
+    "auth_primary": "Basic (SID/token)",
+    "auth_all": [
+      "Account SID + auth token",
+      "API key",
+      "OAuth2"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free trial account with credit; credentials visible on signup.",
+    "surface": "REST",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Trial restricts verified destination numbers.",
+    "evidence": [
+      "https://www.twilio.com/docs/iam/credentials/api",
+      "https://composio.dev/toolkits/twilio.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "twilio",
+    "composio_managed": false,
+    "composio_tools": 452,
+    "composio_triggers": 45,
+    "composio_auth": [
+      "API key",
+      "basic_auth",
+      "custom"
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Zoho Cliq",
+    "category": "Communications and Messaging",
+    "category_no": 3,
+    "hint": "zoho.com/cliq",
+    "one_liner": "Team chat inside the Zoho suite.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free tier; OAuth client from Zoho API console.",
+    "surface": "REST",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Data-centre-specific domains.",
+    "evidence": [
+      "https://www.zoho.com/cliq/help/restapi/v2/",
+      "https://composio.dev/toolkits/zoho_cliq.md"
+    ],
+    "verification": "catalog",
+    "confidence": "medium",
+    "composio_toolkit": true,
+    "composio_slug": "zoho_cliq",
+    "composio_managed": false,
+    "composio_tools": 162,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Lark (Larksuite)",
+    "category": "Communications and Messaging",
+    "category_no": 3,
+    "hint": "open.larksuite.com",
+    "one_liner": "Collaboration suite combining chat, docs and calendar.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2 (tenant/app token)"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free Lark/Feishu developer tenant; app credentials self-serve.",
+    "surface": "REST",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Separate Lark (intl) and Feishu (CN) tenants; docs split by region.",
+    "evidence": [
+      "https://open.larksuite.com/document/server-docs/api-call-guide/calling-process/get-access-token",
+      "https://composio.dev/toolkits/lark.md"
+    ],
+    "verification": "catalog",
+    "confidence": "medium",
+    "composio_toolkit": true,
+    "composio_slug": "lark",
+    "composio_managed": false,
+    "composio_tools": 451,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Pumble",
+    "category": "Communications and Messaging",
+    "category_no": 3,
+    "hint": "pumble.com",
+    "one_liner": "Slack-alternative team chat from CAKE.com.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "Workspace API key"
+    ],
+    "access": "SSP",
+    "access_label": "Self-serve (paid plan)",
+    "access_note": "API addon installed in the workspace generates a key; addon is a paid feature.",
+    "surface": "REST",
+    "mcp": "none found",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Header name is inconsistent across Pumble's own docs and SDKs.",
+    "evidence": [
+      "https://pumble.com/help/integrations/automation-workflow-integrations/api-keys-integration/",
+      "https://pumble.com/learn/pumble/ai-automation-guide/"
+    ],
+    "verification": "grounded",
+    "confidence": "medium",
+    "composio_toolkit": true,
+    "composio_slug": "pumble",
+    "composio_managed": false,
+    "composio_tools": 9,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "API key"
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Discord",
+    "category": "Communications and Messaging",
+    "category_no": 3,
+    "hint": "discord.com",
+    "one_liner": "Community chat platform with a large bot ecosystem.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2",
+      "Bot token"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free developer portal; bot token immediately.",
+    "surface": "REST + Gateway WS",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Privileged intents need verification above 100 guilds.",
+    "evidence": [
+      "https://discord.com/developers/docs/topics/oauth2",
+      "https://composio.dev/toolkits/discord.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "discord",
+    "composio_managed": true,
+    "composio_tools": 23,
+    "composio_triggers": 1,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Telegram",
+    "category": "Communications and Messaging",
+    "category_no": 3,
+    "hint": "core.telegram.org",
+    "one_liner": "Messaging platform with the lowest-friction bot onboarding of the set.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "Bot token"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "BotFather issues a bot token in seconds, no account review.",
+    "surface": "REST (Bot API)",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Bot API cannot read arbitrary history; MTProto needed for user-level access.",
+    "evidence": [
+      "https://core.telegram.org/bots/api#authorizing-your-bot",
+      "https://composio.dev/toolkits/telegram.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "telegram",
+    "composio_managed": false,
+    "composio_tools": 18,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "API key"
+    ]
+  },
+  {
+    "id": 28,
+    "name": "WhatsApp Business",
+    "category": "Communications and Messaging",
+    "category_no": 3,
+    "hint": "developers.facebook.com/docs/whatsapp",
+    "one_liner": "Business messaging over WhatsApp via Meta's Cloud API.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2 (Meta app)",
+      "System user token"
+    ],
+    "access": "REV",
+    "access_label": "Review / approval gate",
+    "access_note": "Meta app is self-serve, but scaling past the limited tier needs Business Verification and two-step verification.",
+    "surface": "REST (Graph)",
+    "mcp": "via Composio",
+    "buildable": "yes_with_caveats",
+    "buildable_label": "Buildable with caveats",
+    "blocker": "Business verification gate plus per-message pricing; limited access tier until verified.",
+    "evidence": [
+      "https://developers.facebook.com/documentation/business-messaging/whatsapp/solution-providers/get-started-for-solution-partners/",
+      "https://docs.360dialog.com/docs/waba-management/meta-business-verification"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "whatsapp",
+    "composio_managed": true,
+    "composio_tools": 127,
+    "composio_triggers": 1,
+    "composio_auth": [
+      "OAuth2",
+      "API key"
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Aircall",
+    "category": "Communications and Messaging",
+    "category_no": 3,
+    "hint": "aircall.io",
+    "one_liner": "Cloud call centre for sales and support teams.",
+    "auth_primary": "Basic (id/token)",
+    "auth_all": [
+      "API ID + API token (Basic)",
+      "OAuth2"
+    ],
+    "access": "SSP",
+    "access_label": "Self-serve (paid plan)",
+    "access_note": "Admin/Owner creates keys in Company Settings; plan eligibility is not publicly stated.",
+    "surface": "REST",
+    "mcp": "none found",
+    "buildable": "yes_with_caveats",
+    "buildable_label": "Buildable with caveats",
+    "blocker": "Aircall does not publish which plan tiers include API access.",
+    "evidence": [
+      "https://developer.aircall.io/docs/basic-authentication",
+      "https://developer.aircall.io/docs/oauth"
+    ],
+    "verification": "grounded",
+    "confidence": "medium",
+    "composio_toolkit": true,
+    "composio_slug": "aircall",
+    "composio_managed": false,
+    "composio_tools": 48,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2",
+      "basic_auth"
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Vonage",
+    "category": "Communications and Messaging",
+    "category_no": 3,
+    "hint": "developer.vonage.com",
+    "one_liner": "CPaaS for voice, SMS and verification.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API key + secret",
+      "JWT"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free trial with credit; key and secret on the dashboard.",
+    "surface": "REST",
+    "mcp": "none found",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Per-product auth differs (JWT for Voice, key/secret for SMS).",
+    "evidence": [
+      "https://developer.vonage.com/en/getting-started/concepts/authentication",
+      "https://developer.vonage.com/en/api"
+    ],
+    "verification": "prior",
+    "confidence": "medium",
+    "composio_toolkit": false,
+    "composio_slug": null,
+    "composio_managed": false,
+    "composio_tools": null,
+    "composio_triggers": 0,
+    "composio_auth": []
+  },
+  {
+    "id": 31,
+    "name": "Google Ads",
+    "category": "Marketing, Ads, Email and Social",
+    "category_no": 4,
+    "hint": "developers.google.com/google-ads",
+    "one_liner": "Programmatic management of Google Ads campaigns and reporting.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2 + developer token (sunset)"
+    ],
+    "access": "REV",
+    "access_label": "Review / approval gate",
+    "access_note": "Developer tokens were sunset 2026-09-09; access levels now attach to a Google Cloud project and Basic Access needs brand verification.",
+    "surface": "REST + gRPC",
+    "mcp": "via Composio",
+    "buildable": "yes_with_caveats",
+    "buildable_label": "Buildable with caveats",
+    "blocker": "Approval gate for production accounts; the access model changed in Sept 2026.",
+    "evidence": [
+      "https://developers.google.com/google-ads/api/docs/access-levels",
+      "https://developers.google.com/ads/blog/posts/2026/07/accelerate-google-ads-api-basic-access"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "googleads",
+    "composio_managed": true,
+    "composio_tools": 78,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Meta Ads",
+    "category": "Marketing, Ads, Email and Social",
+    "category_no": 4,
+    "hint": "developers.facebook.com/docs/marketing-apis",
+    "one_liner": "Campaign management and reporting across Meta's ad surfaces.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2 (Meta app)",
+      "System user token"
+    ],
+    "access": "REV",
+    "access_label": "Review / approval gate",
+    "access_note": "Limited Access by default; managing other people's ad accounts needs Full Access via App Review (threshold recently cut from 1,500 to 500 calls/15 days).",
+    "surface": "REST (Graph)",
+    "mcp": "via Composio",
+    "buildable": "yes_with_caveats",
+    "buildable_label": "Buildable with caveats",
+    "blocker": "App Review plus business verification before multi-tenant use.",
+    "evidence": [
+      "https://developers.facebook.com/docs/marketing-api/get-started/authorization",
+      "https://developers.meta.com/blog/updates-to-ads-management-standard-access-feature/"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "facebook",
+    "composio_managed": true,
+    "composio_tools": 72,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 33,
+    "name": "LinkedIn Ads",
+    "category": "Marketing, Ads, Email and Social",
+    "category_no": 4,
+    "hint": "learn.microsoft.com/linkedin/marketing",
+    "one_liner": "Campaign management and reporting for LinkedIn advertising.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2 (3-legged)"
+    ],
+    "access": "REV",
+    "access_label": "Review / approval gate",
+    "access_note": "App creation is self-serve but Marketing Developer Platform access is reviewed and LinkedIn selects partners at its discretion.",
+    "surface": "REST",
+    "mcp": "via Composio",
+    "buildable": "yes_with_caveats",
+    "buildable_label": "Buildable with caveats",
+    "blocker": "Discretionary partner approval; private APIs need a separate programme application.",
+    "evidence": [
+      "https://learn.microsoft.com/en-us/linkedin/marketing/integrations/marketing-tiers",
+      "https://developer.linkedin.com/content/developer/global/en_us/index/partner-programs/apply"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "linkedin_ads",
+    "composio_managed": false,
+    "composio_tools": 28,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 34,
+    "name": "GoHighLevel",
+    "category": "Marketing, Ads, Email and Social",
+    "category_no": 4,
+    "hint": "highlevel.stoplight.io",
+    "one_liner": "White-label agency CRM, funnels and marketing automation.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2 (marketplace app)",
+      "API key (v1 legacy)"
+    ],
+    "access": "SSP",
+    "access_label": "Self-serve (paid plan)",
+    "access_note": "Free developer marketplace account; app install needs a GoHighLevel agency/sub-account.",
+    "surface": "REST",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Access tokens expire in 24h; marketplace review before public listing.",
+    "evidence": [
+      "https://marketplace.gohighlevel.com/docs/Authorization/OAuth2.0/index.html",
+      "https://help.gohighlevel.com/support/solutions/articles/155000000136"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "highlevel",
+    "composio_managed": false,
+    "composio_tools": 218,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Mailchimp",
+    "category": "Marketing, Ads, Email and Social",
+    "category_no": 4,
+    "hint": "mailchimp.com/developer",
+    "one_liner": "Email marketing and audience management for SMBs.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API key",
+      "OAuth2"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free plan; API key from account settings.",
+    "surface": "REST",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Datacenter prefix must be parsed from the key.",
+    "evidence": [
+      "https://mailchimp.com/developer/marketing/docs/fundamentals/#authentication",
+      "https://composio.dev/toolkits/mailchimp.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "mailchimp",
+    "composio_managed": true,
+    "composio_tools": 275,
+    "composio_triggers": 4,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Klaviyo",
+    "category": "Marketing, Ads, Email and Social",
+    "category_no": 4,
+    "hint": "developers.klaviyo.com",
+    "one_liner": "Ecommerce-focused email and SMS marketing automation.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "Private API key",
+      "OAuth2"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free plan up to 250 contacts; private key self-serve.",
+    "surface": "REST",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Scoped private keys; revision-pinned API versions.",
+    "evidence": [
+      "https://developers.klaviyo.com/en/docs/authenticate_",
+      "https://composio.dev/toolkits/klaviyo.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "klaviyo",
+    "composio_managed": false,
+    "composio_tools": 233,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "API key",
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 37,
+    "name": "systeme.io",
+    "category": "Marketing, Ads, Email and Social",
+    "category_no": 4,
+    "hint": "systeme.io",
+    "one_liner": "All-in-one funnel builder, email and course platform.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API key (X-API-Key)"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free plan; up to 3 public API keys from profile settings with optional expiry.",
+    "surface": "REST",
+    "mcp": "via Composio (no toolkit)",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Key limit (2-3 depending on source); thin official reference.",
+    "evidence": [
+      "https://help.systeme.io/article/2323-how-to-use-systeme-io-public-api",
+      "https://docs.nexla.com/user-guides/connectors/systeme_api"
+    ],
+    "verification": "grounded",
+    "confidence": "medium",
+    "composio_toolkit": false,
+    "composio_slug": null,
+    "composio_managed": false,
+    "composio_tools": null,
+    "composio_triggers": 0,
+    "composio_auth": []
+  },
+  {
+    "id": 38,
+    "name": "Pinterest",
+    "category": "Marketing, Ads, Email and Social",
+    "category_no": 4,
+    "hint": "developers.pinterest.com",
+    "one_liner": "Visual discovery platform with Pin and ads APIs.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2"
+    ],
+    "access": "REV",
+    "access_label": "Review / approval gate",
+    "access_note": "App approval grants Trial access (1,000 req/day, no production Pin writes); Standard access needs a demo video and is widely reported to stall.",
+    "surface": "REST (v5)",
+    "mcp": "via Composio",
+    "buildable": "yes_with_caveats",
+    "buildable_label": "Buildable with caveats",
+    "blocker": "Trial tier blocks POST /v5/pins; Standard approval is slow and discretionary.",
+    "evidence": [
+      "https://developers.pinterest.com/docs/key-concepts/access-tiers/",
+      "https://community.pinterest.biz/t/standard-access-walkthrough-a-step-by-step-guide/52518"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "pinterest",
+    "composio_managed": true,
+    "composio_tools": 27,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Threads (Meta)",
+    "category": "Marketing, Ads, Email and Social",
+    "category_no": 4,
+    "hint": "developers.facebook.com/docs/threads",
+    "one_liner": "Meta's text-based social network with a publishing API.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2 (Threads app)"
+    ],
+    "access": "REV",
+    "access_label": "Review / approval gate",
+    "access_note": "Threads use case app is self-serve; publishing to other users' accounts needs App Review. oEmbed became tokenless in March 2026.",
+    "surface": "REST (graph.threads.net)",
+    "mcp": "via Composio",
+    "buildable": "yes_with_caveats",
+    "buildable_label": "Buildable with caveats",
+    "blocker": "App Review and a data-deletion callback required before production.",
+    "evidence": [
+      "https://developers.facebook.com/docs/development/create-an-app/threads-use-case",
+      "https://developers.facebook.com/documentation/threads/changelog"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "threads",
+    "composio_managed": false,
+    "composio_tools": 24,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 40,
+    "name": "SendGrid",
+    "category": "Marketing, Ads, Email and Social",
+    "category_no": 4,
+    "hint": "sendgrid.com",
+    "one_liner": "Transactional and marketing email delivery.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API key (Bearer)"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free tier; key from the SendGrid dashboard. Sender verification required to send.",
+    "surface": "REST",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Sender identity verification before first send.",
+    "evidence": [
+      "https://www.twilio.com/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-api/authentication",
+      "https://composio.dev/toolkits/sendgrid.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "sendgrid",
+    "composio_managed": false,
+    "composio_tools": 359,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "API key"
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Shopify",
+    "category": "Ecommerce",
+    "category_no": 5,
+    "hint": "shopify.dev",
+    "one_liner": "Hosted ecommerce platform with the broadest commerce API surface.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2",
+      "Admin API access token"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free Partner account + development store; custom app token immediately.",
+    "surface": "REST + GraphQL",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "REST Admin API is legacy-frozen; GraphQL is the forward path.",
+    "evidence": [
+      "https://shopify.dev/docs/api/admin-graphql",
+      "https://composio.dev/toolkits/shopify.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "shopify",
+    "composio_managed": false,
+    "composio_tools": 386,
+    "composio_triggers": 45,
+    "composio_auth": [
+      "OAuth2",
+      "custom"
+    ]
+  },
+  {
+    "id": 42,
+    "name": "WooCommerce",
+    "category": "Ecommerce",
+    "category_no": 5,
+    "hint": "woocommerce.com/document/woocommerce-rest-api",
+    "one_liner": "WordPress ecommerce plugin powering self-hosted stores.",
+    "auth_primary": "Basic (key/secret)",
+    "auth_all": [
+      "Consumer key + secret over HTTPS Basic"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Self-hosted WordPress plugin; keys generated in WooCommerce > Settings > Advanced > REST API.",
+    "surface": "REST",
+    "mcp": "none found",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Requires the merchant's own WordPress host; no central tenant to authenticate against.",
+    "evidence": [
+      "https://developer.woocommerce.com/docs/apis/rest-api/authentication/",
+      "https://woocommerce.com/document/woocommerce-rest-api/"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": false,
+    "composio_slug": null,
+    "composio_managed": false,
+    "composio_tools": null,
+    "composio_triggers": 0,
+    "composio_auth": []
+  },
+  {
+    "id": 43,
+    "name": "BigCommerce",
+    "category": "Ecommerce",
+    "category_no": 5,
+    "hint": "developer.bigcommerce.com",
+    "one_liner": "SaaS ecommerce platform aimed at mid-market merchants.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API account token",
+      "OAuth2 (apps)"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free sandbox store; API account token from the control panel.",
+    "surface": "REST + GraphQL",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "None material.",
+    "evidence": [
+      "https://developer.bigcommerce.com/docs/start/authentication",
+      "https://composio.dev/toolkits/bigcommerce.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "bigcommerce",
+    "composio_managed": false,
+    "composio_tools": 532,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "API key",
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Salesforce Commerce Cloud",
+    "category": "Ecommerce",
+    "category_no": 5,
+    "hint": "developer.salesforce.com/docs/commerce",
+    "one_liner": "Enterprise B2C commerce platform in the Salesforce stack.",
+    "auth_primary": "OAuth2 (SLAS)",
+    "auth_all": [
+      "OAuth2 / SLAS",
+      "OCAPI client ID"
+    ],
+    "access": "SALES",
+    "access_label": "Sales / partnership gate",
+    "access_note": "On-demand sandboxes need purchased sandbox credits, a realm ID and admin-assigned roles; no free developer tenant.",
+    "surface": "REST (SCAPI + OCAPI)",
+    "mcp": "none found",
+    "buildable": "blocked",
+    "buildable_label": "Blocked",
+    "blocker": "Credit-metered sandboxes behind an existing B2C Commerce contract.",
+    "evidence": [
+      "https://developer.salesforce.com/docs/commerce/commerce-api/guide/b2c-get-started-sandboxes.html",
+      "https://developer.salesforce.com/docs/commerce/sfnext/guide/development-environment.html"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "salesforce",
+    "composio_managed": true,
+    "composio_tools": 556,
+    "composio_triggers": 7,
+    "composio_auth": [
+      "OAuth2",
+      "custom"
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Magento (Adobe Commerce)",
+    "category": "Ecommerce",
+    "category_no": 5,
+    "hint": "developer.adobe.com/commerce",
+    "one_liner": "Open-source and Adobe-hosted enterprise commerce platform.",
+    "auth_primary": "OAuth1 / token",
+    "auth_all": [
+      "Integration access token (OAuth1)",
+      "IMS OAuth2 (SaaS)"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Open-source Magento self-host is free; integration tokens from Admin. SaaS tier requires Adobe IMS OAuth2.",
+    "surface": "REST + GraphQL",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Self-host operational burden; SaaS path needs an Adobe contract.",
+    "evidence": [
+      "https://developer.adobe.com/commerce/webapi/get-started/authentication/gs-authentication-token",
+      "https://developer.adobe.com/commerce/webapi/rest/authentication/server-to-server"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": false,
+    "composio_slug": null,
+    "composio_managed": false,
+    "composio_tools": null,
+    "composio_triggers": 0,
+    "composio_auth": []
+  },
+  {
+    "id": 46,
+    "name": "Squarespace",
+    "category": "Ecommerce",
+    "category_no": 5,
+    "hint": "developers.squarespace.com",
+    "one_liner": "Website builder with a commerce API on upper tiers.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "Developer API key",
+      "OAuth2 (apps)"
+    ],
+    "access": "SSP",
+    "access_label": "Self-serve (paid plan)",
+    "access_note": "Developer API keys require a Commerce Advanced plan; keys are a paid feature.",
+    "surface": "REST",
+    "mcp": "none found",
+    "buildable": "yes_with_caveats",
+    "buildable_label": "Buildable with caveats",
+    "blocker": "Hard paywall: no key on lower Squarespace tiers.",
+    "evidence": [
+      "https://developers.squarespace.com/commerce-apis/authentication-and-permissions",
+      "https://developers.squarespace.com/oauth"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": false,
+    "composio_slug": null,
+    "composio_managed": false,
+    "composio_tools": null,
+    "composio_triggers": 0,
+    "composio_auth": []
+  },
+  {
+    "id": 47,
+    "name": "Ecwid",
+    "category": "Ecommerce",
+    "category_no": 5,
+    "hint": "api-docs.ecwid.com",
+    "one_liner": "Embeddable storefront widget for existing sites.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "Secret access token",
+      "OAuth2 (App Market)"
+    ],
+    "access": "SSP",
+    "access_label": "Self-serve (paid plan)",
+    "access_note": "API is available on paid plans only (Venture/Business/Unlimited); free plans cannot use it.",
+    "surface": "REST",
+    "mcp": "none found",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Paid plan gate; external apps need Ecwid support to set the return URL.",
+    "evidence": [
+      "https://api-docs.ecwid.com/reference/access-ecwid-api",
+      "https://api-docs.ecwid.com/reference/access-tokens"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": false,
+    "composio_slug": null,
+    "composio_managed": false,
+    "composio_tools": null,
+    "composio_triggers": 0,
+    "composio_auth": []
+  },
+  {
+    "id": 48,
+    "name": "Gumroad",
+    "category": "Ecommerce",
+    "category_no": 5,
+    "hint": "gumroad.com/api",
+    "one_liner": "Creator storefront for digital products.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2",
+      "Personal access token"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free seller account; token self-generated under Settings > Advanced.",
+    "surface": "REST",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Narrow API; product-centric only.",
+    "evidence": [
+      "https://app.gumroad.com/api",
+      "https://gumroad.com/help/article/280-create-application-api"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "gumroad",
+    "composio_managed": true,
+    "composio_tools": 13,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Amazon Selling Partner",
+    "category": "Ecommerce",
+    "category_no": 5,
+    "hint": "developer-docs.amazon.com/sp-api",
+    "one_liner": "Seller-facing API for Amazon marketplace operations.",
+    "auth_primary": "OAuth2 (LWA)",
+    "auth_all": [
+      "Login with Amazon OAuth2",
+      "AWS SigV4 (legacy)"
+    ],
+    "access": "REV",
+    "access_label": "Review / approval gate",
+    "access_note": "Developer registration is reviewed: 1-2 weeks for standard roles, a three-stage review plus screen-share demo for PII roles.",
+    "surface": "REST",
+    "mcp": "none found",
+    "buildable": "yes_with_caveats",
+    "buildable_label": "Buildable with caveats",
+    "blocker": "Mandatory developer-profile review; restricted roles need a live demo.",
+    "evidence": [
+      "https://developer-docs.amazon.com/sp-api/docs/sp-api-registration-overview",
+      "https://developer-docs.amazon.com/sp-api/lang-US/docs/register-as-a-public-developer"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "amazon",
+    "composio_managed": true,
+    "composio_tools": null,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 50,
+    "name": "fanbasis",
+    "category": "Ecommerce",
+    "category_no": 5,
+    "hint": "fanbasis.com",
+    "one_liner": "Payments and checkout infrastructure for creators and coaches.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API key (x-api-key)"
+    ],
+    "access": "SSP",
+    "access_label": "Self-serve (paid plan)",
+    "access_note": "Creator-payments platform; key scopes cover checkout-sessions, payments, webhooks, customers. No public developer portal found.",
+    "surface": "REST",
+    "mcp": "none found",
+    "buildable": "yes_with_caveats",
+    "buildable_label": "Buildable with caveats",
+    "blocker": "No official developer portal surfaced; best references are a vendor GitHub repo and an SDK on npm.",
+    "evidence": [
+      "https://github.com/FanBasis/fbnewapi",
+      "https://www.npmjs.com/package/@fanbasis/checkout-sdk"
+    ],
+    "verification": "grounded",
+    "confidence": "low",
+    "composio_toolkit": false,
+    "composio_slug": null,
+    "composio_managed": false,
+    "composio_tools": null,
+    "composio_triggers": 0,
+    "composio_auth": []
+  },
+  {
+    "id": 51,
+    "name": "DataForSEO",
+    "category": "Data, SEO and Scraping",
+    "category_no": 6,
+    "hint": "docs.dataforseo.com",
+    "one_liner": "Wholesale SERP, keyword and backlink data APIs.",
+    "auth_primary": "Basic",
+    "auth_all": [
+      "HTTP Basic (API login + password)"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free registration; separate API login/password from the dashboard. Sandbox is free for any registered user.",
+    "surface": "REST",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Sandbox returns dummy data; live calls are pay-per-use.",
+    "evidence": [
+      "https://docs.dataforseo.com/v3/auth/",
+      "https://docs.dataforseo.com/v3/appendix/sandbox/"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "dataforseo",
+    "composio_managed": false,
+    "composio_tools": 354,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "basic_auth"
+    ]
+  },
+  {
+    "id": 52,
+    "name": "SE Ranking",
+    "category": "Data, SEO and Scraping",
+    "category_no": 6,
+    "hint": "seranking.com/api",
+    "one_liner": "SEO platform with rank tracking and keyword research APIs.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API key (Authorization: Token)"
+    ],
+    "access": "SSP",
+    "access_label": "Self-serve (paid plan)",
+    "access_note": "One key covers Data and Project APIs, from the API Dashboard; credit plans are sold annually.",
+    "surface": "REST",
+    "mcp": "none found",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Annual credit packages; no meaningful free tier.",
+    "evidence": [
+      "https://seranking.com/api/data/getting-started/",
+      "https://seranking.com/api/api-credits-system/"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": false,
+    "composio_slug": null,
+    "composio_managed": false,
+    "composio_tools": null,
+    "composio_triggers": 0,
+    "composio_auth": []
+  },
+  {
+    "id": 53,
+    "name": "Ahrefs",
+    "category": "Data, SEO and Scraping",
+    "category_no": 6,
+    "hint": "ahrefs.com/api",
+    "one_liner": "Backlink and SEO intelligence platform.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API key (Bearer)"
+    ],
+    "access": "SALES",
+    "access_label": "Sales / partnership gate",
+    "access_note": "Ahrefs' own help centre says the API is Enterprise-only for new applications, though a second article claims Lite and above - the two conflict.",
+    "surface": "REST + GraphQL",
+    "mcp": "none found",
+    "buildable": "yes_with_caveats",
+    "buildable_label": "Buildable with caveats",
+    "blocker": "Enterprise plan (listed $1,499/mo) and conflicting official eligibility statements.",
+    "evidence": [
+      "https://help.ahrefs.com/en/articles/6559232-about-api-v3",
+      "https://docs.ahrefs.com/docs/api/reference/api-keys-creation-and-management"
+    ],
+    "verification": "grounded",
+    "confidence": "medium",
+    "composio_toolkit": true,
+    "composio_slug": "ahrefs",
+    "composio_managed": false,
+    "composio_tools": 46,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "API key",
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 54,
+    "name": "MrScraper",
+    "category": "Data, SEO and Scraping",
+    "category_no": 6,
+    "hint": "docs.mrscraper.com",
+    "one_liner": "Managed web-scraping API with proxy rotation.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API key (x-api-token)"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free plan; token from the dashboard. Official docs also mention Basic auth, which looks stale.",
+    "surface": "REST",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Official pages disagree on the auth header; unblocker endpoint uses a query param.",
+    "evidence": [
+      "https://docs.mrscraper.com/docs/api/authentication",
+      "https://docs.mrscraper.com/docs/api/overview"
+    ],
+    "verification": "grounded",
+    "confidence": "medium",
+    "composio_toolkit": true,
+    "composio_slug": "mrscraper",
+    "composio_managed": false,
+    "composio_tools": 11,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "API key"
+    ]
+  },
+  {
+    "id": 55,
+    "name": "Apify",
+    "category": "Data, SEO and Scraping",
+    "category_no": 6,
+    "hint": "docs.apify.com",
+    "one_liner": "Marketplace and runtime for web-scraping actors.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API token (Bearer)"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free tier with monthly credits; token from console.",
+    "surface": "REST",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Actor-based model differs from plain REST resources.",
+    "evidence": [
+      "https://docs.apify.com/api/v2",
+      "https://composio.dev/toolkits/apify.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "apify",
+    "composio_managed": false,
+    "composio_tools": 184,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "API key"
+    ]
+  },
+  {
+    "id": 56,
+    "name": "Firecrawl",
+    "category": "Data, SEO and Scraping",
+    "category_no": 6,
+    "hint": "firecrawl.dev",
+    "one_liner": "LLM-oriented crawler that returns clean markdown.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API key (Bearer)"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free tier credits; key immediately on signup.",
+    "surface": "REST",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "None material.",
+    "evidence": [
+      "https://docs.firecrawl.dev/api-reference/introduction",
+      "https://composio.dev/toolkits/firecrawl.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "firecrawl",
+    "composio_managed": false,
+    "composio_tools": 245,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "API key"
+    ]
+  },
+  {
+    "id": 57,
+    "name": "Bright Data",
+    "category": "Data, SEO and Scraping",
+    "category_no": 6,
+    "hint": "brightdata.com",
+    "one_liner": "Proxy network and web-data collection platform.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API key (Bearer)"
+    ],
+    "access": "REV",
+    "access_label": "Review / approval gate",
+    "access_note": "API keys and Web Unlocker/Browser work in immediate-access mode, but Residential proxies require manual KYC that is never automatic or self-serve.",
+    "surface": "REST",
+    "mcp": "none found",
+    "buildable": "yes_with_caveats",
+    "buildable_label": "Buildable with caveats",
+    "blocker": "KYC compliance review gates the residential network.",
+    "evidence": [
+      "https://docs.brightdata.com/api-reference/authentication",
+      "https://docs.brightdata.com/products/residential/network-access"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "brightdata",
+    "composio_managed": false,
+    "composio_tools": 167,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "API key"
+    ]
+  },
+  {
+    "id": 58,
+    "name": "Sherlock",
+    "category": "Data, SEO and Scraping",
+    "category_no": 6,
+    "hint": "github.com/sherlock-project/sherlock",
+    "one_liner": "OSS CLI that hunts social-media accounts by username.",
+    "auth_primary": "n/a",
+    "auth_all": [
+      "none"
+    ],
+    "access": "NONE",
+    "access_label": "No public API",
+    "access_note": "Open-source Python CLI for username enumeration across sites. No hosted service and no API.",
+    "surface": "CLI / OSS",
+    "mcp": "none",
+    "buildable": "blocked",
+    "buildable_label": "Blocked",
+    "blocker": "No API to wrap; a toolkit would have to shell out to the CLI or re-implement it.",
+    "evidence": [
+      "https://github.com/sherlock-project/sherlock"
+    ],
+    "verification": "prior",
+    "confidence": "high",
+    "composio_toolkit": false,
+    "composio_slug": null,
+    "composio_managed": false,
+    "composio_tools": null,
+    "composio_triggers": 0,
+    "composio_auth": []
+  },
+  {
+    "id": 59,
+    "name": "Waterfall.io",
+    "category": "Data, SEO and Scraping",
+    "category_no": 6,
+    "hint": "waterfall.io",
+    "one_liner": "Waterfall contact and company enrichment for GTM teams.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API key (x-api-key)"
+    ],
+    "access": "SALES",
+    "access_label": "Sales / partnership gate",
+    "access_note": "Docs are public at docs.waterfall.io but access and pricing are arranged by booking a call with the team.",
+    "surface": "REST",
+    "mcp": "none found",
+    "buildable": "yes_with_caveats",
+    "buildable_label": "Buildable with caveats",
+    "blocker": "No self-serve signup; key issued after a sales conversation.",
+    "evidence": [
+      "https://docs.waterfall.io/v1/introduction",
+      "https://docs.waterfall.io/v1/api-keys-create"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": false,
+    "composio_slug": null,
+    "composio_managed": false,
+    "composio_tools": null,
+    "composio_triggers": 0,
+    "composio_auth": []
+  },
+  {
+    "id": 60,
+    "name": "Clay",
+    "category": "Data, SEO and Scraping",
+    "category_no": 6,
+    "hint": "clay.com",
+    "one_liner": "GTM data orchestration and enrichment workspace.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API key (clay-api-key header)"
+    ],
+    "access": "SSP",
+    "access_label": "Self-serve (paid plan)",
+    "access_note": "Public API key from Account settings (beta section); legacy workspace keys do not work. Enterprise People/Company API is sales-gated.",
+    "surface": "REST",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Two distinct key types; enterprise data endpoints are undocumented publicly.",
+    "evidence": [
+      "https://developers.clay.com/public-api/authentication",
+      "https://composio.dev/toolkits/clay.md"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "clay",
+    "composio_managed": false,
+    "composio_tools": 15,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "API key"
+    ]
+  },
+  {
+    "id": 61,
+    "name": "GitHub",
+    "category": "Developer, Infra and Data platforms",
+    "category_no": 7,
+    "hint": "docs.github.com/rest",
+    "one_liner": "Code hosting, CI and the reference developer API.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2",
+      "PAT",
+      "GitHub App installation token"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free account; PAT in seconds. Largest toolkit in Composio's catalog (883 tools).",
+    "surface": "REST + GraphQL",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "None material.",
+    "evidence": [
+      "https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api",
+      "https://composio.dev/toolkits/github.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "github",
+    "composio_managed": true,
+    "composio_tools": 883,
+    "composio_triggers": 46,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 62,
+    "name": "Vercel",
+    "category": "Developer, Infra and Data platforms",
+    "category_no": 7,
+    "hint": "vercel.com/docs/rest-api",
+    "one_liner": "Frontend hosting and serverless deployment platform.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "Bearer token"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free hobby account; token from dashboard.",
+    "surface": "REST",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "None material.",
+    "evidence": [
+      "https://vercel.com/docs/rest-api#authentication",
+      "https://composio.dev/toolkits/vercel.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "vercel",
+    "composio_managed": false,
+    "composio_tools": 399,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2",
+      "API key"
+    ]
+  },
+  {
+    "id": 63,
+    "name": "Netlify",
+    "category": "Developer, Infra and Data platforms",
+    "category_no": 7,
+    "hint": "docs.netlify.com/api",
+    "one_liner": "Static-site hosting and edge functions.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "PAT (Bearer)",
+      "OAuth2"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free tier; personal access token from user settings.",
+    "surface": "REST",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "None material.",
+    "evidence": [
+      "https://docs.netlify.com/api/get-started/#authentication",
+      "https://docs.netlify.com/api/get-started/"
+    ],
+    "verification": "prior",
+    "confidence": "high",
+    "composio_toolkit": false,
+    "composio_slug": null,
+    "composio_managed": false,
+    "composio_tools": null,
+    "composio_triggers": 0,
+    "composio_auth": []
+  },
+  {
+    "id": 64,
+    "name": "Cloudflare",
+    "category": "Developer, Infra and Data platforms",
+    "category_no": 7,
+    "hint": "developers.cloudflare.com/api",
+    "one_liner": "Edge network, DNS, Workers and security platform.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API token (Bearer)",
+      "Global API key (legacy)"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free account; scoped API token from the dashboard.",
+    "surface": "REST",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Legacy global key still widespread in older guides.",
+    "evidence": [
+      "https://developers.cloudflare.com/fundamentals/api/get-started/create-token/",
+      "https://composio.dev/toolkits/cloudflare.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "cloudflare",
+    "composio_managed": false,
+    "composio_tools": 171,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "API key"
+    ]
+  },
+  {
+    "id": 65,
+    "name": "Supabase",
+    "category": "Developer, Infra and Data platforms",
+    "category_no": 7,
+    "hint": "supabase.com/docs",
+    "one_liner": "Postgres-backed backend-as-a-service.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "Service role key",
+      "PAT",
+      "OAuth2"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free project; anon/service keys issued at project creation.",
+    "surface": "REST (PostgREST) + GraphQL",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Management API vs project API keys are easily confused.",
+    "evidence": [
+      "https://supabase.com/docs/guides/api/api-keys",
+      "https://composio.dev/toolkits/supabase.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "supabase",
+    "composio_managed": true,
+    "composio_tools": 230,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2",
+      "API key"
+    ]
+  },
+  {
+    "id": 66,
+    "name": "Neo4j",
+    "category": "Developer, Infra and Data platforms",
+    "category_no": 7,
+    "hint": "neo4j.com/docs/api",
+    "one_liner": "Graph database with managed Aura hosting.",
+    "auth_primary": "Basic / token",
+    "auth_all": [
+      "Basic auth",
+      "Bearer (Aura API)"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "AuraDB free tier; Aura API client credentials self-serve.",
+    "surface": "REST (Aura/HTTP) + Bolt",
+    "mcp": "none found",
+    "buildable": "yes_with_caveats",
+    "buildable_label": "Buildable with caveats",
+    "blocker": "Primary interface is a Bolt driver, not REST; the management API is narrow.",
+    "evidence": [
+      "https://neo4j.com/docs/aura-api/current/",
+      "https://neo4j.com/docs/query-api/current/"
+    ],
+    "verification": "prior",
+    "confidence": "low",
+    "composio_toolkit": true,
+    "composio_slug": "neo4j",
+    "composio_managed": false,
+    "composio_tools": 21,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2",
+      "basic_auth",
+      "API key",
+      "custom"
+    ]
+  },
+  {
+    "id": 67,
+    "name": "Snowflake",
+    "category": "Developer, Infra and Data platforms",
+    "category_no": 7,
+    "hint": "docs.snowflake.com",
+    "one_liner": "Cloud data warehouse with a SQL-over-REST API.",
+    "auth_primary": "Key-pair JWT",
+    "auth_all": [
+      "Key-pair JWT",
+      "OAuth2",
+      "Programmatic access token (PAT)"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "30-day free trial account; key-pair and PAT auth self-serve.",
+    "surface": "REST (SQL API)",
+    "mcp": "none found",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Trial expiry then consumption billing; auth setup is non-trivial.",
+    "evidence": [
+      "https://docs.snowflake.com/en/developer-guide/sql-api/authenticating",
+      "https://docs.snowflake.com/developer-guide/snowflake-rest-api/authentication"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "snowflake",
+    "composio_managed": false,
+    "composio_tools": 16,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 68,
+    "name": "MongoDB Atlas",
+    "category": "Developer, Infra and Data platforms",
+    "category_no": 7,
+    "hint": "mongodb.com/docs/atlas/api",
+    "one_liner": "Managed MongoDB with an administration API.",
+    "auth_primary": "Digest / API key",
+    "auth_all": [
+      "HTTP Digest (public/private key)",
+      "Service account"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free M0 cluster; Atlas Admin API keys from the org settings.",
+    "surface": "REST",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Digest auth is unusual and trips up naive HTTP clients.",
+    "evidence": [
+      "https://www.mongodb.com/docs/atlas/configure-api-access/",
+      "https://composio.dev/toolkits/mongodb.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "mongodb",
+    "composio_managed": false,
+    "composio_tools": 496,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "custom"
+    ]
+  },
+  {
+    "id": 69,
+    "name": "Datadog",
+    "category": "Developer, Infra and Data platforms",
+    "category_no": 7,
+    "hint": "docs.datadoghq.com/api",
+    "one_liner": "Infrastructure monitoring and observability platform.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API key + application key"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "14-day free trial; both keys from org settings.",
+    "surface": "REST",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Two-key scheme (API + APP key) and strict site-region routing.",
+    "evidence": [
+      "https://docs.datadoghq.com/api/latest/authentication/",
+      "https://composio.dev/toolkits/datadog.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "datadog",
+    "composio_managed": false,
+    "composio_tools": 255,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2",
+      "API key",
+      "Bearer token"
+    ]
+  },
+  {
+    "id": 70,
+    "name": "Sentry",
+    "category": "Developer, Infra and Data platforms",
+    "category_no": 7,
+    "hint": "docs.sentry.io/api",
+    "one_liner": "Error tracking and performance monitoring.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "Auth token (Bearer)",
+      "OAuth2 (integrations)"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free developer org; auth token from settings.",
+    "surface": "REST",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "None material.",
+    "evidence": [
+      "https://docs.sentry.io/api/auth/",
+      "https://composio.dev/toolkits/sentry.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "sentry",
+    "composio_managed": true,
+    "composio_tools": 210,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 71,
+    "name": "Notion",
+    "category": "Productivity and Project Management",
+    "category_no": 8,
+    "hint": "developers.notion.com",
+    "one_liner": "Docs, wiki and lightweight database workspace.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2",
+      "Internal integration token"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free workspace; internal integration token in one click.",
+    "surface": "REST",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Pages must be explicitly shared with the integration.",
+    "evidence": [
+      "https://developers.notion.com/docs/authorization",
+      "https://composio.dev/toolkits/notion.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "notion",
+    "composio_managed": true,
+    "composio_tools": 57,
+    "composio_triggers": 8,
+    "composio_auth": [
+      "OAuth2",
+      "API key"
+    ]
+  },
+  {
+    "id": 72,
+    "name": "Airtable",
+    "category": "Productivity and Project Management",
+    "category_no": 8,
+    "hint": "airtable.com/developers",
+    "one_liner": "Spreadsheet-database hybrid with a clean REST API.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2",
+      "PAT"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free plan; personal access token self-serve.",
+    "surface": "REST",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Legacy API keys retired in favour of PATs.",
+    "evidence": [
+      "https://airtable.com/developers/web/api/authentication",
+      "https://composio.dev/toolkits/airtable.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "airtable",
+    "composio_managed": true,
+    "composio_tools": 26,
+    "composio_triggers": 6,
+    "composio_auth": [
+      "OAuth2",
+      "API key"
+    ]
+  },
+  {
+    "id": 73,
+    "name": "Linear",
+    "category": "Productivity and Project Management",
+    "category_no": 8,
+    "hint": "developers.linear.app",
+    "one_liner": "Issue tracking for software teams.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2",
+      "API key"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free workspace; personal API key instantly.",
+    "surface": "GraphQL",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "GraphQL-only; no REST surface.",
+    "evidence": [
+      "https://developers.linear.app/docs/graphql/working-with-the-graphql-api",
+      "https://composio.dev/toolkits/linear.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "linear",
+    "composio_managed": true,
+    "composio_tools": 47,
+    "composio_triggers": 12,
+    "composio_auth": [
+      "OAuth2",
+      "API key"
+    ]
+  },
+  {
+    "id": 74,
+    "name": "Jira",
+    "category": "Productivity and Project Management",
+    "category_no": 8,
+    "hint": "developer.atlassian.com",
+    "one_liner": "Issue and project tracking from Atlassian.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2 (3LO)",
+      "API token (Basic)"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free Jira Cloud site up to 10 users; API token self-serve.",
+    "surface": "REST + GraphQL",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Cloud vs Data Center APIs differ substantially.",
+    "evidence": [
+      "https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/",
+      "https://composio.dev/toolkits/jira.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "jira",
+    "composio_managed": true,
+    "composio_tools": 166,
+    "composio_triggers": 17,
+    "composio_auth": [
+      "OAuth2",
+      "custom",
+      "API key"
+    ]
+  },
+  {
+    "id": 75,
+    "name": "Asana",
+    "category": "Productivity and Project Management",
+    "category_no": 8,
+    "hint": "developers.asana.com",
+    "one_liner": "Work management and task tracking.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2",
+      "PAT"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free tier; PAT from developer console.",
+    "surface": "REST",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "None material.",
+    "evidence": [
+      "https://developers.asana.com/docs/authentication",
+      "https://composio.dev/toolkits/asana.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "asana",
+    "composio_managed": true,
+    "composio_tools": 247,
+    "composio_triggers": 6,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 76,
+    "name": "Monday.com",
+    "category": "Productivity and Project Management",
+    "category_no": 8,
+    "hint": "developer.monday.com",
+    "one_liner": "Work OS with boards, automations and dashboards.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2",
+      "API token"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free plan; API token from the developer section.",
+    "surface": "GraphQL",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "GraphQL-only; complexity budget per query.",
+    "evidence": [
+      "https://developer.monday.com/api-reference/docs/authentication",
+      "https://composio.dev/toolkits/monday.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "monday",
+    "composio_managed": true,
+    "composio_tools": 122,
+    "composio_triggers": 17,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 77,
+    "name": "ClickUp",
+    "category": "Productivity and Project Management",
+    "category_no": 8,
+    "hint": "clickup.com/api",
+    "one_liner": "All-in-one project management suite.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "Personal API token",
+      "OAuth2"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free forever plan; personal token from settings.",
+    "surface": "REST",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "None material.",
+    "evidence": [
+      "https://developer.clickup.com/docs/authentication",
+      "https://composio.dev/toolkits/clickup.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "clickup",
+    "composio_managed": true,
+    "composio_tools": 163,
+    "composio_triggers": 21,
+    "composio_auth": [
+      "OAuth2",
+      "API key"
+    ]
+  },
+  {
+    "id": 78,
+    "name": "Coda",
+    "category": "Productivity and Project Management",
+    "category_no": 8,
+    "hint": "coda.io/developers",
+    "one_liner": "Doc-as-app platform blending documents and tables.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API token (Bearer)"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free tier; token from account settings.",
+    "surface": "REST",
+    "mcp": "none found",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "None material.",
+    "evidence": [
+      "https://coda.io/developers/apis/v1#section/Authentication",
+      "https://composio.dev/toolkits/coda.md"
+    ],
+    "verification": "catalog",
+    "confidence": "medium",
+    "composio_toolkit": true,
+    "composio_slug": "coda",
+    "composio_managed": false,
+    "composio_tools": 109,
+    "composio_triggers": 4,
+    "composio_auth": [
+      "API key"
+    ]
+  },
+  {
+    "id": 79,
+    "name": "Smartsheet",
+    "category": "Productivity and Project Management",
+    "category_no": 8,
+    "hint": "smartsheet.com/developers",
+    "one_liner": "Spreadsheet-style work management for enterprises.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "Access token (Bearer)",
+      "OAuth2"
+    ],
+    "access": "SSP",
+    "access_label": "Self-serve (paid plan)",
+    "access_note": "Free trial; API access is a paid-plan feature for most capabilities.",
+    "surface": "REST",
+    "mcp": "none found",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "API access tied to plan tier.",
+    "evidence": [
+      "https://smartsheet.redoc.ly/#section/API-Basics/Authentication",
+      "https://composio.dev/toolkits/smartsheet.md"
+    ],
+    "verification": "catalog",
+    "confidence": "medium",
+    "composio_toolkit": true,
+    "composio_slug": "smartsheet",
+    "composio_managed": false,
+    "composio_tools": 180,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2",
+      "Bearer token"
+    ]
+  },
+  {
+    "id": 80,
+    "name": "Harvest",
+    "category": "Productivity and Project Management",
+    "category_no": 8,
+    "hint": "help.getharvest.com/api-v2",
+    "one_liner": "Time tracking and invoicing for services businesses.",
+    "auth_primary": "PAT",
+    "auth_all": [
+      "Personal access token + account ID",
+      "OAuth2"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free Harvest plan (1 seat / 2 projects) plus a 30-day trial of paid tiers; PAT and account ID from id.getharvest.com/developers. [corrected by audit]",
+    "surface": "REST",
+    "mcp": "none found",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Requires both a token and a Harvest-Account-Id header.",
+    "evidence": [
+      "https://help.getharvest.com/api-v2/authentication-api/authentication/authentication/",
+      "https://help.getharvest.com/api-v2/"
+    ],
+    "verification": "prior",
+    "confidence": "medium",
+    "composio_toolkit": true,
+    "composio_slug": "harvest",
+    "composio_managed": true,
+    "composio_tools": 57,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 81,
+    "name": "Stripe",
+    "category": "Finance and Fintech",
+    "category_no": 9,
+    "hint": "stripe.com/docs/api",
+    "one_liner": "Payments infrastructure and the reference fintech API.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "Secret API key (Bearer)",
+      "OAuth2 (Connect)"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free account; test-mode secret key before any business verification.",
+    "surface": "REST",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Live-mode charges need business verification, but the full API is testable free.",
+    "evidence": [
+      "https://docs.stripe.com/api/authentication",
+      "https://composio.dev/toolkits/stripe.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "stripe",
+    "composio_managed": true,
+    "composio_tools": 428,
+    "composio_triggers": 40,
+    "composio_auth": [
+      "API key",
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 82,
+    "name": "Plaid",
+    "category": "Finance and Fintech",
+    "category_no": 9,
+    "hint": "plaid.com/docs",
+    "one_liner": "Bank account linking and financial data aggregation.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "client_id + secret"
+    ],
+    "access": "REV",
+    "access_label": "Review / approval gate",
+    "access_note": "Sandbox client_id/secret are instant and free; Production access is a separate reviewed request. [corrected by audit: was SS]",
+    "surface": "REST",
+    "mcp": "none found",
+    "buildable": "yes_with_caveats",
+    "buildable_label": "Buildable with caveats",
+    "blocker": "Production access is reviewed; sandbox alone cannot move real money data.",
+    "evidence": [
+      "https://plaid.com/docs/quickstart/",
+      "https://plaid.com/docs/api/"
+    ],
+    "verification": "prior",
+    "confidence": "medium",
+    "composio_toolkit": true,
+    "composio_slug": "plaid",
+    "composio_managed": false,
+    "composio_tools": 70,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "API key"
+    ]
+  },
+  {
+    "id": 83,
+    "name": "Binance",
+    "category": "Finance and Fintech",
+    "category_no": 9,
+    "hint": "binance-docs.github.io",
+    "one_liner": "Cryptocurrency exchange with trading and market-data APIs.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API key + HMAC-SHA256 secret",
+      "Ed25519"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free account; API key/secret self-serve, subject to regional availability.",
+    "surface": "REST + WebSocket",
+    "mcp": "none found",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Jurisdictional restrictions; signed-request scheme.",
+    "evidence": [
+      "https://developers.binance.com/docs/binance-spot-api-docs",
+      "https://developers.binance.com/docs/binance-spot-api-docs/rest-api/general-api-information"
+    ],
+    "verification": "prior",
+    "confidence": "low",
+    "composio_toolkit": false,
+    "composio_slug": null,
+    "composio_managed": false,
+    "composio_tools": null,
+    "composio_triggers": 0,
+    "composio_auth": []
+  },
+  {
+    "id": 84,
+    "name": "Paygent Connect",
+    "category": "Finance and Fintech",
+    "category_no": 9,
+    "hint": "paygent (NMI-powered)",
+    "one_liner": "Payment gateway reseller built on NMI's platform.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "Security key (NMI gateway)"
+    ],
+    "access": "SALES",
+    "access_label": "Sales / partnership gate",
+    "access_note": "Paygent Connect is NMI-powered; the gateway security key comes from a merchant control panel issued after underwriting. No public Paygent developer portal found.",
+    "surface": "REST (form-encoded POST)",
+    "mcp": "none found",
+    "buildable": "blocked",
+    "buildable_label": "Blocked",
+    "blocker": "Merchant account and underwriting required; no self-serve sandbox surfaced.",
+    "evidence": [
+      "https://docs.nmi.com/reference/transactions-processing",
+      "https://secure.nmi.com/gw/merchants/resources/integration/integration_portal.php"
+    ],
+    "verification": "grounded",
+    "confidence": "low",
+    "composio_toolkit": false,
+    "composio_slug": null,
+    "composio_managed": false,
+    "composio_tools": null,
+    "composio_triggers": 0,
+    "composio_auth": []
+  },
+  {
+    "id": 85,
+    "name": "iPayX",
+    "category": "Finance and Fintech",
+    "category_no": 9,
+    "hint": "ipayx.ai/docs",
+    "one_liner": "Payments vendor named in the research set; could not be identified.",
+    "auth_primary": "unknown",
+    "auth_all": [
+      "unknown"
+    ],
+    "access": "SALES",
+    "access_label": "Sales / partnership gate",
+    "access_note": "No documentation located. Searches for ipayx.ai surfaced only unrelated 'iPay' products (iPay Ukraine, i-pay.io, Payrix). Recorded as unverified rather than guessed.",
+    "surface": "unknown",
+    "mcp": "none found",
+    "buildable": "blocked",
+    "buildable_label": "Blocked",
+    "blocker": "Could not locate any primary documentation for this vendor.",
+    "evidence": [
+      "https://ipayx.ai/"
+    ],
+    "verification": "grounded",
+    "confidence": "low",
+    "composio_toolkit": false,
+    "composio_slug": null,
+    "composio_managed": false,
+    "composio_tools": null,
+    "composio_triggers": 0,
+    "composio_auth": []
+  },
+  {
+    "id": 86,
+    "name": "QuickBooks",
+    "category": "Finance and Fintech",
+    "category_no": 9,
+    "hint": "developer.intuit.com",
+    "one_liner": "SMB accounting platform.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free Intuit developer account + sandbox company; OAuth2 self-serve.",
+    "surface": "REST",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Production app needs Intuit review before going live.",
+    "evidence": [
+      "https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0",
+      "https://composio.dev/toolkits/quickbooks.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "quickbooks",
+    "composio_managed": true,
+    "composio_tools": 119,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 87,
+    "name": "Xero",
+    "category": "Finance and Fintech",
+    "category_no": 9,
+    "hint": "developer.xero.com",
+    "one_liner": "Cloud accounting for small business.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2",
+      "PKCE"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free developer account + demo company; OAuth2 app self-serve.",
+    "surface": "REST",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "App partner certification for published apps.",
+    "evidence": [
+      "https://developer.xero.com/documentation/guides/oauth2/overview/",
+      "https://composio.dev/toolkits/xero.md"
+    ],
+    "verification": "catalog",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "xero",
+    "composio_managed": false,
+    "composio_tools": 109,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 88,
+    "name": "Brex",
+    "category": "Finance and Fintech",
+    "category_no": 9,
+    "hint": "developer.brex.com",
+    "one_liner": "Corporate cards and spend management.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "User token (self-serve)",
+      "OAuth2 (partner, approval)"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Account admins create user tokens under Developer > Settings after accepting the access agreement; partner OAuth needs Brex approval.",
+    "surface": "REST",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Requires a funded Brex account; partner OAuth is approval-gated.",
+    "evidence": [
+      "https://developer.brex.com/docs/authentication",
+      "https://developer.brex.com/docs/partner_authentication"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "brex",
+    "composio_managed": false,
+    "composio_tools": 84,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2",
+      "API key"
+    ]
+  },
+  {
+    "id": 89,
+    "name": "Ramp",
+    "category": "Finance and Fintech",
+    "category_no": 9,
+    "hint": "docs.ramp.com",
+    "one_liner": "Corporate cards, bill pay and spend management.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2 client credentials",
+      "Authorization code"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Admin creates a developer app under Company > Developer; sandbox app issues separate credentials.",
+    "surface": "REST",
+    "mcp": "via Composio",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Requires an existing Ramp customer account; some scopes need a support ticket.",
+    "evidence": [
+      "https://docs.ramp.com/llms-guides/authorization.txt",
+      "https://support.ramp.com/accessing-the-developer-api"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "ramp",
+    "composio_managed": false,
+    "composio_tools": 186,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 90,
+    "name": "PitchBook",
+    "category": "Finance and Fintech",
+    "category_no": 9,
+    "hint": "pitchbook.com",
+    "one_liner": "Private-capital market data and research platform.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API key / auth token"
+    ],
+    "access": "SALES",
+    "access_label": "Sales / partnership gate",
+    "access_note": "No public pricing or signup. Access via the Direct Data team; existing customers request it from Plugins & Apps. Third parties estimate $70k+/yr on top of a platform licence.",
+    "surface": "REST",
+    "mcp": "official (premium connectors, MCP in testing)",
+    "buildable": "blocked",
+    "buildable_label": "Blocked",
+    "blocker": "Enterprise contract plus a separate data agreement; no developer tier at all.",
+    "evidence": [
+      "https://pitchbook.com/pricing",
+      "https://privateequitylist.com/intelligence/pitchbook-crunchbase-api-pricing"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "pitchbook",
+    "composio_managed": false,
+    "composio_tools": 130,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "API key"
+    ]
+  },
+  {
+    "id": 91,
+    "name": "NotebookLM",
+    "category": "AI, Research and Media-native",
+    "category_no": 10,
+    "hint": "cloud.google.com/gemini",
+    "one_liner": "Google's source-grounded research and notebook assistant.",
+    "auth_primary": "OAuth2 (GCP)",
+    "auth_all": [
+      "Google Cloud OAuth2 / service account"
+    ],
+    "access": "SALES",
+    "access_label": "Sales / partnership gate",
+    "access_note": "No consumer NotebookLM API. Notebook creation/management is GA only in NotebookLM (Gemini) Enterprise on Google Cloud; a query/chat endpoint is still an open request.",
+    "surface": "REST (GCP)",
+    "mcp": "none found",
+    "buildable": "yes_with_caveats",
+    "buildable_label": "Buildable with caveats",
+    "blocker": "Enterprise Google Cloud licence required and the RAG query endpoint developers want does not exist.",
+    "evidence": [
+      "https://cloud.google.com/agentspace/notebooklm-enterprise/docs/overview",
+      "https://discuss.google.dev/t/notebooklm-enterprise-api-missing-query-chat-endpoint-for-rag-orchestration/366875"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "notebook_lm",
+    "composio_managed": true,
+    "composio_tools": 11,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "OAuth2"
+    ]
+  },
+  {
+    "id": 92,
+    "name": "Otter AI",
+    "category": "AI, Research and Media-native",
+    "category_no": 10,
+    "hint": "help.otter.ai",
+    "one_liner": "AI meeting transcription and notes.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2 (MCP)",
+      "Bearer API key (workspace developer settings)"
+    ],
+    "access": "SSP",
+    "access_label": "Self-serve (paid plan)",
+    "access_note": "Official remote MCP at mcp.otter.ai uses OAuth; no public REST reference located. Community libraries use undocumented endpoints.",
+    "surface": "MCP (no public REST)",
+    "mcp": "official",
+    "buildable": "yes_with_caveats",
+    "buildable_label": "Buildable with caveats",
+    "blocker": "No documented public REST API; MCP is the only supported programmatic surface.",
+    "evidence": [
+      "https://composio.dev/toolkits/otter_ai_mcp.md",
+      "https://www.scalekit.com/blog/otter-mcp-vs-api"
+    ],
+    "verification": "grounded",
+    "confidence": "medium",
+    "composio_toolkit": true,
+    "composio_slug": "otter_ai_mcp",
+    "composio_managed": false,
+    "composio_tools": 3,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "custom"
+    ]
+  },
+  {
+    "id": 93,
+    "name": "Fathom",
+    "category": "AI, Research and Media-native",
+    "category_no": 10,
+    "hint": "fathom.video",
+    "one_liner": "AI meeting recorder and summariser.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API key (X-Api-Key)",
+      "OAuth2"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Key from the API Access section of user settings; OAuth for multi-user apps.",
+    "surface": "REST",
+    "mcp": "none found",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Reported read-only for meetings; docs leave retry/delivery semantics undefined.",
+    "evidence": [
+      "https://developers.fathom.ai/quickstart",
+      "https://developers.fathom.ai/sdks/authentication"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "fathom",
+    "composio_managed": true,
+    "composio_tools": 10,
+    "composio_triggers": 1,
+    "composio_auth": [
+      "OAuth2",
+      "API key"
+    ]
+  },
+  {
+    "id": 94,
+    "name": "Consensus",
+    "category": "AI, Research and Media-native",
+    "category_no": 10,
+    "hint": "consensus.app",
+    "one_liner": "AI search engine over peer-reviewed research.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth 2.1 + PKCE (MCP)",
+      "REST by request"
+    ],
+    "access": "REV",
+    "access_label": "Review / approval gate",
+    "access_note": "MCP server at mcp.consensus.app supports dynamic client registration; the REST API is behind a 'Request access' button.",
+    "surface": "REST + MCP",
+    "mcp": "official",
+    "buildable": "yes_with_caveats",
+    "buildable_label": "Buildable with caveats",
+    "blocker": "REST access is request-gated; quotas depend on org plan.",
+    "evidence": [
+      "https://consensus.app/home/api/",
+      "https://composio.dev/toolkits/consensus_mcp.md"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "consensus",
+    "composio_managed": false,
+    "composio_tools": 1,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "API key"
+    ]
+  },
+  {
+    "id": 95,
+    "name": "Reducto",
+    "category": "AI, Research and Media-native",
+    "category_no": 10,
+    "hint": "reducto.ai",
+    "one_liner": "Document parsing and extraction for AI pipelines.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "API key (Bearer)"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Free account at studio.reducto.ai with trial credits; credit-based pricing thereafter.",
+    "surface": "REST",
+    "mcp": "none found",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Growth/Enterprise tiers are sales-led; per-document credit cost varies.",
+    "evidence": [
+      "https://docs.reducto.ai/",
+      "https://reducto.ai/pricing"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": false,
+    "composio_slug": null,
+    "composio_managed": false,
+    "composio_tools": null,
+    "composio_triggers": 0,
+    "composio_auth": []
+  },
+  {
+    "id": 96,
+    "name": "Devin",
+    "category": "AI, Research and Media-native",
+    "category_no": 10,
+    "hint": "docs.devin.ai",
+    "one_liner": "Autonomous AI software engineer.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "Service-user API key",
+      "PAT (closed beta)"
+    ],
+    "access": "SSP",
+    "access_label": "Self-serve (paid plan)",
+    "access_note": "Paid Devin account required; enterprise admins mint service users. Legacy apk_ keys are not accepted by the MCP server.",
+    "surface": "REST (v3) + MCP",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Paid seat required; PATs in closed beta and unavailable for SSO accounts.",
+    "evidence": [
+      "https://docs.devin.ai/api-reference/authentication",
+      "https://docs.devin.ai/work-with-devin/devin-mcp"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "devin_mcp",
+    "composio_managed": false,
+    "composio_tools": 23,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "API key"
+    ]
+  },
+  {
+    "id": 97,
+    "name": "higgsfield",
+    "category": "AI, Research and Media-native",
+    "category_no": 10,
+    "hint": "higgsfield.ai/cli",
+    "one_liner": "Generative video and content creation suite.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "Key ID + secret in Authorization header",
+      "hf-api-key/hf-secret (legacy)"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Keys from console.higgsfield.ai; Python and Node SDKs published. A hosted MCP route also exists.",
+    "surface": "REST + MCP",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Per-model access restrictions return 404/423/503 even with valid credentials.",
+    "evidence": [
+      "https://docs.higgsfield.ai/docs/authentication",
+      "https://docs.higgsfield.ai/docs/quickstart"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "higgsfield",
+    "composio_managed": false,
+    "composio_tools": 13,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "API key"
+    ]
+  },
+  {
+    "id": 98,
+    "name": "Mermaid CLI",
+    "category": "AI, Research and Media-native",
+    "category_no": 10,
+    "hint": "github.com/mermaid-js/mermaid-cli",
+    "one_liner": "Command-line renderer for Mermaid diagrams.",
+    "auth_primary": "n/a",
+    "auth_all": [
+      "none"
+    ],
+    "access": "NONE",
+    "access_label": "No public API",
+    "access_note": "Node CLI that renders Mermaid diagrams locally via Puppeteer. No hosted service, no auth, no API.",
+    "surface": "CLI / OSS",
+    "mcp": "none",
+    "buildable": "blocked",
+    "buildable_label": "Blocked",
+    "blocker": "Nothing to authenticate against; a toolkit would wrap a local binary, not an API.",
+    "evidence": [
+      "https://github.com/mermaid-js/mermaid-cli"
+    ],
+    "verification": "prior",
+    "confidence": "high",
+    "composio_toolkit": false,
+    "composio_slug": null,
+    "composio_managed": false,
+    "composio_tools": null,
+    "composio_triggers": 0,
+    "composio_auth": []
+  },
+  {
+    "id": 99,
+    "name": "YouTube Transcript",
+    "category": "AI, Research and Media-native",
+    "category_no": 10,
+    "hint": "transcriptapi.com",
+    "one_liner": "Hosted YouTube transcript retrieval API.",
+    "auth_primary": "API key",
+    "auth_all": [
+      "Bearer token"
+    ],
+    "access": "SS",
+    "access_label": "Self-serve (free)",
+    "access_note": "Keys from the API Keys dashboard; Swagger UI published. Base URL /api/v2.",
+    "surface": "REST",
+    "mcp": "none found",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "Credit-based; failed 4xx/5xx and 429 requests cost 0 credits.",
+    "evidence": [
+      "https://transcriptapi.com/docs/api/",
+      "https://transcriptapi.com/blog/transcriptapi-vs-searchapi"
+    ],
+    "verification": "grounded",
+    "confidence": "medium",
+    "composio_toolkit": true,
+    "composio_slug": "youtube_transcript",
+    "composio_managed": false,
+    "composio_tools": 9,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "API key"
+    ]
+  },
+  {
+    "id": 100,
+    "name": "Grain",
+    "category": "AI, Research and Media-native",
+    "category_no": 10,
+    "hint": "grain.com",
+    "one_liner": "Meeting recording, notes and revenue-intelligence clips.",
+    "auth_primary": "OAuth2",
+    "auth_all": [
+      "OAuth2 + PKCE",
+      "Personal access token",
+      "Workspace access token"
+    ],
+    "access": "SSP",
+    "access_label": "Self-serve (paid plan)",
+    "access_note": "v1 beta sunset Sept 2026; v2 is current. PATs reported Enterprise-tier only.",
+    "surface": "REST (v2)",
+    "mcp": "official",
+    "buildable": "yes",
+    "buildable_label": "Buildable today",
+    "blocker": "PAT availability tied to Enterprise tier; v1 already sunset.",
+    "evidence": [
+      "https://support.grain.com/en/articles/15507288-grain-api",
+      "https://grainhq.notion.site/Grain-Public-API-877184aa82b54c77a875083c1b560de9"
+    ],
+    "verification": "grounded",
+    "confidence": "high",
+    "composio_toolkit": true,
+    "composio_slug": "grain",
+    "composio_managed": false,
+    "composio_tools": 17,
+    "composio_triggers": 0,
+    "composio_auth": [
+      "API key"
+    ]
+  }
+]

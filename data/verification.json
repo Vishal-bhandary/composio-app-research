@@ -1,0 +1,204 @@
+{
+  "loop_a_parser_regression": {
+    "pages_evaluated": 79,
+    "pass1_keyword_match": {
+      "precision": 0.7391,
+      "recall": 0.9358,
+      "f1": 0.8259,
+      "tp": 102,
+      "fp": 36,
+      "fn": 7
+    },
+    "pass2_structured_parse": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 109,
+      "fp": 0,
+      "fn": 0
+    },
+    "rows_pass1_got_wrong": 30,
+    "worst_offenders": [
+      {
+        "slug": "zendesk",
+        "truth": [
+          "oauth2"
+        ],
+        "pass1_extra": [
+          "basic_auth",
+          "jwt"
+        ],
+        "pass1_missed": []
+      },
+      {
+        "slug": "shopify",
+        "truth": [
+          "custom",
+          "oauth2"
+        ],
+        "pass1_extra": [
+          "api_key",
+          "basic_auth"
+        ],
+        "pass1_missed": [
+          "custom"
+        ]
+      },
+      {
+        "slug": "supabase",
+        "truth": [
+          "api_key",
+          "oauth2"
+        ],
+        "pass1_extra": [
+          "bearer_token",
+          "jwt"
+        ],
+        "pass1_missed": []
+      },
+      {
+        "slug": "mongodb",
+        "truth": [
+          "custom"
+        ],
+        "pass1_extra": [
+          "api_key",
+          "oauth2"
+        ],
+        "pass1_missed": [
+          "custom"
+        ]
+      },
+      {
+        "slug": "sentry",
+        "truth": [
+          "oauth2"
+        ],
+        "pass1_extra": [
+          "api_key",
+          "bearer_token"
+        ],
+        "pass1_missed": []
+      },
+      {
+        "slug": "coda",
+        "truth": [
+          "api_key"
+        ],
+        "pass1_extra": [
+          "basic_auth",
+          "oauth2"
+        ],
+        "pass1_missed": []
+      },
+      {
+        "slug": "salesforce",
+        "truth": [
+          "custom",
+          "oauth2"
+        ],
+        "pass1_extra": [
+          "basic_auth"
+        ],
+        "pass1_missed": [
+          "custom"
+        ]
+      },
+      {
+        "slug": "freshdesk",
+        "truth": [
+          "api_key"
+        ],
+        "pass1_extra": [
+          "basic_auth"
+        ],
+        "pass1_missed": []
+      },
+      {
+        "slug": "slack",
+        "truth": [
+          "oauth2"
+        ],
+        "pass1_extra": [
+          "basic_auth"
+        ],
+        "pass1_missed": []
+      },
+      {
+        "slug": "twilio",
+        "truth": [
+          "api_key",
+          "basic_auth",
+          "custom"
+        ],
+        "pass1_extra": [
+          "oauth2"
+        ],
+        "pass1_missed": [
+          "custom"
+        ]
+      }
+    ]
+  },
+  "loop_b_cross_source": {
+    "rows_comparable": 78,
+    "pass1": {
+      "agree": 75,
+      "disagree": 3,
+      "agreement_rate": 0.9615,
+      "conflicts": [
+        {
+          "app": "Plaid",
+          "composio": [
+            "api_key"
+          ],
+          "docs_pass": []
+        },
+        {
+          "app": "Consensus",
+          "composio": [
+            "api_key"
+          ],
+          "docs_pass": [
+            "oauth2"
+          ]
+        },
+        {
+          "app": "higgsfield",
+          "composio": [
+            "api_key"
+          ],
+          "docs_pass": []
+        }
+      ]
+    },
+    "pass2": {
+      "agree": 77,
+      "disagree": 1,
+      "agreement_rate": 0.9872,
+      "conflicts": [
+        {
+          "app": "Consensus",
+          "composio": [
+            "api_key"
+          ],
+          "docs_pass": [
+            "oauth2"
+          ]
+        }
+      ]
+    },
+    "agreement_rate": 0.9872,
+    "conflicts": [
+      {
+        "app": "Consensus",
+        "composio": [
+          "api_key"
+        ],
+        "docs_pass": [
+          "oauth2"
+        ]
+      }
+    ]
+  }
+}

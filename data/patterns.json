@@ -1,0 +1,465 @@
+{
+  "n": 100,
+  "by_access": {
+    "Self-serve (free)": 58,
+    "Self-serve (paid plan)": 21,
+    "Review / approval gate": 10,
+    "Sales / partnership gate": 9,
+    "No public API": 2
+  },
+  "by_access_code": {
+    "SS": 58,
+    "SSP": 21,
+    "SALES": 9,
+    "REV": 10,
+    "NONE": 2
+  },
+  "by_buildable": {
+    "Buildable today": 74,
+    "Buildable with caveats": 18,
+    "Blocked": 8
+  },
+  "by_auth_primary": {
+    "API key": 46,
+    "OAuth2": 36,
+    "n/a": 2,
+    "OAuth2 client credentials": 1,
+    "Bearer token": 1,
+    "Basic (token)": 1,
+    "Basic (SID/token)": 1,
+    "Basic (id/token)": 1,
+    "Basic (key/secret)": 1,
+    "OAuth2 (SLAS)": 1,
+    "OAuth1 / token": 1,
+    "OAuth2 (LWA)": 1,
+    "Basic": 1,
+    "Basic / token": 1,
+    "Key-pair JWT": 1,
+    "Digest / API key": 1,
+    "PAT": 1,
+    "unknown": 1,
+    "OAuth2 (GCP)": 1
+  },
+  "auth_family": {
+    "API key / token": 50,
+    "OAuth2": 40,
+    "Basic / digest": 6,
+    "No auth surface": 2,
+    "OAuth1 / token pair": 1,
+    "Other / unknown": 1
+  },
+  "by_verification": {
+    "catalog": 46,
+    "grounded": 46,
+    "prior": 8
+  },
+  "per_category": [
+    {
+      "category": "CRM and Sales",
+      "n": 10,
+      "self_serve_free": 6,
+      "self_serve_paid": 3,
+      "review_gate": 0,
+      "sales_gate": 1,
+      "no_api": 0,
+      "open_pct": 90,
+      "blocked": 1,
+      "composio_coverage": 9,
+      "oauth2": 6
+    },
+    {
+      "category": "Support and Helpdesk",
+      "n": 10,
+      "self_serve_free": 3,
+      "self_serve_paid": 6,
+      "review_gate": 0,
+      "sales_gate": 1,
+      "no_api": 0,
+      "open_pct": 90,
+      "blocked": 1,
+      "composio_coverage": 7,
+      "oauth2": 4
+    },
+    {
+      "category": "Communications and Messaging",
+      "n": 10,
+      "self_serve_free": 7,
+      "self_serve_paid": 2,
+      "review_gate": 1,
+      "sales_gate": 0,
+      "no_api": 0,
+      "open_pct": 90,
+      "blocked": 0,
+      "composio_coverage": 9,
+      "oauth2": 5
+    },
+    {
+      "category": "Marketing, Ads, Email and Social",
+      "n": 10,
+      "self_serve_free": 4,
+      "self_serve_paid": 1,
+      "review_gate": 5,
+      "sales_gate": 0,
+      "no_api": 0,
+      "open_pct": 50,
+      "blocked": 0,
+      "composio_coverage": 9,
+      "oauth2": 6
+    },
+    {
+      "category": "Ecommerce",
+      "n": 10,
+      "self_serve_free": 5,
+      "self_serve_paid": 3,
+      "review_gate": 1,
+      "sales_gate": 1,
+      "no_api": 0,
+      "open_pct": 80,
+      "blocked": 1,
+      "composio_coverage": 5,
+      "oauth2": 4
+    },
+    {
+      "category": "Data, SEO and Scraping",
+      "n": 10,
+      "self_serve_free": 4,
+      "self_serve_paid": 2,
+      "review_gate": 1,
+      "sales_gate": 2,
+      "no_api": 1,
+      "open_pct": 60,
+      "blocked": 1,
+      "composio_coverage": 7,
+      "oauth2": 0
+    },
+    {
+      "category": "Developer, Infra and Data platforms",
+      "n": 10,
+      "self_serve_free": 10,
+      "self_serve_paid": 0,
+      "review_gate": 0,
+      "sales_gate": 0,
+      "no_api": 0,
+      "open_pct": 100,
+      "blocked": 0,
+      "composio_coverage": 9,
+      "oauth2": 1
+    },
+    {
+      "category": "Productivity and Project Management",
+      "n": 10,
+      "self_serve_free": 9,
+      "self_serve_paid": 1,
+      "review_gate": 0,
+      "sales_gate": 0,
+      "no_api": 0,
+      "open_pct": 100,
+      "blocked": 0,
+      "composio_coverage": 10,
+      "oauth2": 6
+    },
+    {
+      "category": "Finance and Fintech",
+      "n": 10,
+      "self_serve_free": 6,
+      "self_serve_paid": 0,
+      "review_gate": 1,
+      "sales_gate": 3,
+      "no_api": 0,
+      "open_pct": 60,
+      "blocked": 3,
+      "composio_coverage": 7,
+      "oauth2": 4
+    },
+    {
+      "category": "AI, Research and Media-native",
+      "n": 10,
+      "self_serve_free": 4,
+      "self_serve_paid": 3,
+      "review_gate": 1,
+      "sales_gate": 1,
+      "no_api": 1,
+      "open_pct": 70,
+      "blocked": 1,
+      "composio_coverage": 8,
+      "oauth2": 4
+    }
+  ],
+  "blockers": [
+    {
+      "name": "DealCloud",
+      "category": "CRM and Sales",
+      "blocker": "Private-equity SaaS with no self-serve tenant; needs a customer instance plus admin-granted scopes.",
+      "access": "SALES",
+      "evidence": "https://api.docs.dealcloud.com/docs/token"
+    },
+    {
+      "name": "Gladly",
+      "category": "Support and Helpdesk",
+      "blocker": "Enterprise-only contract; no trial org to obtain credentials from.",
+      "access": "SALES",
+      "evidence": "https://developer.gladly.com/rest/"
+    },
+    {
+      "name": "Salesforce Commerce Cloud",
+      "category": "Ecommerce",
+      "blocker": "Credit-metered sandboxes behind an existing B2C Commerce contract.",
+      "access": "SALES",
+      "evidence": "https://developer.salesforce.com/docs/commerce/commerce-api/guide/b2c-get-started-sandboxes.html"
+    },
+    {
+      "name": "Sherlock",
+      "category": "Data, SEO and Scraping",
+      "blocker": "No API to wrap; a toolkit would have to shell out to the CLI or re-implement it.",
+      "access": "NONE",
+      "evidence": "https://github.com/sherlock-project/sherlock"
+    },
+    {
+      "name": "Paygent Connect",
+      "category": "Finance and Fintech",
+      "blocker": "Merchant account and underwriting required; no self-serve sandbox surfaced.",
+      "access": "SALES",
+      "evidence": "https://docs.nmi.com/reference/transactions-processing"
+    },
+    {
+      "name": "iPayX",
+      "category": "Finance and Fintech",
+      "blocker": "Could not locate any primary documentation for this vendor.",
+      "access": "SALES",
+      "evidence": "https://ipayx.ai/"
+    },
+    {
+      "name": "PitchBook",
+      "category": "Finance and Fintech",
+      "blocker": "Enterprise contract plus a separate data agreement; no developer tier at all.",
+      "access": "SALES",
+      "evidence": "https://pitchbook.com/pricing"
+    },
+    {
+      "name": "Mermaid CLI",
+      "category": "AI, Research and Media-native",
+      "blocker": "Nothing to authenticate against; a toolkit would wrap a local binary, not an API.",
+      "access": "NONE",
+      "evidence": "https://github.com/mermaid-js/mermaid-cli"
+    }
+  ],
+  "caveats": [
+    {
+      "name": "WhatsApp Business",
+      "blocker": "Business verification gate plus per-message pricing; limited access tier until verified.",
+      "access": "REV"
+    },
+    {
+      "name": "Aircall",
+      "blocker": "Aircall does not publish which plan tiers include API access.",
+      "access": "SSP"
+    },
+    {
+      "name": "Google Ads",
+      "blocker": "Approval gate for production accounts; the access model changed in Sept 2026.",
+      "access": "REV"
+    },
+    {
+      "name": "Meta Ads",
+      "blocker": "App Review plus business verification before multi-tenant use.",
+      "access": "REV"
+    },
+    {
+      "name": "LinkedIn Ads",
+      "blocker": "Discretionary partner approval; private APIs need a separate programme application.",
+      "access": "REV"
+    },
+    {
+      "name": "Pinterest",
+      "blocker": "Trial tier blocks POST /v5/pins; Standard approval is slow and discretionary.",
+      "access": "REV"
+    },
+    {
+      "name": "Threads (Meta)",
+      "blocker": "App Review and a data-deletion callback required before production.",
+      "access": "REV"
+    },
+    {
+      "name": "Squarespace",
+      "blocker": "Hard paywall: no key on lower Squarespace tiers.",
+      "access": "SSP"
+    },
+    {
+      "name": "Amazon Selling Partner",
+      "blocker": "Mandatory developer-profile review; restricted roles need a live demo.",
+      "access": "REV"
+    },
+    {
+      "name": "fanbasis",
+      "blocker": "No official developer portal surfaced; best references are a vendor GitHub repo and an SDK on npm.",
+      "access": "SSP"
+    },
+    {
+      "name": "Ahrefs",
+      "blocker": "Enterprise plan (listed $1,499/mo) and conflicting official eligibility statements.",
+      "access": "SALES"
+    },
+    {
+      "name": "Bright Data",
+      "blocker": "KYC compliance review gates the residential network.",
+      "access": "REV"
+    },
+    {
+      "name": "Waterfall.io",
+      "blocker": "No self-serve signup; key issued after a sales conversation.",
+      "access": "SALES"
+    },
+    {
+      "name": "Neo4j",
+      "blocker": "Primary interface is a Bolt driver, not REST; the management API is narrow.",
+      "access": "SS"
+    },
+    {
+      "name": "Plaid",
+      "blocker": "Production access is reviewed; sandbox alone cannot move real money data.",
+      "access": "REV"
+    },
+    {
+      "name": "NotebookLM",
+      "blocker": "Enterprise Google Cloud licence required and the RAG query endpoint developers want does not exist.",
+      "access": "SALES"
+    },
+    {
+      "name": "Otter AI",
+      "blocker": "No documented public REST API; MCP is the only supported programmatic surface.",
+      "access": "SSP"
+    },
+    {
+      "name": "Consensus",
+      "blocker": "REST access is request-gated; quotas depend on org plan.",
+      "access": "REV"
+    }
+  ],
+  "composio": {
+    "toolkits_found": 80,
+    "composio_managed": 32,
+    "total_tools": 13470,
+    "median_tools": 122,
+    "max_tools": 883,
+    "coverage_open_pct": 84,
+    "coverage_gated_pct": 74,
+    "open_n": 79,
+    "gated_n": 19
+  },
+  "easy_wins": [
+    {
+      "name": "Pylon",
+      "category": "Support and Helpdesk",
+      "auth": "Bearer token",
+      "surface": "REST"
+    },
+    {
+      "name": "LiveAgent",
+      "category": "Support and Helpdesk",
+      "auth": "API key",
+      "surface": "REST"
+    },
+    {
+      "name": "Vonage",
+      "category": "Communications and Messaging",
+      "auth": "API key",
+      "surface": "REST"
+    },
+    {
+      "name": "systeme.io",
+      "category": "Marketing, Ads, Email and Social",
+      "auth": "API key",
+      "surface": "REST"
+    },
+    {
+      "name": "WooCommerce",
+      "category": "Ecommerce",
+      "auth": "Basic (key/secret)",
+      "surface": "REST"
+    },
+    {
+      "name": "Magento (Adobe Commerce)",
+      "category": "Ecommerce",
+      "auth": "OAuth1 / token",
+      "surface": "REST + GraphQL"
+    },
+    {
+      "name": "Ecwid",
+      "category": "Ecommerce",
+      "auth": "API key",
+      "surface": "REST"
+    },
+    {
+      "name": "SE Ranking",
+      "category": "Data, SEO and Scraping",
+      "auth": "API key",
+      "surface": "REST"
+    },
+    {
+      "name": "Netlify",
+      "category": "Developer, Infra and Data platforms",
+      "auth": "API key",
+      "surface": "REST"
+    },
+    {
+      "name": "Binance",
+      "category": "Finance and Fintech",
+      "auth": "API key",
+      "surface": "REST + WebSocket"
+    },
+    {
+      "name": "Reducto",
+      "category": "AI, Research and Media-native",
+      "auth": "API key",
+      "surface": "REST"
+    }
+  ],
+  "outreach": [
+    {
+      "name": "DealCloud",
+      "category": "CRM and Sales",
+      "blocker": "Private-equity SaaS with no self-serve tenant; needs a customer instance plus admin-granted scopes."
+    },
+    {
+      "name": "Gladly",
+      "category": "Support and Helpdesk",
+      "blocker": "Enterprise-only contract; no trial org to obtain credentials from."
+    },
+    {
+      "name": "Salesforce Commerce Cloud",
+      "category": "Ecommerce",
+      "blocker": "Credit-metered sandboxes behind an existing B2C Commerce contract."
+    },
+    {
+      "name": "Ahrefs",
+      "category": "Data, SEO and Scraping",
+      "blocker": "Enterprise plan (listed $1,499/mo) and conflicting official eligibility statements."
+    },
+    {
+      "name": "Waterfall.io",
+      "category": "Data, SEO and Scraping",
+      "blocker": "No self-serve signup; key issued after a sales conversation."
+    },
+    {
+      "name": "Paygent Connect",
+      "category": "Finance and Fintech",
+      "blocker": "Merchant account and underwriting required; no self-serve sandbox surfaced."
+    },
+    {
+      "name": "iPayX",
+      "category": "Finance and Fintech",
+      "blocker": "Could not locate any primary documentation for this vendor."
+    },
+    {
+      "name": "PitchBook",
+      "category": "Finance and Fintech",
+      "blocker": "Enterprise contract plus a separate data agreement; no developer tier at all."
+    },
+    {
+      "name": "NotebookLM",
+      "category": "AI, Research and Media-native",
+      "blocker": "Enterprise Google Cloud licence required and the RAG query endpoint developers want does not exist."
+    }
+  ],
+  "mcp_official": 33
+}

@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Auth, access gates and agent-toolkit buildability across 100 SaaS apps, researched by an agent and verified in three loops.">
+<style>:root{color-scheme:light}body{margin:0;font:14px system-ui}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>The 100-App Buildability Map</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one column, documentation-density. Masthead states the answer; every
+   section below is evidence for it. Ordinal access scale runs cool -> warm. */
+:root{
+  --bg:#fbfaf8; --surface:#ffffff; --surface-2:#f4f2ee; --line:#e3dfd8; --line-2:#cfcac0;
+  --ink:#171614; --ink-2:#4b4740; --ink-3:#7d776c;
+  --accent:#0D9488; --accent-ink:#0b5f58;
+  --ss:#0D9488; --ssp:#2563EB; --rev:#D97706; --sales:#BE123C; --none:#78716C;
+  --good:#0D9488; --warn:#D97706; --bad:#BE123C;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121210; --surface:#1a1a18; --surface-2:#232320; --line:#2f2e2a; --line-2:#44423c;
+  --ink:#f2f0ec; --ink-2:#bdb9b1; --ink-3:#8b867c;
+  --accent:#2DD4BF; --accent-ink:#5eead4;
+  --ss:#0D9488; --ssp:#3B82F6; --rev:#D97706; --sales:#E11D48; --none:#78716C;
+  --good:#2DD4BF; --warn:#F59E0B; --bad:#FB7185;
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#121210; --surface:#1a1a18; --surface-2:#232320; --line:#2f2e2a; --line-2:#44423c;
+  --ink:#f2f0ec; --ink-2:#bdb9b1; --ink-3:#8b867c;
+  --accent:#2DD4BF; --accent-ink:#5eead4;
+  --ss:#0D9488; --ssp:#3B82F6; --rev:#D97706; --sales:#E11D48; --none:#78716C;
+  --good:#2DD4BF; --warn:#F59E0B; --bad:#FB7185;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;
+  -webkit-font-smoothing:antialiased;margin:0}
+.wrap{max-width:1140px;margin:0 auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));}
+h1,h2,h3{text-wrap:balance;margin:0;font-weight:600;letter-spacing:-.016em}
+p{margin:0}
+a{color:var(--accent-ink)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.dim{color:var(--ink-3)}
+.strong{font-weight:600}
+
+/* ---------- masthead ---------- */
+.hero{margin-top:calc(-1 * env(safe-area-inset-top,0px));
+  padding-top:calc(env(safe-area-inset-top,0px) + 2.6rem);
+  padding-bottom:2.2rem;background:var(--surface-2);border-bottom:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3)}
+h1{font-size:clamp(2rem,5.4vw,3.1rem);line-height:1.04;margin:.5rem 0 .7rem}
+.thesis{font-size:clamp(1rem,2.2vw,1.2rem);color:var(--ink-2);max-width:62ch}
+.thesis b{color:var(--ink);font-weight:600}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;
+  margin-top:1.8rem;background:var(--line);border:1px solid var(--line)}
+.kpi{background:var(--surface);padding:.85rem .95rem}
+.kpi .v{font-family:var(--mono);font-size:1.75rem;font-weight:600;line-height:1.1;
+  font-variant-numeric:tabular-nums}
+.kpi .l{font-size:11.5px;color:var(--ink-3);margin-top:.15rem;line-height:1.35}
+
+/* ---------- sections ---------- */
+section{padding-block:2.6rem;border-bottom:1px solid var(--line)}
+.shead{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;margin-bottom:.35rem}
+.snum{font-family:var(--mono);font-size:11px;color:var(--accent);font-weight:600;
+  letter-spacing:.1em}
+h2{font-size:clamp(1.3rem,3vw,1.65rem)}
+.lede{color:var(--ink-2);max-width:72ch;margin-bottom:1.5rem}
+
+/* ---------- patterns ---------- */
+.pats{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:1rem}
+.pat{background:var(--surface);border:1px solid var(--line);padding:1rem 1.05rem;
+  border-radius:3px;min-width:0}
+.pat .pn{font-family:var(--mono);font-size:2.05rem;font-weight:600;line-height:1;
+  color:var(--accent);font-variant-numeric:tabular-nums}
+.pat h3{font-size:.95rem;margin:.5rem 0 .3rem}
+.pat p{font-size:13px;color:var(--ink-2)}
+.pat.alert .pn{color:var(--warn)}
+
+/* ---------- gate matrix ---------- */
+.matrix{display:flex;flex-direction:column;gap:5px}
+.mrow{display:grid;grid-template-columns:minmax(96px,210px) 1fr 42px;gap:.7rem;align-items:center}
+.mlabel{font-size:12.5px;color:var(--ink-2);min-width:0;overflow-wrap:anywhere}
+.mbar{display:flex;height:24px;background:var(--surface-2);min-width:0;gap:2px}
+.seg{display:flex;align-items:center;justify-content:center;min-width:0}
+.seg span{font-family:var(--mono);font-size:10.5px;color:#fff;font-weight:600}
+.s-SS{background:var(--ss)} .s-SSP{background:var(--ssp)} .s-REV{background:var(--rev)}
+.s-SALES{background:var(--sales)} .s-NONE{background:var(--none)}
+.mpct{font-family:var(--mono);font-size:12.5px;text-align:right;font-variant-numeric:tabular-nums}
+.legend{display:flex;flex-wrap:wrap;gap:.45rem 1rem;margin-top:1.1rem;font-size:12px;
+  color:var(--ink-2)}
+.legend i{width:11px;height:11px;display:inline-block;margin-right:.35rem;
+  vertical-align:-1px;border-radius:1px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:2rem}
+
+/* ---------- auth bars ---------- */
+.abar{display:grid;grid-template-columns:minmax(90px,150px) 1fr 34px;gap:.7rem;
+  align-items:center;margin-bottom:6px}
+.alabel{font-size:12.5px;color:var(--ink-2);min-width:0}
+.atrack{background:var(--surface-2);height:20px;min-width:0}
+.afill{background:var(--accent);height:100%}
+.aval{font-family:var(--mono);font-size:12.5px;text-align:right;font-variant-numeric:tabular-nums}
+
+/* ---------- work queue ---------- */
+.wq{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.1rem}
+.wcard{border:1px solid var(--line);background:var(--surface);padding:1rem;border-radius:3px;
+  min-width:0}
+.wcard h3{font-size:.95rem;display:flex;align-items:baseline;gap:.5rem}
+.wcard h3 .c{font-family:var(--mono);color:var(--accent);font-size:1.3rem}
+.wcard.warn h3 .c{color:var(--sales)}
+.wcard p{font-size:12.5px;color:var(--ink-2);margin:.4rem 0 .7rem}
+.wchip{display:inline-block;font-family:var(--mono);font-size:11px;padding:2px 7px;
+  margin:0 4px 4px 0;background:var(--surface-2);border:1px solid var(--line);border-radius:2px}
+.wchip.warn{border-color:var(--sales);color:var(--sales)}
+
+/* ---------- pipeline ---------- */
+.pipe{display:grid;grid-template-columns:repeat(auto-fit,minmax(176px,1fr));gap:.75rem;
+  margin-bottom:1.3rem}
+.step{border:1px solid var(--line);background:var(--surface);padding:.8rem .85rem;
+  border-radius:3px;min-width:0}
+.step .sn{font-family:var(--mono);font-size:10.5px;color:var(--accent);letter-spacing:.1em}
+.step h4{margin:.3rem 0 .25rem;font-size:13.5px;font-weight:600}
+.step p{font-size:12px;color:var(--ink-2)}
+.step .auto{display:inline-block;margin-top:.5rem;font-family:var(--mono);font-size:10px;
+  padding:1px 6px;border-radius:2px;border:1px solid var(--line-2);color:var(--ink-3)}
+.step .auto.h{border-color:var(--rev);color:var(--rev)}
+
+/* ---------- verification ---------- */
+.loop{border:1px solid var(--line);background:var(--surface);border-radius:3px;
+  padding:1rem 1.05rem;margin-bottom:1rem}
+.loop h3{font-size:.95rem;display:flex;gap:.55rem;align-items:baseline;flex-wrap:wrap}
+.loop h3 .tag{font-family:var(--mono);font-size:10.5px;color:var(--accent);letter-spacing:.08em}
+.loop > p{font-size:13px;color:var(--ink-2);margin:.45rem 0 .9rem;max-width:74ch}
+.delta{display:flex;align-items:center;gap:.9rem;flex-wrap:wrap;
+  background:var(--surface-2);padding:.7rem .8rem;border-radius:3px}
+.dcol .dl{font-size:10.5px;color:var(--ink-3);font-family:var(--mono);letter-spacing:.08em;
+  text-transform:uppercase}
+.dcol .dv{font-family:var(--mono);font-size:1.3rem;font-weight:600;line-height:1.15;
+  font-variant-numeric:tabular-nums}
+.dcol.before .dv{color:var(--ink-3)}
+.dcol.after .dv{color:var(--good)}
+.arrow{color:var(--ink-3);font-size:1.1rem}
+.dnote{font-size:12px;color:var(--ink-2);margin-top:.6rem}
+table.t{width:100%;border-collapse:collapse;font-size:12.5px}
+table.t th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-3);font-weight:500;padding:.4rem .5rem;
+  border-bottom:1px solid var(--line-2);white-space:nowrap}
+table.t td{padding:.4rem .5rem;border-bottom:1px solid var(--line)}
+.miss{border-left:3px solid var(--bad);background:var(--surface);padding:.75rem .9rem;
+  margin-bottom:.7rem;border-radius:0 3px 3px 0}
+.miss.weak{border-left-color:var(--warn)}
+.mh{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin-bottom:.35rem}
+.vd{font-family:var(--mono);font-size:10px;font-weight:600;padding:1px 6px;border-radius:2px;
+  color:#fff;background:var(--bad)}
+.vd.WEAK{background:var(--warn)}
+.fld{font-size:11px;color:var(--ink-3)}
+.md{font-size:12px;margin-bottom:.15rem}
+.md .was,.md .now{font-family:var(--mono);font-size:10px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-3);margin-right:.35rem}
+.md code{font-family:var(--mono);font-size:11.5px;background:var(--surface-2);padding:1px 5px;
+  border-radius:2px;overflow-wrap:anywhere}
+.miss p{font-size:12.5px;color:var(--ink-2);margin-top:.45rem}
+
+/* ---------- chips & pills ---------- */
+.pill{display:inline-block;font-family:var(--mono);font-size:10.5px;padding:1.5px 6px;
+  border-radius:2px;color:#fff;white-space:nowrap}
+.p-SS{background:var(--ss)} .p-SSP{background:var(--ssp)} .p-REV{background:var(--rev)}
+.p-SALES{background:var(--sales)} .p-NONE{background:var(--none)}
+.tier{display:inline-block;font-family:var(--mono);font-size:10px;padding:1px 5px;
+  border-radius:2px;border:1px solid var(--line-2);color:var(--ink-3)}
+.t-grounded{border-color:var(--good);color:var(--good)}
+.t-catalog{border-color:var(--ssp);color:var(--ssp)}
+.t-prior{border-color:var(--warn);color:var(--warn)}
+.chip{font-family:var(--mono);font-size:10px;padding:1px 5px;border-radius:2px}
+.chip.ok{background:color-mix(in srgb,var(--good) 18%,transparent);color:var(--good)}
+.chip.no{background:var(--surface-2);color:var(--ink-3)}
+.bd{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:.45rem;
+  vertical-align:1px}
+.b-yes{background:var(--good)} .b-yes_with_caveats{background:var(--warn)}
+.b-blocked{background:var(--bad)}
+
+/* ---------- data table ---------- */
+.controls{display:flex;gap:.55rem;flex-wrap:wrap;margin-bottom:1rem;align-items:center}
+.controls input,.controls select{font-family:var(--sans);font-size:12.5px;padding:.42rem .55rem;
+  background:var(--surface);color:var(--ink);border:1px solid var(--line-2);border-radius:3px}
+.controls input{flex:1 1 190px;min-width:0}
+.count{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:3px;background:var(--surface)}
+table.d{width:100%;border-collapse:collapse;font-size:12.5px;min-width:960px}
+table.d th{position:sticky;top:0;background:var(--surface-2);text-align:left;
+  font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:500;padding:.5rem .6rem;border-bottom:1px solid var(--line-2);
+  white-space:nowrap;z-index:1}
+table.d td{padding:.5rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
+table.d tr:last-child td{border-bottom:0}
+td.num{color:var(--ink-3);width:34px}
+td.nm{min-width:190px}
+td.nm .sub{display:block;font-size:11.5px;color:var(--ink-3);line-height:1.35;margin-top:1px}
+td.sm{font-size:11.5px;color:var(--ink-2);max-width:230px}
+td.ctr{white-space:nowrap}
+td.ev a{display:inline-block;font-family:var(--mono);font-size:10px;width:16px;height:16px;
+  line-height:15px;text-align:center;border:1px solid var(--line-2);border-radius:2px;
+  margin-right:3px;text-decoration:none;color:var(--ink-3)}
+td.ev a:hover{border-color:var(--accent);color:var(--accent)}
+tr:hover td{background:var(--surface-2)}
+
+/* ---------- limits ---------- */
+.limits{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1rem}
+.limit{border:1px dashed var(--line-2);padding:.85rem .95rem;border-radius:3px;min-width:0}
+.limit h3{font-size:13px;margin-bottom:.3rem}
+.limit p{font-size:12.5px;color:var(--ink-2)}
+footer{padding-block:2rem;color:var(--ink-3);font-size:12.5px}
+footer a{margin-right:1rem}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:560px){
+  .mrow{grid-template-columns:1fr 38px;grid-template-areas:"l l" "b p"}
+  .mlabel{grid-area:l} .mbar{grid-area:b} .mpct{grid-area:p}
+}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Composio · AI Product Ops · take-home</div>
+    <h1>The 100-App Buildability Map</h1>
+    <p class="thesis">Across 100 apps, <b>auth is almost never the blocker — access is</b>.
+      Four in five expose a key you can get yourself. The ones you can't build are not
+      technically hard; they are behind a human who has to say yes.</p>
+    <div class="kpis">
+      <div class="kpi"><div class="v">79<span class="dim" style="font-size:1rem">/100</span></div>
+        <div class="l">self-serve credentials<br>(58 free · 21 paid plan)</div></div>
+      <div class="kpi"><div class="v">19</div>
+        <div class="l">behind a review or<br>sales gate</div></div>
+      <div class="kpi"><div class="v">8</div>
+        <div class="l">cannot be built today<br>at any effort</div></div>
+      <div class="kpi"><div class="v">80</div>
+        <div class="l">already shipped as a<br>Composio toolkit</div></div>
+      <div class="kpi"><div class="v">90%</div>
+        <div class="l">audit accuracy on a<br>20-row hand check</div></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="shead"><span class="snum">01</span><h2>The patterns</h2></div>
+    <p class="lede">Five findings that hold across all 100. Every number here is a count over
+      <span class="mono">data/findings.json</span> and recomputable from the repo.</p>
+    <div class="pats">
+      <div class="pat">
+        <div class="pn">50/40</div>
+        <h3>API keys beat OAuth2, and that is the easy half</h3>
+        <p>50 apps lead with a static key or token, 40 with OAuth2. A key is
+          a one-line integration; OAuth2 is a redirect, a token store and a refresh loop. Composio's
+          managed auth erases exactly that difference, so the auth split predicts build cost,
+          not feasibility.</p>
+      </div>
+      <div class="pat alert">
+        <div class="pn">50%</div>
+        <h3>Marketing &amp; Ads is the gated category</h3>
+        <p>Only half of the ad platforms are open. Google Ads, Meta Ads, LinkedIn Ads, Pinterest
+          and Threads each put a human review between you and a production token. No other
+          category comes close — Developer Infra and Productivity are 100% open.</p>
+      </div>
+      <div class="pat">
+        <div class="pn">9</div>
+        <h3>The real blocker is a sales call, not a spec</h3>
+        <p>9 apps require a partnership, enterprise contract or booked call before any
+          credential exists. Every one of them has perfectly good public documentation. The
+          blocker is commercial, which means it is solved by outreach, not engineering.</p>
+      </div>
+      <div class="pat">
+        <div class="pn">84/74</div>
+        <h3>Coverage already tracks openness</h3>
+        <p>Composio ships toolkits for 84% of the self-serve apps but 74% of the
+          gated ones. The catalog has naturally grown along the path of least resistance —
+          which is where the remaining 9-app outreach list comes from.</p>
+      </div>
+      <div class="pat">
+        <div class="pn">2</div>
+        <h3>Two apps are not apps</h3>
+        <p>Sherlock and Mermaid CLI are open-source command-line tools with no hosted service and
+          nothing to authenticate against. Listing them as "blocked" would be wrong: they need a
+          sandboxed exec wrapper, which is a different product decision entirely.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="shead"><span class="snum">02</span><h2>Where the gates are</h2></div>
+    <p class="lede">Each row is one category, 10 apps wide, sorted by how open it is. The number
+      on the right is the share with self-serve credentials.</p>
+    <div class="matrix"><div class="mrow"><div class="mlabel">Developer, Infra and Data platforms</div><div class="mbar"><div class="seg s-SS" style="width:100.0000%" title="Developer, Infra and Data platforms — Self-serve: 10 of 10"><span>10</span></div></div><div class="mpct">100%</div></div>
+<div class="mrow"><div class="mlabel">Productivity and Project Management</div><div class="mbar"><div class="seg s-SS" style="width:90.0000%" title="Productivity and Project Management — Self-serve: 9 of 10"><span>9</span></div><div class="seg s-SSP" style="width:10.0000%" title="Productivity and Project Management — Self-serve · paid: 1 of 10"><span>1</span></div></div><div class="mpct">100%</div></div>
+<div class="mrow"><div class="mlabel">CRM and Sales</div><div class="mbar"><div class="seg s-SS" style="width:60.0000%" title="CRM and Sales — Self-serve: 6 of 10"><span>6</span></div><div class="seg s-SSP" style="width:30.0000%" title="CRM and Sales — Self-serve · paid: 3 of 10"><span>3</span></div><div class="seg s-SALES" style="width:10.0000%" title="CRM and Sales — Sales gate: 1 of 10"><span>1</span></div></div><div class="mpct">90%</div></div>
+<div class="mrow"><div class="mlabel">Support and Helpdesk</div><div class="mbar"><div class="seg s-SS" style="width:30.0000%" title="Support and Helpdesk — Self-serve: 3 of 10"><span>3</span></div><div class="seg s-SSP" style="width:60.0000%" title="Support and Helpdesk — Self-serve · paid: 6 of 10"><span>6</span></div><div class="seg s-SALES" style="width:10.0000%" title="Support and Helpdesk — Sales gate: 1 of 10"><span>1</span></div></div><div class="mpct">90%</div></div>
+<div class="mrow"><div class="mlabel">Communications and Messaging</div><div class="mbar"><div class="seg s-SS" style="width:70.0000%" title="Communications and Messaging — Self-serve: 7 of 10"><span>7</span></div><div class="seg s-SSP" style="width:20.0000%" title="Communications and Messaging — Self-serve · paid: 2 of 10"><span>2</span></div><div class="seg s-REV" style="width:10.0000%" title="Communications and Messaging — Review gate: 1 of 10"><span>1</span></div></div><div class="mpct">90%</div></div>
+<div class="mrow"><div class="mlabel">Ecommerce</div><div class="mbar"><div class="seg s-SS" style="width:50.0000%" title="Ecommerce — Self-serve: 5 of 10"><span>5</span></div><div class="seg s-SSP" style="width:30.0000%" title="Ecommerce — Self-serve · paid: 3 of 10"><span>3</span></div><div class="seg s-REV" style="width:10.0000%" title="Ecommerce — Review gate: 1 of 10"><span>1</span></div><div class="seg s-SALES" style="width:10.0000%" title="Ecommerce — Sales gate: 1 of 10"><span>1</span></div></div><div class="mpct">80%</div></div>
+<div class="mrow"><div class="mlabel">AI, Research and Media-native</div><div class="mbar"><div class="seg s-SS" style="width:40.0000%" title="AI, Research and Media-native — Self-serve: 4 of 10"><span>4</span></div><div class="seg s-SSP" style="width:30.0000%" title="AI, Research and Media-native — Self-serve · paid: 3 of 10"><span>3</span></div><div class="seg s-REV" style="width:10.0000%" title="AI, Research and Media-native — Review gate: 1 of 10"><span>1</span></div><div class="seg s-SALES" style="width:10.0000%" title="AI, Research and Media-native — Sales gate: 1 of 10"><span>1</span></div><div class="seg s-NONE" style="width:10.0000%" title="AI, Research and Media-native — No API: 1 of 10"><span>1</span></div></div><div class="mpct">70%</div></div>
+<div class="mrow"><div class="mlabel">Data, SEO and Scraping</div><div class="mbar"><div class="seg s-SS" style="width:40.0000%" title="Data, SEO and Scraping — Self-serve: 4 of 10"><span>4</span></div><div class="seg s-SSP" style="width:20.0000%" title="Data, SEO and Scraping — Self-serve · paid: 2 of 10"><span>2</span></div><div class="seg s-REV" style="width:10.0000%" title="Data, SEO and Scraping — Review gate: 1 of 10"><span>1</span></div><div class="seg s-SALES" style="width:20.0000%" title="Data, SEO and Scraping — Sales gate: 2 of 10"><span>2</span></div><div class="seg s-NONE" style="width:10.0000%" title="Data, SEO and Scraping — No API: 1 of 10"><span>1</span></div></div><div class="mpct">60%</div></div>
+<div class="mrow"><div class="mlabel">Finance and Fintech</div><div class="mbar"><div class="seg s-SS" style="width:60.0000%" title="Finance and Fintech — Self-serve: 6 of 10"><span>6</span></div><div class="seg s-REV" style="width:10.0000%" title="Finance and Fintech — Review gate: 1 of 10"><span>1</span></div><div class="seg s-SALES" style="width:30.0000%" title="Finance and Fintech — Sales gate: 3 of 10"><span>3</span></div></div><div class="mpct">60%</div></div>
+<div class="mrow"><div class="mlabel">Marketing, Ads, Email and Social</div><div class="mbar"><div class="seg s-SS" style="width:40.0000%" title="Marketing, Ads, Email and Social — Self-serve: 4 of 10"><span>4</span></div><div class="seg s-SSP" style="width:10.0000%" title="Marketing, Ads, Email and Social — Self-serve · paid: 1 of 10"><span>1</span></div><div class="seg s-REV" style="width:50.0000%" title="Marketing, Ads, Email and Social — Review gate: 5 of 10"><span>5</span></div></div><div class="mpct">50%</div></div></div>
+    <div class="legend">
+      <span><i style="background:var(--ss)"></i>Self-serve (free)</span>
+      <span><i style="background:var(--ssp)"></i>Self-serve (paid plan)</span>
+      <span><i style="background:var(--rev)"></i>Review / approval gate</span>
+      <span><i style="background:var(--sales)"></i>Sales / partnership gate</span>
+      <span><i style="background:var(--none)"></i>No public API</span>
+    </div>
+    <div class="two" style="margin-top:2.4rem">
+      <div>
+        <h3 style="font-size:.95rem;margin-bottom:.9rem">Primary auth method</h3>
+        <div class="abar"><div class="alabel">API key / token</div><div class="atrack"><div class="afill" style="width:50.000%"></div></div><div class="aval">50</div></div>
+<div class="abar"><div class="alabel">OAuth2</div><div class="atrack"><div class="afill" style="width:40.000%"></div></div><div class="aval">40</div></div>
+<div class="abar"><div class="alabel">Basic / digest</div><div class="atrack"><div class="afill" style="width:6.000%"></div></div><div class="aval">6</div></div>
+<div class="abar"><div class="alabel">No auth surface</div><div class="atrack"><div class="afill" style="width:2.000%"></div></div><div class="aval">2</div></div>
+<div class="abar"><div class="alabel">OAuth1 / token pair</div><div class="atrack"><div class="afill" style="width:1.000%"></div></div><div class="aval">1</div></div>
+<div class="abar"><div class="alabel">Other / unknown</div><div class="atrack"><div class="afill" style="width:1.000%"></div></div><div class="aval">1</div></div>
+      </div>
+      <div>
+        <h3 style="font-size:.95rem;margin-bottom:.9rem">What Composio already covers</h3>
+        <table class="t">
+          <tr><td>Toolkits in the catalog</td><td class="mono strong">80/100</td></tr>
+          <tr><td>Composio-managed auth</td><td class="mono strong">32</td></tr>
+          <tr><td>Tools exposed in total</td><td class="mono strong">13,470</td></tr>
+          <tr><td>Median tools per toolkit</td><td class="mono strong">122</td></tr>
+          <tr><td>Largest toolkit (GitHub)</td><td class="mono strong">883</td></tr>
+          <tr><td>Apps with an official MCP</td><td class="mono strong">33</td></tr>
+        </table>
+        <p style="font-size:12px;color:var(--ink-3);margin-top:.6rem">Probed live from
+          <span class="mono">composio.dev/toolkits/&lt;slug&gt;.md</span> — not estimated.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="shead"><span class="snum">03</span><h2>What to do about it</h2></div>
+    <p class="lede">The map only matters if it changes a queue. It splits the 100 into three
+      piles with different owners.</p>
+    <div class="wq">
+      <div class="wcard">
+        <h3><span class="c">11</span> Easy wins — ship, don't ask</h3>
+        <p>Self-serve credentials, buildable today, no Composio toolkit yet. An engineer can
+          start any of these this afternoon without talking to the vendor.</p>
+        <span class="wchip ">Pylon</span><span class="wchip ">LiveAgent</span><span class="wchip ">Vonage</span><span class="wchip ">systeme.io</span><span class="wchip ">WooCommerce</span><span class="wchip ">Magento (Adobe Commerce)</span><span class="wchip ">Ecwid</span><span class="wchip ">SE Ranking</span><span class="wchip ">Netlify</span><span class="wchip ">Binance</span><span class="wchip ">Reducto</span>
+      </div>
+      <div class="wcard warn">
+        <h3><span class="c">9</span> Needs outreach, not engineering</h3>
+        <p>Sales or partnership gated. The work here is a conversation and a contract. Shipping
+          order should follow who answers the email, not who has the nicer API.</p>
+        <span class="wchip warn">DealCloud</span><span class="wchip warn">Gladly</span><span class="wchip warn">Salesforce Commerce Cloud</span><span class="wchip warn">Ahrefs</span><span class="wchip warn">Waterfall.io</span><span class="wchip warn">Paygent Connect</span><span class="wchip warn">iPayX</span><span class="wchip warn">PitchBook</span><span class="wchip warn">NotebookLM</span>
+      </div>
+      <div class="wcard">
+        <h3><span class="c">10</span> Review gates — budget the wait</h3>
+        <p>Self-registration works, but production access needs an approval that takes days to
+          weeks: Amazon SP-API quotes 1–2 weeks, Pinterest wants a demo video, Meta needs 500
+          API calls in 15 days before you can even apply.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="shead"><span class="snum">04</span><h2>The agent</h2></div>
+    <p class="lede">A five-stage pipeline. Three stages are fully automated and reproducible from
+      the repo; two needed a human, and the page says which.</p>
+    <div class="pipe">
+      <div class="step"><div class="sn">STAGE 1</div><h4>Seed</h4>
+        <p>100 apps, 10 categories, parsed straight out of the brief into
+          <span class="mono">apps.json</span>.</p>
+        <span class="auto">automated</span></div>
+      <div class="step"><div class="sn">STAGE 2</div><h4>Catalog probe</h4>
+        <p>Async slug resolution against Composio's public toolkit pages; parses auth schemes,
+          tool counts, triggers. 100 apps in ~40s.</p>
+        <span class="auto">automated</span></div>
+      <div class="step"><div class="sn">STAGE 3</div><h4>Doc research</h4>
+        <p>Targeted search per app, returning primary documentation URLs for auth, pricing and
+          access gates.</p>
+        <span class="auto h">human in the loop</span></div>
+      <div class="step"><div class="sn">STAGE 4</div><h4>Verify</h4>
+        <p>Parser regression with ground truth, plus cross-source agreement between Composio's
+          classification and the vendor's own docs.</p>
+        <span class="auto">automated</span></div>
+      <div class="step"><div class="sn">STAGE 5</div><h4>Cluster &amp; render</h4>
+        <p>Deterministic counts into <span class="mono">patterns.json</span>; this page is
+          generated from it, so it cannot drift from the data.</p>
+        <span class="auto">automated</span></div>
+    </div>
+    <div class="two">
+      <div class="wcard">
+        <h3 style="margin-bottom:.5rem">Where a human was needed</h3>
+        <p style="margin-bottom:.6rem"><b>Slug resolution.</b> Composio's slugs are not derivable
+          from app names — <span class="mono">Zoho CRM → zoho</span>,
+          <span class="mono">Otter AI → otter_ai_mcp</span>. 41 of 100 needed a hand-written
+          alias. They live in one audited dict in
+          <span class="mono">agent/composio_catalog.py</span>.</p>
+        <p style="margin-bottom:.6rem"><b>Judging "gated".</b> No page says "we are partner-gated".
+          You infer it from a Request access button, a missing price, or a help article that
+          contradicts another one. Ahrefs publishes two articles that disagree about whether its
+          API needs Enterprise. A classifier picks one; a human records the conflict.</p>
+        <p><b>Knowing when to stop.</b> For iPayX, the correct output is "not found". Every search
+          returned a different company called iPay. The valuable behaviour was refusing to fill
+          the cell.</p>
+      </div>
+      <div class="wcard">
+        <h3 style="margin-bottom:.5rem">Design decisions worth defending</h3>
+        <p style="margin-bottom:.6rem"><b>No LLM in the scoring path.</b> Every number on this page
+          is a count, not a model output. The model's job was reading documentation; arithmetic is
+          Python's. That is why the patterns are reproducible.</p>
+        <p style="margin-bottom:.6rem"><b>Provenance per row, not per dataset.</b> Each row carries
+          the tier of evidence behind it. Averaging a confident row with a guess hides exactly the
+          thing a reviewer needs to see — and the audit showed the tiers really do predict accuracy.</p>
+        <p><b>Composio's catalog as a second opinion.</b> Using it as an independent source made the
+          cross-source loop possible and caught two bugs in my own normaliser.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="shead"><span class="snum">05</span><h2>Verification</h2></div>
+    <p class="lede">Three loops. Two have hard ground truth and show a measured first-pass to
+      second-pass gain; the third is a hand audit that found two real errors, both corrected in
+      the data above.</p>
+
+    <div class="loop">
+      <h3><span class="tag">LOOP A</span> Parser regression — 79 pages, ground truth available</h3>
+      <p>Pass 1 matched auth keywords anywhere in a Composio toolkit page. Pass 2 reads only the
+        documented <span class="mono">## Authentication</span> section and its machine-readable
+        <span class="mono">Type:</span> lines, which are the ground truth. Pass 1 invented
+        36 auth schemes that do not exist across 30 pages — Telegram came back with
+        four schemes when it has one, because the page's prose mentions the others.</p>
+      <div class="delta">
+        <div class="dcol before"><div class="dl">pass 1 · precision</div><div class="dv">0.739</div></div>
+        <span class="arrow">→</span>
+        <div class="dcol after"><div class="dl">pass 2 · precision</div><div class="dv">1.000</div></div>
+        <div class="dcol before" style="margin-left:1rem"><div class="dl">pass 1 · F1</div><div class="dv">0.826</div></div>
+        <span class="arrow">→</span>
+        <div class="dcol after"><div class="dl">pass 2 · F1</div><div class="dv">1.000</div></div>
+      </div>
+      <p class="dnote">Recall was already 0.936; the problem was never missing schemes, it was
+        confidently adding fake ones. Precision is the metric that matters when an agent writes
+        into a catalog.</p>
+    </div>
+
+    <div class="loop">
+      <h3><span class="tag">LOOP B</span> Cross-source agreement — 78 comparable rows</h3>
+      <p>Composio's published classification versus the auth method extracted from each vendor's
+        own documentation. Two independent sources; any disagreement is flagged for a human.</p>
+      <div class="delta">
+        <div class="dcol before"><div class="dl">normaliser v1</div><div class="dv">96.2%</div></div>
+        <span class="arrow">→</span>
+        <div class="dcol after"><div class="dl">normaliser v2</div><div class="dv">98.7%</div></div>
+      </div>
+      <p class="dnote">Three conflicts. Two (Plaid, higgsfield) were bugs in my own normaliser —
+        it only recognised the words "api key" and "token", so credential pairs like
+        <span class="mono">client_id + secret</span> normalised to nothing and produced phantom
+        disagreements. Fixing that left 1 real conflict: <b>Consensus</b>, where the REST
+        API uses an API key and the MCP server uses OAuth 2.1. Both sources are right about
+        different surfaces; the row now records both.</p>
+    </div>
+
+    <div class="loop">
+      <h3><span class="tag">LOOP C</span> Human audit — 20 of 100, stratified</h3>
+      <p>Sampled across evidence tier and access class, deliberately over-sampling the weakest
+        tier. Verdicts: 13 OK, 5 defensible-but-under-evidenced, 2
+        wrong. Strict accuracy 65%; 90% counting WEAK rows as acceptable.</p>
+      <table class="t" style="margin-bottom:1rem">
+        <thead><tr><th>Evidence tier</th><th>Sampled</th><th>OK</th><th>Weak</th><th>Miss</th>
+          <th>Strict</th></tr></thead>
+        <tbody><tr><td><span class="tier t-catalog">catalog</span></td><td class="mono">5</td><td class="mono">5</td><td class="mono">0</td><td class="mono">0</td><td class="mono strong">100%</td></tr>
+<tr><td><span class="tier t-grounded">grounded</span></td><td class="mono">10</td><td class="mono">7</td><td class="mono">3</td><td class="mono">0</td><td class="mono strong">70%</td></tr>
+<tr><td><span class="tier t-prior">prior</span></td><td class="mono">5</td><td class="mono">1</td><td class="mono">2</td><td class="mono">2</td><td class="mono strong">20%</td></tr></tbody>
+      </table>
+      <p class="dnote" style="margin-bottom:1rem"><b>The tier predicts the error.</b> Both misses
+        came from <span class="tier t-prior">prior</span> — rows resting on model knowledge
+        anchored to a canonical URL rather than a page read during this run. Catalog rows, which
+        are re-fetched and machine-parsed, were 5/5. That is the argument for labelling provenance
+        per row instead of quoting one accuracy number for the dataset.</p>
+      <div class="miss"><div class="mh"><span class="vd MISS">MISS</span><strong>Harvest</strong><span class="tier t-prior">prior</span><span class="fld mono">access_note</span></div><div class="md"><span class="was">was</span> <code>Free 30-day trial; PAT and account ID from the developer page.</code></div><div class="md"><span class="now">now</span> <code>Free Harvest plan (1 seat / 2 projects) plus a 30-day trial of paid tiers; PAT and account ID from id.getharvest.com/developers.</code></div><p>Row implied a trial was the only free route. Harvest has a standing free plan, so the access class is right but the note was wrong.</p></div>
+<div class="miss"><div class="mh"><span class="vd MISS">MISS</span><strong>Plaid</strong><span class="tier t-prior">prior</span><span class="fld mono">access</span></div><div class="md"><span class="was">was</span> <code>SS</code></div><div class="md"><span class="now">now</span> <code>REV</code></div><p>Sandbox keys are instant, but Production access is a separate reviewed request. Under this taxonomy that is REV, not SS. Classifying on the sandbox alone overstated how buildable the production path is.</p></div>
+<div class="miss weak"><div class="mh"><span class="vd WEAK">WEAK</span><strong>Ahrefs</strong><span class="tier t-grounded">grounded</span><span class="fld mono">access</span></div><p>Two Ahrefs help-centre articles contradict each other: one says Enterprise-only for new applications, the other says Lite and above. Kept as SALES with the conflict stated on the page rather than silently picking one.</p></div>
+<div class="miss weak"><div class="mh"><span class="vd WEAK">WEAK</span><strong>Consensus</strong><span class="tier t-grounded">grounded</span><span class="fld mono">access</span></div><p>Two surfaces with different gates: the MCP server supports OAuth 2.1 with dynamic client registration (effectively self-serve) while the REST API sits behind a 'Request access' button. Classified REV for the REST surface; the MCP route is softer than that label implies. This is also Loop B's one surviving conflict.</p></div>
+<div class="miss weak"><div class="mh"><span class="vd WEAK">WEAK</span><strong>Otter AI</strong><span class="tier t-grounded">grounded</span><span class="fld mono">access</span></div><p>Otter has a free consumer tier, but no official public REST reference was located and the Bearer-key claim comes from a third-party comparison, not Otter's docs. Confidence lowered to medium.</p></div>
+<div class="miss weak"><div class="mh"><span class="vd WEAK">WEAK</span><strong>Neo4j</strong><span class="tier t-prior">prior</span><span class="fld mono">surface</span></div><p>'REST (Aura/HTTP) + Bolt' is accurate but flattens a real distinction: the Aura management API and the per-database Query API are different products with different auth. An agent toolkit would target one or the other, not both.</p></div>
+<div class="miss weak"><div class="mh"><span class="vd WEAK">WEAK</span><strong>Binance</strong><span class="tier t-prior">prior</span><span class="fld mono">access</span></div><p>Self-serve is true in supported jurisdictions only; Binance.US and regional restrictions materially change the answer and the row does not capture that.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="shead"><span class="snum">06</span><h2>All 100</h2>
+      <span class="count" id="count"></span></div>
+    <p class="lede">Sortable and filterable. The numbered links in the last column are the
+      evidence behind that row.</p>
+    <div class="controls">
+      <input id="q" type="search" placeholder="Search app, auth, description…" aria-label="Search apps">
+      <select id="fcat" aria-label="Filter by category"><option value="">All categories</option><option value="1">CRM and Sales</option><option value="2">Support and Helpdesk</option><option value="3">Communications and Messaging</option><option value="4">Marketing, Ads, Email and Social</option><option value="5">Ecommerce</option><option value="6">Data, SEO and Scraping</option><option value="7">Developer, Infra and Data platforms</option><option value="8">Productivity and Project Management</option><option value="9">Finance and Fintech</option><option value="10">AI, Research and Media-native</option></select>
+      <select id="facc" aria-label="Filter by access">
+        <option value="">All access</option>
+        <option value="SS">Self-serve (free)</option>
+        <option value="SSP">Self-serve (paid)</option>
+        <option value="REV">Review gate</option>
+        <option value="SALES">Sales gate</option>
+        <option value="NONE">No public API</option>
+      </select>
+      <select id="fbuild" aria-label="Filter by buildability">
+        <option value="">All verdicts</option>
+        <option value="yes">Buildable today</option>
+        <option value="yes_with_caveats">With caveats</option>
+        <option value="blocked">Blocked</option>
+      </select>
+      <select id="fck" aria-label="Filter by Composio coverage">
+        <option value="">Any coverage</option>
+        <option value="0">No toolkit yet</option>
+        <option value="1">Toolkit exists</option>
+      </select>
+    </div>
+    <div class="scroll">
+      <table class="d">
+        <thead><tr>
+          <th>#</th><th>App</th><th>Primary auth</th><th>Access</th><th>Surface</th>
+          <th>Main blocker</th><th>Composio</th><th>Evidence tier</th><th>Src</th>
+        </tr></thead>
+        <tbody id="tb"><tr data-cat="1" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="salesforce enterprise crm and the reference implementation for oauth2-gated saas. oauth2"><td class="num mono">1</td><td class="nm"><strong>Salesforce</strong><span class="sub">Enterprise CRM and the reference implementation for OAuth2-gated SaaS.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST + SOAP + GraphQL</td><td><span class="bd b-yes"></span><span class="sm">Per-org API call limits on low editions; sandbox setup is heavy.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">556</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/salesforce.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="1" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="hubspot smb crm and marketing automation suite. oauth2"><td class="num mono">2</td><td class="nm"><strong>HubSpot</strong><span class="sub">SMB CRM and marketing automation suite.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Legacy API keys deprecated in favour of private-app tokens.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">354</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://developers.hubspot.com/docs/api/private-apps" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/hubspot.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="1" data-access="SSP" data-build="yes" data-verif="catalog" data-ck="1" data-q="pipedrive sales-pipeline crm aimed at smb sales teams. api key"><td class="num mono">3</td><td class="nm"><strong>Pipedrive</strong><span class="sub">Sales-pipeline CRM aimed at SMB sales teams.</span></td><td class="mono sm">API key</td><td><span class="pill p-SSP">Self-serve · paid</span></td><td class="sm">REST + GraphQL</td><td><span class="bd b-yes"></span><span class="sm">No permanent free tier; token dies with the trial.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">404</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://developers.pipedrive.com/docs/api/v1" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/pipedrive.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="1" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="attio modern relationship-first crm with a flexible data model. oauth2"><td class="num mono">4</td><td class="nm"><strong>Attio</strong><span class="sub">Modern relationship-first CRM with a flexible data model.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">—</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">105</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://developers.attio.com/reference/get_v2-objects" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/attio.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="1" data-access="SS" data-build="yes" data-verif="grounded" data-ck="1" data-q="twenty open-source crm positioned as a salesforce/hubspot alternative. api key"><td class="num mono">5</td><td class="nm"><strong>Twenty</strong><span class="sub">Open-source CRM positioned as a Salesforce/HubSpot alternative.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST + GraphQL</td><td><span class="bd b-yes"></span><span class="sm">GraphQL introspection disabled for API keys on self-hosted instances.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">23</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://docs.twenty.com/developers/extend/api" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/twenty.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="1" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="podio legacy collaborative work-management and lightweight crm platform. oauth2"><td class="num mono">6</td><td class="nm"><strong>Podio</strong><span class="sub">Legacy collaborative work-management and lightweight CRM platform.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Product is in maintenance mode; low investment from Citrix.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">143</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://developers.podio.com/authentication" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/podio.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="1" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="zoho crm full-suite crm inside the broader zoho business-app ecosystem. oauth2"><td class="num mono">7</td><td class="nm"><strong>Zoho CRM</strong><span class="sub">Full-suite CRM inside the broader Zoho business-app ecosystem.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Data-centre-specific domains (.com/.eu/.in) complicate token routing.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">115</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://www.zoho.com/crm/developer/docs/api/v8/oauth-overview.html" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/zoho.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="1" data-access="SSP" data-build="yes" data-verif="catalog" data-ck="1" data-q="close inside-sales crm with built-in calling and email sequencing. api key"><td class="num mono">8</td><td class="nm"><strong>Close</strong><span class="sub">Inside-sales CRM with built-in calling and email sequencing.</span></td><td class="mono sm">API key</td><td><span class="pill p-SSP">Self-serve · paid</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Paid plan required before a key exists.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">75</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://developer.close.com/resources/authentication/" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/close.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="1" data-access="SSP" data-build="yes" data-verif="catalog" data-ck="1" data-q="copper google-workspace-native crm for smb sales teams. api key"><td class="num mono">9</td><td class="nm"><strong>Copper</strong><span class="sub">Google-Workspace-native CRM for SMB sales teams.</span></td><td class="mono sm">API key</td><td><span class="pill p-SSP">Self-serve · paid</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Paid plan required; API is narrow.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">65</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://developer.copper.com/introduction/authentication.html" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/copper.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="1" data-access="SALES" data-build="blocked" data-verif="grounded" data-ck="0" data-q="dealcloud deal and relationship management for private capital markets. oauth2 client credentials"><td class="num mono">10</td><td class="nm"><strong>DealCloud</strong><span class="sub">Deal and relationship management for private capital markets.</span></td><td class="mono sm">OAuth2 client credentials</td><td><span class="pill p-SALES">Sales gate</span></td><td class="sm">REST</td><td><span class="bd b-blocked"></span><span class="sm">Private-equity SaaS with no self-serve tenant; needs a customer instance plus admin-granted scopes.</span></td><td class="ctr"><span class="chip no">no</span> </td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://api.docs.dealcloud.com/docs/token" target="_blank" rel="noopener">1</a><a href="https://api.docs.dealcloud.com/mcp/authentication" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="2" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="zendesk incumbent helpdesk and customer-service suite. oauth2"><td class="num mono">11</td><td class="nm"><strong>Zendesk</strong><span class="sub">Incumbent helpdesk and customer-service suite.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST + GraphQL</td><td><span class="bd b-yes"></span><span class="sm">Trial expiry; some endpoints need paid add-ons.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">483</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://developer.zendesk.com/api-reference/introduction/security-and-auth/" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/zendesk.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="2" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="intercom customer messaging, support inbox and in-product engagement. oauth2"><td class="num mono">12</td><td class="nm"><strong>Intercom</strong><span class="sub">Customer messaging, support inbox and in-product engagement.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST + GraphQL</td><td><span class="bd b-yes"></span><span class="sm">Production install needs an app listing for multi-workspace use.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">138</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://developers.intercom.com/docs/build-an-integration/learn-more/authentication/" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/intercom.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="2" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="freshdesk helpdesk ticketing in the freshworks suite. api key"><td class="num mono">13</td><td class="nm"><strong>Freshdesk</strong><span class="sub">Helpdesk ticketing in the Freshworks suite.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Per-plan rate limits are tight on free tier.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">184</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://developers.freshdesk.com/api/#authentication" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/freshdesk.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="2" data-access="SSP" data-build="yes" data-verif="catalog" data-ck="1" data-q="front shared-inbox collaboration for customer-facing teams. api key"><td class="num mono">14</td><td class="nm"><strong>Front</strong><span class="sub">Shared-inbox collaboration for customer-facing teams.</span></td><td class="mono sm">API key</td><td><span class="pill p-SSP">Self-serve · paid</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">No free tier.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">180</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://dev.frontapp.com/docs/authentication" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/front.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="2" data-access="SSP" data-build="yes" data-verif="grounded" data-ck="0" data-q="pylon b2b support platform built around shared slack/teams channels. bearer token"><td class="num mono">15</td><td class="nm"><strong>Pylon</strong><span class="sub">B2B support platform built around shared Slack/Teams channels.</span></td><td class="mono sm">Bearer token</td><td><span class="pill p-SSP">Self-serve · paid</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Token creation is admin-gated and there is no free workspace.</span></td><td class="ctr"><span class="chip no">no</span> </td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://docs.usepylon.com/pylon-docs/developer/api/authentication" target="_blank" rel="noopener">1</a><a href="https://www.usepylon.com/integrations/api-webhooks" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="2" data-access="SSP" data-build="yes" data-verif="grounded" data-ck="0" data-q="liveagent helpdesk with ticketing, live chat and call-centre features. api key"><td class="num mono">16</td><td class="nm"><strong>LiveAgent</strong><span class="sub">Helpdesk with ticketing, live chat and call-centre features.</span></td><td class="mono sm">API key</td><td><span class="pill p-SSP">Self-serve · paid</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Docs are only reachable inside a logged-in instance; v1/v3 keys are not interchangeable.</span></td><td class="ctr"><span class="chip no">no</span> </td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://support.liveagent.com/567924-Documentation" target="_blank" rel="noopener">1</a><a href="https://support.liveagent.com/741982-API-key" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="2" data-access="SSP" data-build="yes" data-verif="grounded" data-ck="1" data-q="plain modern b2b support tool with a graphql-first api. api key"><td class="num mono">17</td><td class="nm"><strong>Plain</strong><span class="sub">Modern B2B support tool with a GraphQL-first API.</span></td><td class="mono sm">API key</td><td><span class="pill p-SSP">Self-serve · paid</span></td><td class="sm">GraphQL</td><td><span class="bd b-yes"></span><span class="sm">GraphQL-only surface; official MCP is OAuth-only and rejects API keys.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">119</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://plain.com/docs/api-reference/graphql/introduction" target="_blank" rel="noopener">1</a><a href="https://help.plain.com/article/does-the-plain-mcp-server-support-api-key-authentication-h7d83qtfdzxo4h49x4oyklwx" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="2" data-access="SSP" data-build="yes" data-verif="catalog" data-ck="1" data-q="help scout email-first helpdesk for small support teams. oauth2"><td class="num mono">18</td><td class="nm"><strong>Help Scout</strong><span class="sub">Email-first helpdesk for small support teams.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SSP">Self-serve · paid</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Paid plan after trial.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">129</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://developer.helpscout.com/mailbox-api/overview/authentication/" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/help_scout.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="2" data-access="SSP" data-build="yes" data-verif="catalog" data-ck="1" data-q="gorgias ecommerce-focused helpdesk tightly coupled to shopify. oauth2"><td class="num mono">19</td><td class="nm"><strong>Gorgias</strong><span class="sub">Ecommerce-focused helpdesk tightly coupled to Shopify.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SSP">Self-serve · paid</span></td><td class="sm">REST + GraphQL</td><td><span class="bd b-yes"></span><span class="sm">Paid ecommerce-support plan required.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">51</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://developers.gorgias.com/reference/authentication" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/gorgias.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="2" data-access="SALES" data-build="blocked" data-verif="grounded" data-ck="0" data-q="gladly enterprise customer-service platform organised around people, not tickets. basic (token)"><td class="num mono">20</td><td class="nm"><strong>Gladly</strong><span class="sub">Enterprise customer-service platform organised around people, not tickets.</span></td><td class="mono sm">Basic (token)</td><td><span class="pill p-SALES">Sales gate</span></td><td class="sm">REST</td><td><span class="bd b-blocked"></span><span class="sm">Enterprise-only contract; no trial org to obtain credentials from.</span></td><td class="ctr"><span class="chip no">no</span> </td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://developer.gladly.com/rest/" target="_blank" rel="noopener">1</a><a href="https://help.gladly.com/docs/generate-api-tokens-and-create-webhooks.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="3" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="slack team chat and the de-facto surface for workplace bots. oauth2"><td class="num mono">21</td><td class="nm"><strong>Slack</strong><span class="sub">Team chat and the de-facto surface for workplace bots.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST (Web API)</td><td><span class="bd b-yes"></span><span class="sm">Granular scope model; some events need app review for distribution.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">165</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://api.slack.com/authentication/token-types" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/slack.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="3" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="twilio programmable messaging, voice and verification apis. basic (sid/token)"><td class="num mono">22</td><td class="nm"><strong>Twilio</strong><span class="sub">Programmable messaging, voice and verification APIs.</span></td><td class="mono sm">Basic (SID/token)</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Trial restricts verified destination numbers.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">452</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://www.twilio.com/docs/iam/credentials/api" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/twilio.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="3" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="zoho cliq team chat inside the zoho suite. oauth2"><td class="num mono">23</td><td class="nm"><strong>Zoho Cliq</strong><span class="sub">Team chat inside the Zoho suite.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Data-centre-specific domains.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">162</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://www.zoho.com/cliq/help/restapi/v2/" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/zoho_cliq.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="3" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="lark (larksuite) collaboration suite combining chat, docs and calendar. oauth2"><td class="num mono">24</td><td class="nm"><strong>Lark (Larksuite)</strong><span class="sub">Collaboration suite combining chat, docs and calendar.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Separate Lark (intl) and Feishu (CN) tenants; docs split by region.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">451</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://open.larksuite.com/document/server-docs/api-call-guide/calling-process/get-access-token" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/lark.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="3" data-access="SSP" data-build="yes" data-verif="grounded" data-ck="1" data-q="pumble slack-alternative team chat from cake.com. api key"><td class="num mono">25</td><td class="nm"><strong>Pumble</strong><span class="sub">Slack-alternative team chat from CAKE.com.</span></td><td class="mono sm">API key</td><td><span class="pill p-SSP">Self-serve · paid</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Header name is inconsistent across Pumble's own docs and SDKs.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">9</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://pumble.com/help/integrations/automation-workflow-integrations/api-keys-integration/" target="_blank" rel="noopener">1</a><a href="https://pumble.com/learn/pumble/ai-automation-guide/" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="3" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="discord community chat platform with a large bot ecosystem. oauth2"><td class="num mono">26</td><td class="nm"><strong>Discord</strong><span class="sub">Community chat platform with a large bot ecosystem.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST + Gateway WS</td><td><span class="bd b-yes"></span><span class="sm">Privileged intents need verification above 100 guilds.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">23</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://discord.com/developers/docs/topics/oauth2" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/discord.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="3" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="telegram messaging platform with the lowest-friction bot onboarding of the set. api key"><td class="num mono">27</td><td class="nm"><strong>Telegram</strong><span class="sub">Messaging platform with the lowest-friction bot onboarding of the set.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST (Bot API)</td><td><span class="bd b-yes"></span><span class="sm">Bot API cannot read arbitrary history; MTProto needed for user-level access.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">18</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://core.telegram.org/bots/api#authorizing-your-bot" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/telegram.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="3" data-access="REV" data-build="yes_with_caveats" data-verif="grounded" data-ck="1" data-q="whatsapp business business messaging over whatsapp via meta's cloud api. oauth2"><td class="num mono">28</td><td class="nm"><strong>WhatsApp Business</strong><span class="sub">Business messaging over WhatsApp via Meta's Cloud API.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-REV">Review gate</span></td><td class="sm">REST (Graph)</td><td><span class="bd b-yes_with_caveats"></span><span class="sm">Business verification gate plus per-message pricing; limited access tier until verified.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">127</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/solution-providers/get-started-for-solution-partners/" target="_blank" rel="noopener">1</a><a href="https://docs.360dialog.com/docs/waba-management/meta-business-verification" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="3" data-access="SSP" data-build="yes_with_caveats" data-verif="grounded" data-ck="1" data-q="aircall cloud call centre for sales and support teams. basic (id/token)"><td class="num mono">29</td><td class="nm"><strong>Aircall</strong><span class="sub">Cloud call centre for sales and support teams.</span></td><td class="mono sm">Basic (id/token)</td><td><span class="pill p-SSP">Self-serve · paid</span></td><td class="sm">REST</td><td><span class="bd b-yes_with_caveats"></span><span class="sm">Aircall does not publish which plan tiers include API access.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">48</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://developer.aircall.io/docs/basic-authentication" target="_blank" rel="noopener">1</a><a href="https://developer.aircall.io/docs/oauth" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="3" data-access="SS" data-build="yes" data-verif="prior" data-ck="0" data-q="vonage cpaas for voice, sms and verification. api key"><td class="num mono">30</td><td class="nm"><strong>Vonage</strong><span class="sub">CPaaS for voice, SMS and verification.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Per-product auth differs (JWT for Voice, key/secret for SMS).</span></td><td class="ctr"><span class="chip no">no</span> </td><td class="ctr"><span class="tier t-prior">prio</span></td><td class="ev"><a href="https://developer.vonage.com/en/getting-started/concepts/authentication" target="_blank" rel="noopener">1</a><a href="https://developer.vonage.com/en/api" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="4" data-access="REV" data-build="yes_with_caveats" data-verif="grounded" data-ck="1" data-q="google ads programmatic management of google ads campaigns and reporting. oauth2"><td class="num mono">31</td><td class="nm"><strong>Google Ads</strong><span class="sub">Programmatic management of Google Ads campaigns and reporting.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-REV">Review gate</span></td><td class="sm">REST + gRPC</td><td><span class="bd b-yes_with_caveats"></span><span class="sm">Approval gate for production accounts; the access model changed in Sept 2026.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">78</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://developers.google.com/google-ads/api/docs/access-levels" target="_blank" rel="noopener">1</a><a href="https://developers.google.com/ads/blog/posts/2026/07/accelerate-google-ads-api-basic-access" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="4" data-access="REV" data-build="yes_with_caveats" data-verif="grounded" data-ck="1" data-q="meta ads campaign management and reporting across meta's ad surfaces. oauth2"><td class="num mono">32</td><td class="nm"><strong>Meta Ads</strong><span class="sub">Campaign management and reporting across Meta's ad surfaces.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-REV">Review gate</span></td><td class="sm">REST (Graph)</td><td><span class="bd b-yes_with_caveats"></span><span class="sm">App Review plus business verification before multi-tenant use.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">72</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://developers.facebook.com/docs/marketing-api/get-started/authorization" target="_blank" rel="noopener">1</a><a href="https://developers.meta.com/blog/updates-to-ads-management-standard-access-feature/" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="4" data-access="REV" data-build="yes_with_caveats" data-verif="grounded" data-ck="1" data-q="linkedin ads campaign management and reporting for linkedin advertising. oauth2"><td class="num mono">33</td><td class="nm"><strong>LinkedIn Ads</strong><span class="sub">Campaign management and reporting for LinkedIn advertising.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-REV">Review gate</span></td><td class="sm">REST</td><td><span class="bd b-yes_with_caveats"></span><span class="sm">Discretionary partner approval; private APIs need a separate programme application.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">28</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://learn.microsoft.com/en-us/linkedin/marketing/integrations/marketing-tiers" target="_blank" rel="noopener">1</a><a href="https://developer.linkedin.com/content/developer/global/en_us/index/partner-programs/apply" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="4" data-access="SSP" data-build="yes" data-verif="grounded" data-ck="1" data-q="gohighlevel white-label agency crm, funnels and marketing automation. oauth2"><td class="num mono">34</td><td class="nm"><strong>GoHighLevel</strong><span class="sub">White-label agency CRM, funnels and marketing automation.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SSP">Self-serve · paid</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Access tokens expire in 24h; marketplace review before public listing.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">218</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://marketplace.gohighlevel.com/docs/Authorization/OAuth2.0/index.html" target="_blank" rel="noopener">1</a><a href="https://help.gohighlevel.com/support/solutions/articles/155000000136" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="4" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="mailchimp email marketing and audience management for smbs. api key"><td class="num mono">35</td><td class="nm"><strong>Mailchimp</strong><span class="sub">Email marketing and audience management for SMBs.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Datacenter prefix must be parsed from the key.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">275</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://mailchimp.com/developer/marketing/docs/fundamentals/#authentication" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/mailchimp.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="4" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="klaviyo ecommerce-focused email and sms marketing automation. api key"><td class="num mono">36</td><td class="nm"><strong>Klaviyo</strong><span class="sub">Ecommerce-focused email and SMS marketing automation.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Scoped private keys; revision-pinned API versions.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">233</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://developers.klaviyo.com/en/docs/authenticate_" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/klaviyo.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="4" data-access="SS" data-build="yes" data-verif="grounded" data-ck="0" data-q="systeme.io all-in-one funnel builder, email and course platform. api key"><td class="num mono">37</td><td class="nm"><strong>systeme.io</strong><span class="sub">All-in-one funnel builder, email and course platform.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Key limit (2-3 depending on source); thin official reference.</span></td><td class="ctr"><span class="chip no">no</span> </td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://help.systeme.io/article/2323-how-to-use-systeme-io-public-api" target="_blank" rel="noopener">1</a><a href="https://docs.nexla.com/user-guides/connectors/systeme_api" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="4" data-access="REV" data-build="yes_with_caveats" data-verif="grounded" data-ck="1" data-q="pinterest visual discovery platform with pin and ads apis. oauth2"><td class="num mono">38</td><td class="nm"><strong>Pinterest</strong><span class="sub">Visual discovery platform with Pin and ads APIs.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-REV">Review gate</span></td><td class="sm">REST (v5)</td><td><span class="bd b-yes_with_caveats"></span><span class="sm">Trial tier blocks POST /v5/pins; Standard approval is slow and discretionary.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">27</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://developers.pinterest.com/docs/key-concepts/access-tiers/" target="_blank" rel="noopener">1</a><a href="https://community.pinterest.biz/t/standard-access-walkthrough-a-step-by-step-guide/52518" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="4" data-access="REV" data-build="yes_with_caveats" data-verif="grounded" data-ck="1" data-q="threads (meta) meta's text-based social network with a publishing api. oauth2"><td class="num mono">39</td><td class="nm"><strong>Threads (Meta)</strong><span class="sub">Meta's text-based social network with a publishing API.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-REV">Review gate</span></td><td class="sm">REST (graph.threads.net)</td><td><span class="bd b-yes_with_caveats"></span><span class="sm">App Review and a data-deletion callback required before production.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">24</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://developers.facebook.com/docs/development/create-an-app/threads-use-case" target="_blank" rel="noopener">1</a><a href="https://developers.facebook.com/documentation/threads/changelog" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="4" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="sendgrid transactional and marketing email delivery. api key"><td class="num mono">40</td><td class="nm"><strong>SendGrid</strong><span class="sub">Transactional and marketing email delivery.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Sender identity verification before first send.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">359</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://www.twilio.com/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-api/authentication" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/sendgrid.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="5" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="shopify hosted ecommerce platform with the broadest commerce api surface. oauth2"><td class="num mono">41</td><td class="nm"><strong>Shopify</strong><span class="sub">Hosted ecommerce platform with the broadest commerce API surface.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST + GraphQL</td><td><span class="bd b-yes"></span><span class="sm">REST Admin API is legacy-frozen; GraphQL is the forward path.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">386</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://shopify.dev/docs/api/admin-graphql" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/shopify.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="5" data-access="SS" data-build="yes" data-verif="grounded" data-ck="0" data-q="woocommerce wordpress ecommerce plugin powering self-hosted stores. basic (key/secret)"><td class="num mono">42</td><td class="nm"><strong>WooCommerce</strong><span class="sub">WordPress ecommerce plugin powering self-hosted stores.</span></td><td class="mono sm">Basic (key/secret)</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Requires the merchant's own WordPress host; no central tenant to authenticate against.</span></td><td class="ctr"><span class="chip no">no</span> </td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://developer.woocommerce.com/docs/apis/rest-api/authentication/" target="_blank" rel="noopener">1</a><a href="https://woocommerce.com/document/woocommerce-rest-api/" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="5" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="bigcommerce saas ecommerce platform aimed at mid-market merchants. api key"><td class="num mono">43</td><td class="nm"><strong>BigCommerce</strong><span class="sub">SaaS ecommerce platform aimed at mid-market merchants.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST + GraphQL</td><td><span class="bd b-yes"></span><span class="sm">—</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">532</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://developer.bigcommerce.com/docs/start/authentication" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/bigcommerce.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="5" data-access="SALES" data-build="blocked" data-verif="grounded" data-ck="1" data-q="salesforce commerce cloud enterprise b2c commerce platform in the salesforce stack. oauth2 (slas)"><td class="num mono">44</td><td class="nm"><strong>Salesforce Commerce Cloud</strong><span class="sub">Enterprise B2C commerce platform in the Salesforce stack.</span></td><td class="mono sm">OAuth2 (SLAS)</td><td><span class="pill p-SALES">Sales gate</span></td><td class="sm">REST (SCAPI + OCAPI)</td><td><span class="bd b-blocked"></span><span class="sm">Credit-metered sandboxes behind an existing B2C Commerce contract.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">556</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://developer.salesforce.com/docs/commerce/commerce-api/guide/b2c-get-started-sandboxes.html" target="_blank" rel="noopener">1</a><a href="https://developer.salesforce.com/docs/commerce/sfnext/guide/development-environment.html" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="5" data-access="SS" data-build="yes" data-verif="grounded" data-ck="0" data-q="magento (adobe commerce) open-source and adobe-hosted enterprise commerce platform. oauth1 / token"><td class="num mono">45</td><td class="nm"><strong>Magento (Adobe Commerce)</strong><span class="sub">Open-source and Adobe-hosted enterprise commerce platform.</span></td><td class="mono sm">OAuth1 / token</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST + GraphQL</td><td><span class="bd b-yes"></span><span class="sm">Self-host operational burden; SaaS path needs an Adobe contract.</span></td><td class="ctr"><span class="chip no">no</span> </td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://developer.adobe.com/commerce/webapi/get-started/authentication/gs-authentication-token" target="_blank" rel="noopener">1</a><a href="https://developer.adobe.com/commerce/webapi/rest/authentication/server-to-server" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="5" data-access="SSP" data-build="yes_with_caveats" data-verif="grounded" data-ck="0" data-q="squarespace website builder with a commerce api on upper tiers. api key"><td class="num mono">46</td><td class="nm"><strong>Squarespace</strong><span class="sub">Website builder with a commerce API on upper tiers.</span></td><td class="mono sm">API key</td><td><span class="pill p-SSP">Self-serve · paid</span></td><td class="sm">REST</td><td><span class="bd b-yes_with_caveats"></span><span class="sm">Hard paywall: no key on lower Squarespace tiers.</span></td><td class="ctr"><span class="chip no">no</span> </td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://developers.squarespace.com/commerce-apis/authentication-and-permissions" target="_blank" rel="noopener">1</a><a href="https://developers.squarespace.com/oauth" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="5" data-access="SSP" data-build="yes" data-verif="grounded" data-ck="0" data-q="ecwid embeddable storefront widget for existing sites. api key"><td class="num mono">47</td><td class="nm"><strong>Ecwid</strong><span class="sub">Embeddable storefront widget for existing sites.</span></td><td class="mono sm">API key</td><td><span class="pill p-SSP">Self-serve · paid</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Paid plan gate; external apps need Ecwid support to set the return URL.</span></td><td class="ctr"><span class="chip no">no</span> </td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://api-docs.ecwid.com/reference/access-ecwid-api" target="_blank" rel="noopener">1</a><a href="https://api-docs.ecwid.com/reference/access-tokens" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="5" data-access="SS" data-build="yes" data-verif="grounded" data-ck="1" data-q="gumroad creator storefront for digital products. oauth2"><td class="num mono">48</td><td class="nm"><strong>Gumroad</strong><span class="sub">Creator storefront for digital products.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Narrow API; product-centric only.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">13</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://app.gumroad.com/api" target="_blank" rel="noopener">1</a><a href="https://gumroad.com/help/article/280-create-application-api" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="5" data-access="REV" data-build="yes_with_caveats" data-verif="grounded" data-ck="1" data-q="amazon selling partner seller-facing api for amazon marketplace operations. oauth2 (lwa)"><td class="num mono">49</td><td class="nm"><strong>Amazon Selling Partner</strong><span class="sub">Seller-facing API for Amazon marketplace operations.</span></td><td class="mono sm">OAuth2 (LWA)</td><td><span class="pill p-REV">Review gate</span></td><td class="sm">REST</td><td><span class="bd b-yes_with_caveats"></span><span class="sm">Mandatory developer-profile review; restricted roles need a live demo.</span></td><td class="ctr"><span class="chip ok">yes</span> </td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://developer-docs.amazon.com/sp-api/docs/sp-api-registration-overview" target="_blank" rel="noopener">1</a><a href="https://developer-docs.amazon.com/sp-api/lang-US/docs/register-as-a-public-developer" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="5" data-access="SSP" data-build="yes_with_caveats" data-verif="grounded" data-ck="0" data-q="fanbasis payments and checkout infrastructure for creators and coaches. api key"><td class="num mono">50</td><td class="nm"><strong>fanbasis</strong><span class="sub">Payments and checkout infrastructure for creators and coaches.</span></td><td class="mono sm">API key</td><td><span class="pill p-SSP">Self-serve · paid</span></td><td class="sm">REST</td><td><span class="bd b-yes_with_caveats"></span><span class="sm">No official developer portal surfaced; best references are a vendor GitHub repo and an SDK on npm.</span></td><td class="ctr"><span class="chip no">no</span> </td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://github.com/FanBasis/fbnewapi" target="_blank" rel="noopener">1</a><a href="https://www.npmjs.com/package/@fanbasis/checkout-sdk" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="6" data-access="SS" data-build="yes" data-verif="grounded" data-ck="1" data-q="dataforseo wholesale serp, keyword and backlink data apis. basic"><td class="num mono">51</td><td class="nm"><strong>DataForSEO</strong><span class="sub">Wholesale SERP, keyword and backlink data APIs.</span></td><td class="mono sm">Basic</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Sandbox returns dummy data; live calls are pay-per-use.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">354</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://docs.dataforseo.com/v3/auth/" target="_blank" rel="noopener">1</a><a href="https://docs.dataforseo.com/v3/appendix/sandbox/" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="6" data-access="SSP" data-build="yes" data-verif="grounded" data-ck="0" data-q="se ranking seo platform with rank tracking and keyword research apis. api key"><td class="num mono">52</td><td class="nm"><strong>SE Ranking</strong><span class="sub">SEO platform with rank tracking and keyword research APIs.</span></td><td class="mono sm">API key</td><td><span class="pill p-SSP">Self-serve · paid</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Annual credit packages; no meaningful free tier.</span></td><td class="ctr"><span class="chip no">no</span> </td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://seranking.com/api/data/getting-started/" target="_blank" rel="noopener">1</a><a href="https://seranking.com/api/api-credits-system/" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="6" data-access="SALES" data-build="yes_with_caveats" data-verif="grounded" data-ck="1" data-q="ahrefs backlink and seo intelligence platform. api key"><td class="num mono">53</td><td class="nm"><strong>Ahrefs</strong><span class="sub">Backlink and SEO intelligence platform.</span></td><td class="mono sm">API key</td><td><span class="pill p-SALES">Sales gate</span></td><td class="sm">REST + GraphQL</td><td><span class="bd b-yes_with_caveats"></span><span class="sm">Enterprise plan (listed $1,499/mo) and conflicting official eligibility statements.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">46</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://help.ahrefs.com/en/articles/6559232-about-api-v3" target="_blank" rel="noopener">1</a><a href="https://docs.ahrefs.com/docs/api/reference/api-keys-creation-and-management" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="6" data-access="SS" data-build="yes" data-verif="grounded" data-ck="1" data-q="mrscraper managed web-scraping api with proxy rotation. api key"><td class="num mono">54</td><td class="nm"><strong>MrScraper</strong><span class="sub">Managed web-scraping API with proxy rotation.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Official pages disagree on the auth header; unblocker endpoint uses a query param.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">11</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://docs.mrscraper.com/docs/api/authentication" target="_blank" rel="noopener">1</a><a href="https://docs.mrscraper.com/docs/api/overview" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="6" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="apify marketplace and runtime for web-scraping actors. api key"><td class="num mono">55</td><td class="nm"><strong>Apify</strong><span class="sub">Marketplace and runtime for web-scraping actors.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Actor-based model differs from plain REST resources.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">184</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://docs.apify.com/api/v2" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/apify.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="6" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="firecrawl llm-oriented crawler that returns clean markdown. api key"><td class="num mono">56</td><td class="nm"><strong>Firecrawl</strong><span class="sub">LLM-oriented crawler that returns clean markdown.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">—</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">245</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://docs.firecrawl.dev/api-reference/introduction" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/firecrawl.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="6" data-access="REV" data-build="yes_with_caveats" data-verif="grounded" data-ck="1" data-q="bright data proxy network and web-data collection platform. api key"><td class="num mono">57</td><td class="nm"><strong>Bright Data</strong><span class="sub">Proxy network and web-data collection platform.</span></td><td class="mono sm">API key</td><td><span class="pill p-REV">Review gate</span></td><td class="sm">REST</td><td><span class="bd b-yes_with_caveats"></span><span class="sm">KYC compliance review gates the residential network.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">167</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://docs.brightdata.com/api-reference/authentication" target="_blank" rel="noopener">1</a><a href="https://docs.brightdata.com/products/residential/network-access" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="6" data-access="NONE" data-build="blocked" data-verif="prior" data-ck="0" data-q="sherlock oss cli that hunts social-media accounts by username. n/a"><td class="num mono">58</td><td class="nm"><strong>Sherlock</strong><span class="sub">OSS CLI that hunts social-media accounts by username.</span></td><td class="mono sm">n/a</td><td><span class="pill p-NONE">No API</span></td><td class="sm">CLI / OSS</td><td><span class="bd b-blocked"></span><span class="sm">No API to wrap; a toolkit would have to shell out to the CLI or re-implement it.</span></td><td class="ctr"><span class="chip no">no</span> </td><td class="ctr"><span class="tier t-prior">prio</span></td><td class="ev"><a href="https://github.com/sherlock-project/sherlock" target="_blank" rel="noopener">1</a></td></tr>
+<tr data-cat="6" data-access="SALES" data-build="yes_with_caveats" data-verif="grounded" data-ck="0" data-q="waterfall.io waterfall contact and company enrichment for gtm teams. api key"><td class="num mono">59</td><td class="nm"><strong>Waterfall.io</strong><span class="sub">Waterfall contact and company enrichment for GTM teams.</span></td><td class="mono sm">API key</td><td><span class="pill p-SALES">Sales gate</span></td><td class="sm">REST</td><td><span class="bd b-yes_with_caveats"></span><span class="sm">No self-serve signup; key issued after a sales conversation.</span></td><td class="ctr"><span class="chip no">no</span> </td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://docs.waterfall.io/v1/introduction" target="_blank" rel="noopener">1</a><a href="https://docs.waterfall.io/v1/api-keys-create" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="6" data-access="SSP" data-build="yes" data-verif="grounded" data-ck="1" data-q="clay gtm data orchestration and enrichment workspace. api key"><td class="num mono">60</td><td class="nm"><strong>Clay</strong><span class="sub">GTM data orchestration and enrichment workspace.</span></td><td class="mono sm">API key</td><td><span class="pill p-SSP">Self-serve · paid</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Two distinct key types; enterprise data endpoints are undocumented publicly.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">15</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://developers.clay.com/public-api/authentication" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/clay.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="7" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="github code hosting, ci and the reference developer api. oauth2"><td class="num mono">61</td><td class="nm"><strong>GitHub</strong><span class="sub">Code hosting, CI and the reference developer API.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST + GraphQL</td><td><span class="bd b-yes"></span><span class="sm">—</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">883</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/github.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="7" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="vercel frontend hosting and serverless deployment platform. api key"><td class="num mono">62</td><td class="nm"><strong>Vercel</strong><span class="sub">Frontend hosting and serverless deployment platform.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">—</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">399</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://vercel.com/docs/rest-api#authentication" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/vercel.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="7" data-access="SS" data-build="yes" data-verif="prior" data-ck="0" data-q="netlify static-site hosting and edge functions. api key"><td class="num mono">63</td><td class="nm"><strong>Netlify</strong><span class="sub">Static-site hosting and edge functions.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">—</span></td><td class="ctr"><span class="chip no">no</span> </td><td class="ctr"><span class="tier t-prior">prio</span></td><td class="ev"><a href="https://docs.netlify.com/api/get-started/#authentication" target="_blank" rel="noopener">1</a><a href="https://docs.netlify.com/api/get-started/" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="7" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="cloudflare edge network, dns, workers and security platform. api key"><td class="num mono">64</td><td class="nm"><strong>Cloudflare</strong><span class="sub">Edge network, DNS, Workers and security platform.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Legacy global key still widespread in older guides.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">171</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://developers.cloudflare.com/fundamentals/api/get-started/create-token/" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/cloudflare.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="7" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="supabase postgres-backed backend-as-a-service. api key"><td class="num mono">65</td><td class="nm"><strong>Supabase</strong><span class="sub">Postgres-backed backend-as-a-service.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST (PostgREST) + GraphQL</td><td><span class="bd b-yes"></span><span class="sm">Management API vs project API keys are easily confused.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">230</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://supabase.com/docs/guides/api/api-keys" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/supabase.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="7" data-access="SS" data-build="yes_with_caveats" data-verif="prior" data-ck="1" data-q="neo4j graph database with managed aura hosting. basic / token"><td class="num mono">66</td><td class="nm"><strong>Neo4j</strong><span class="sub">Graph database with managed Aura hosting.</span></td><td class="mono sm">Basic / token</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST (Aura/HTTP) + Bolt</td><td><span class="bd b-yes_with_caveats"></span><span class="sm">Primary interface is a Bolt driver, not REST; the management API is narrow.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">21</span></td><td class="ctr"><span class="tier t-prior">prio</span></td><td class="ev"><a href="https://neo4j.com/docs/aura-api/current/" target="_blank" rel="noopener">1</a><a href="https://neo4j.com/docs/query-api/current/" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="7" data-access="SS" data-build="yes" data-verif="grounded" data-ck="1" data-q="snowflake cloud data warehouse with a sql-over-rest api. key-pair jwt"><td class="num mono">67</td><td class="nm"><strong>Snowflake</strong><span class="sub">Cloud data warehouse with a SQL-over-REST API.</span></td><td class="mono sm">Key-pair JWT</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST (SQL API)</td><td><span class="bd b-yes"></span><span class="sm">Trial expiry then consumption billing; auth setup is non-trivial.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">16</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://docs.snowflake.com/en/developer-guide/sql-api/authenticating" target="_blank" rel="noopener">1</a><a href="https://docs.snowflake.com/developer-guide/snowflake-rest-api/authentication" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="7" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="mongodb atlas managed mongodb with an administration api. digest / api key"><td class="num mono">68</td><td class="nm"><strong>MongoDB Atlas</strong><span class="sub">Managed MongoDB with an administration API.</span></td><td class="mono sm">Digest / API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Digest auth is unusual and trips up naive HTTP clients.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">496</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://www.mongodb.com/docs/atlas/configure-api-access/" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/mongodb.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="7" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="datadog infrastructure monitoring and observability platform. api key"><td class="num mono">69</td><td class="nm"><strong>Datadog</strong><span class="sub">Infrastructure monitoring and observability platform.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Two-key scheme (API + APP key) and strict site-region routing.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">255</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://docs.datadoghq.com/api/latest/authentication/" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/datadog.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="7" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="sentry error tracking and performance monitoring. api key"><td class="num mono">70</td><td class="nm"><strong>Sentry</strong><span class="sub">Error tracking and performance monitoring.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">—</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">210</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://docs.sentry.io/api/auth/" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/sentry.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="8" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="notion docs, wiki and lightweight database workspace. oauth2"><td class="num mono">71</td><td class="nm"><strong>Notion</strong><span class="sub">Docs, wiki and lightweight database workspace.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Pages must be explicitly shared with the integration.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">57</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://developers.notion.com/docs/authorization" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/notion.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="8" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="airtable spreadsheet-database hybrid with a clean rest api. oauth2"><td class="num mono">72</td><td class="nm"><strong>Airtable</strong><span class="sub">Spreadsheet-database hybrid with a clean REST API.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Legacy API keys retired in favour of PATs.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">26</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://airtable.com/developers/web/api/authentication" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/airtable.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="8" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="linear issue tracking for software teams. oauth2"><td class="num mono">73</td><td class="nm"><strong>Linear</strong><span class="sub">Issue tracking for software teams.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">GraphQL</td><td><span class="bd b-yes"></span><span class="sm">GraphQL-only; no REST surface.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">47</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://developers.linear.app/docs/graphql/working-with-the-graphql-api" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/linear.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="8" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="jira issue and project tracking from atlassian. oauth2"><td class="num mono">74</td><td class="nm"><strong>Jira</strong><span class="sub">Issue and project tracking from Atlassian.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST + GraphQL</td><td><span class="bd b-yes"></span><span class="sm">Cloud vs Data Center APIs differ substantially.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">166</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/jira.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="8" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="asana work management and task tracking. oauth2"><td class="num mono">75</td><td class="nm"><strong>Asana</strong><span class="sub">Work management and task tracking.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">—</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">247</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://developers.asana.com/docs/authentication" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/asana.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="8" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="monday.com work os with boards, automations and dashboards. oauth2"><td class="num mono">76</td><td class="nm"><strong>Monday.com</strong><span class="sub">Work OS with boards, automations and dashboards.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">GraphQL</td><td><span class="bd b-yes"></span><span class="sm">GraphQL-only; complexity budget per query.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">122</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://developer.monday.com/api-reference/docs/authentication" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/monday.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="8" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="clickup all-in-one project management suite. api key"><td class="num mono">77</td><td class="nm"><strong>ClickUp</strong><span class="sub">All-in-one project management suite.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">—</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">163</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://developer.clickup.com/docs/authentication" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/clickup.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="8" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="coda doc-as-app platform blending documents and tables. api key"><td class="num mono">78</td><td class="nm"><strong>Coda</strong><span class="sub">Doc-as-app platform blending documents and tables.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">—</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">109</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://coda.io/developers/apis/v1#section/Authentication" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/coda.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="8" data-access="SSP" data-build="yes" data-verif="catalog" data-ck="1" data-q="smartsheet spreadsheet-style work management for enterprises. api key"><td class="num mono">79</td><td class="nm"><strong>Smartsheet</strong><span class="sub">Spreadsheet-style work management for enterprises.</span></td><td class="mono sm">API key</td><td><span class="pill p-SSP">Self-serve · paid</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">API access tied to plan tier.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">180</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://smartsheet.redoc.ly/#section/API-Basics/Authentication" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/smartsheet.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="8" data-access="SS" data-build="yes" data-verif="prior" data-ck="1" data-q="harvest time tracking and invoicing for services businesses. pat"><td class="num mono">80</td><td class="nm"><strong>Harvest</strong><span class="sub">Time tracking and invoicing for services businesses.</span></td><td class="mono sm">PAT</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Requires both a token and a Harvest-Account-Id header.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">57</span></td><td class="ctr"><span class="tier t-prior">prio</span></td><td class="ev"><a href="https://help.getharvest.com/api-v2/authentication-api/authentication/authentication/" target="_blank" rel="noopener">1</a><a href="https://help.getharvest.com/api-v2/" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="9" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="stripe payments infrastructure and the reference fintech api. api key"><td class="num mono">81</td><td class="nm"><strong>Stripe</strong><span class="sub">Payments infrastructure and the reference fintech API.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Live-mode charges need business verification, but the full API is testable free.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">428</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://docs.stripe.com/api/authentication" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/stripe.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="9" data-access="REV" data-build="yes_with_caveats" data-verif="prior" data-ck="1" data-q="plaid bank account linking and financial data aggregation. api key"><td class="num mono">82</td><td class="nm"><strong>Plaid</strong><span class="sub">Bank account linking and financial data aggregation.</span></td><td class="mono sm">API key</td><td><span class="pill p-REV">Review gate</span></td><td class="sm">REST</td><td><span class="bd b-yes_with_caveats"></span><span class="sm">Production access is reviewed; sandbox alone cannot move real money data.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">70</span></td><td class="ctr"><span class="tier t-prior">prio</span></td><td class="ev"><a href="https://plaid.com/docs/quickstart/" target="_blank" rel="noopener">1</a><a href="https://plaid.com/docs/api/" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="9" data-access="SS" data-build="yes" data-verif="prior" data-ck="0" data-q="binance cryptocurrency exchange with trading and market-data apis. api key"><td class="num mono">83</td><td class="nm"><strong>Binance</strong><span class="sub">Cryptocurrency exchange with trading and market-data APIs.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST + WebSocket</td><td><span class="bd b-yes"></span><span class="sm">Jurisdictional restrictions; signed-request scheme.</span></td><td class="ctr"><span class="chip no">no</span> </td><td class="ctr"><span class="tier t-prior">prio</span></td><td class="ev"><a href="https://developers.binance.com/docs/binance-spot-api-docs" target="_blank" rel="noopener">1</a><a href="https://developers.binance.com/docs/binance-spot-api-docs/rest-api/general-api-information" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="9" data-access="SALES" data-build="blocked" data-verif="grounded" data-ck="0" data-q="paygent connect payment gateway reseller built on nmi's platform. api key"><td class="num mono">84</td><td class="nm"><strong>Paygent Connect</strong><span class="sub">Payment gateway reseller built on NMI's platform.</span></td><td class="mono sm">API key</td><td><span class="pill p-SALES">Sales gate</span></td><td class="sm">REST (form-encoded POST)</td><td><span class="bd b-blocked"></span><span class="sm">Merchant account and underwriting required; no self-serve sandbox surfaced.</span></td><td class="ctr"><span class="chip no">no</span> </td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://docs.nmi.com/reference/transactions-processing" target="_blank" rel="noopener">1</a><a href="https://secure.nmi.com/gw/merchants/resources/integration/integration_portal.php" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="9" data-access="SALES" data-build="blocked" data-verif="grounded" data-ck="0" data-q="ipayx payments vendor named in the research set; could not be identified. unknown"><td class="num mono">85</td><td class="nm"><strong>iPayX</strong><span class="sub">Payments vendor named in the research set; could not be identified.</span></td><td class="mono sm">unknown</td><td><span class="pill p-SALES">Sales gate</span></td><td class="sm">unknown</td><td><span class="bd b-blocked"></span><span class="sm">Could not locate any primary documentation for this vendor.</span></td><td class="ctr"><span class="chip no">no</span> </td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://ipayx.ai/" target="_blank" rel="noopener">1</a></td></tr>
+<tr data-cat="9" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="quickbooks smb accounting platform. oauth2"><td class="num mono">86</td><td class="nm"><strong>QuickBooks</strong><span class="sub">SMB accounting platform.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Production app needs Intuit review before going live.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">119</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/quickbooks.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="9" data-access="SS" data-build="yes" data-verif="catalog" data-ck="1" data-q="xero cloud accounting for small business. oauth2"><td class="num mono">87</td><td class="nm"><strong>Xero</strong><span class="sub">Cloud accounting for small business.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">App partner certification for published apps.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">109</span></td><td class="ctr"><span class="tier t-catalog">cata</span></td><td class="ev"><a href="https://developer.xero.com/documentation/guides/oauth2/overview/" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/xero.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="9" data-access="SS" data-build="yes" data-verif="grounded" data-ck="1" data-q="brex corporate cards and spend management. oauth2"><td class="num mono">88</td><td class="nm"><strong>Brex</strong><span class="sub">Corporate cards and spend management.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Requires a funded Brex account; partner OAuth is approval-gated.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">84</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://developer.brex.com/docs/authentication" target="_blank" rel="noopener">1</a><a href="https://developer.brex.com/docs/partner_authentication" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="9" data-access="SS" data-build="yes" data-verif="grounded" data-ck="1" data-q="ramp corporate cards, bill pay and spend management. oauth2"><td class="num mono">89</td><td class="nm"><strong>Ramp</strong><span class="sub">Corporate cards, bill pay and spend management.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Requires an existing Ramp customer account; some scopes need a support ticket.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">186</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://docs.ramp.com/llms-guides/authorization.txt" target="_blank" rel="noopener">1</a><a href="https://support.ramp.com/accessing-the-developer-api" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="9" data-access="SALES" data-build="blocked" data-verif="grounded" data-ck="1" data-q="pitchbook private-capital market data and research platform. api key"><td class="num mono">90</td><td class="nm"><strong>PitchBook</strong><span class="sub">Private-capital market data and research platform.</span></td><td class="mono sm">API key</td><td><span class="pill p-SALES">Sales gate</span></td><td class="sm">REST</td><td><span class="bd b-blocked"></span><span class="sm">Enterprise contract plus a separate data agreement; no developer tier at all.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">130</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://pitchbook.com/pricing" target="_blank" rel="noopener">1</a><a href="https://privateequitylist.com/intelligence/pitchbook-crunchbase-api-pricing" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="10" data-access="SALES" data-build="yes_with_caveats" data-verif="grounded" data-ck="1" data-q="notebooklm google's source-grounded research and notebook assistant. oauth2 (gcp)"><td class="num mono">91</td><td class="nm"><strong>NotebookLM</strong><span class="sub">Google's source-grounded research and notebook assistant.</span></td><td class="mono sm">OAuth2 (GCP)</td><td><span class="pill p-SALES">Sales gate</span></td><td class="sm">REST (GCP)</td><td><span class="bd b-yes_with_caveats"></span><span class="sm">Enterprise Google Cloud licence required and the RAG query endpoint developers want does not exist.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">11</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://cloud.google.com/agentspace/notebooklm-enterprise/docs/overview" target="_blank" rel="noopener">1</a><a href="https://discuss.google.dev/t/notebooklm-enterprise-api-missing-query-chat-endpoint-for-rag-orchestration/366875" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="10" data-access="SSP" data-build="yes_with_caveats" data-verif="grounded" data-ck="1" data-q="otter ai ai meeting transcription and notes. oauth2"><td class="num mono">92</td><td class="nm"><strong>Otter AI</strong><span class="sub">AI meeting transcription and notes.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SSP">Self-serve · paid</span></td><td class="sm">MCP (no public REST)</td><td><span class="bd b-yes_with_caveats"></span><span class="sm">No documented public REST API; MCP is the only supported programmatic surface.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">3</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://composio.dev/toolkits/otter_ai_mcp.md" target="_blank" rel="noopener">1</a><a href="https://www.scalekit.com/blog/otter-mcp-vs-api" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="10" data-access="SS" data-build="yes" data-verif="grounded" data-ck="1" data-q="fathom ai meeting recorder and summariser. api key"><td class="num mono">93</td><td class="nm"><strong>Fathom</strong><span class="sub">AI meeting recorder and summariser.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Reported read-only for meetings; docs leave retry/delivery semantics undefined.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">10</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://developers.fathom.ai/quickstart" target="_blank" rel="noopener">1</a><a href="https://developers.fathom.ai/sdks/authentication" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="10" data-access="REV" data-build="yes_with_caveats" data-verif="grounded" data-ck="1" data-q="consensus ai search engine over peer-reviewed research. oauth2"><td class="num mono">94</td><td class="nm"><strong>Consensus</strong><span class="sub">AI search engine over peer-reviewed research.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-REV">Review gate</span></td><td class="sm">REST + MCP</td><td><span class="bd b-yes_with_caveats"></span><span class="sm">REST access is request-gated; quotas depend on org plan.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">1</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://consensus.app/home/api/" target="_blank" rel="noopener">1</a><a href="https://composio.dev/toolkits/consensus_mcp.md" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="10" data-access="SS" data-build="yes" data-verif="grounded" data-ck="0" data-q="reducto document parsing and extraction for ai pipelines. api key"><td class="num mono">95</td><td class="nm"><strong>Reducto</strong><span class="sub">Document parsing and extraction for AI pipelines.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Growth/Enterprise tiers are sales-led; per-document credit cost varies.</span></td><td class="ctr"><span class="chip no">no</span> </td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://docs.reducto.ai/" target="_blank" rel="noopener">1</a><a href="https://reducto.ai/pricing" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="10" data-access="SSP" data-build="yes" data-verif="grounded" data-ck="1" data-q="devin autonomous ai software engineer. api key"><td class="num mono">96</td><td class="nm"><strong>Devin</strong><span class="sub">Autonomous AI software engineer.</span></td><td class="mono sm">API key</td><td><span class="pill p-SSP">Self-serve · paid</span></td><td class="sm">REST (v3) + MCP</td><td><span class="bd b-yes"></span><span class="sm">Paid seat required; PATs in closed beta and unavailable for SSO accounts.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">23</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://docs.devin.ai/api-reference/authentication" target="_blank" rel="noopener">1</a><a href="https://docs.devin.ai/work-with-devin/devin-mcp" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="10" data-access="SS" data-build="yes" data-verif="grounded" data-ck="1" data-q="higgsfield generative video and content creation suite. api key"><td class="num mono">97</td><td class="nm"><strong>higgsfield</strong><span class="sub">Generative video and content creation suite.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST + MCP</td><td><span class="bd b-yes"></span><span class="sm">Per-model access restrictions return 404/423/503 even with valid credentials.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">13</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://docs.higgsfield.ai/docs/authentication" target="_blank" rel="noopener">1</a><a href="https://docs.higgsfield.ai/docs/quickstart" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="10" data-access="NONE" data-build="blocked" data-verif="prior" data-ck="0" data-q="mermaid cli command-line renderer for mermaid diagrams. n/a"><td class="num mono">98</td><td class="nm"><strong>Mermaid CLI</strong><span class="sub">Command-line renderer for Mermaid diagrams.</span></td><td class="mono sm">n/a</td><td><span class="pill p-NONE">No API</span></td><td class="sm">CLI / OSS</td><td><span class="bd b-blocked"></span><span class="sm">Nothing to authenticate against; a toolkit would wrap a local binary, not an API.</span></td><td class="ctr"><span class="chip no">no</span> </td><td class="ctr"><span class="tier t-prior">prio</span></td><td class="ev"><a href="https://github.com/mermaid-js/mermaid-cli" target="_blank" rel="noopener">1</a></td></tr>
+<tr data-cat="10" data-access="SS" data-build="yes" data-verif="grounded" data-ck="1" data-q="youtube transcript hosted youtube transcript retrieval api. api key"><td class="num mono">99</td><td class="nm"><strong>YouTube Transcript</strong><span class="sub">Hosted YouTube transcript retrieval API.</span></td><td class="mono sm">API key</td><td><span class="pill p-SS">Self-serve</span></td><td class="sm">REST</td><td><span class="bd b-yes"></span><span class="sm">Credit-based; failed 4xx/5xx and 429 requests cost 0 credits.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">9</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://transcriptapi.com/docs/api/" target="_blank" rel="noopener">1</a><a href="https://transcriptapi.com/blog/transcriptapi-vs-searchapi" target="_blank" rel="noopener">2</a></td></tr>
+<tr data-cat="10" data-access="SSP" data-build="yes" data-verif="grounded" data-ck="1" data-q="grain meeting recording, notes and revenue-intelligence clips. oauth2"><td class="num mono">100</td><td class="nm"><strong>Grain</strong><span class="sub">Meeting recording, notes and revenue-intelligence clips.</span></td><td class="mono sm">OAuth2</td><td><span class="pill p-SSP">Self-serve · paid</span></td><td class="sm">REST (v2)</td><td><span class="bd b-yes"></span><span class="sm">PAT availability tied to Enterprise tier; v1 already sunset.</span></td><td class="ctr"><span class="chip ok">yes</span> <span class="mono dim">17</span></td><td class="ctr"><span class="tier t-grounded">grou</span></td><td class="ev"><a href="https://support.grain.com/en/articles/15507288-grain-api" target="_blank" rel="noopener">1</a><a href="https://grainhq.notion.site/Grain-Public-API-877184aa82b54c77a875083c1b560de9" target="_blank" rel="noopener">2</a></td></tr></tbody>
+      </table>
+    </div>
+    <div class="legend">
+      <span><span class="bd b-yes"></span>Buildable today</span>
+      <span><span class="bd b-yes_with_caveats"></span>Buildable with caveats</span>
+      <span><span class="bd b-blocked"></span>Blocked</span>
+      <span><span class="tier t-grounded">grou</span> re-researched this run (46)</span>
+      <span><span class="tier t-catalog">cata</span> machine-parsed from Composio (46)</span>
+      <span><span class="tier t-prior">prio</span> model prior + canonical URL (8)</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="shead"><span class="snum">07</span><h2>What this does not prove</h2></div>
+    <p class="lede">The brief asked for honesty about what defeated the agent. These are the
+      limits a reviewer should push on.</p>
+    <div class="limits">
+      <div class="limit"><h3>One host was reachable, not one hundred</h3>
+        <p>The sandbox this ran in allowed egress to composio.dev and github.com only. Composio's
+          catalog was fetched and parsed for real; vendor documentation was reached through a
+          search tool that returns primary URLs and quoted passages rather than by loading each
+          page. So evidence links are real and were returned by the research pass, but most were
+          not re-opened byte-for-byte at render time.</p></div>
+      <div class="limit"><h3>8 rows rest on model prior</h3>
+        <p>They are labelled <span class="tier t-prior">prior</span> in the table and are the
+          first rows to re-check. The audit found both of its misses in exactly this tier, so the
+          label is doing real work rather than hedging.</p></div>
+      <div class="limit"><h3>"Official MCP" is under-counted</h3>
+        <p>33 apps are marked as having an official MCP server, established from evidence
+          encountered during research. There was no way to probe every vendor's
+          <span class="mono">/.well-known</span> from this sandbox, so the true number is
+          probably higher. Absence here means "not found", never "does not exist".</p></div>
+      <div class="limit"><h3>Gating changes faster than docs</h3>
+        <p>Google sunset Google Ads developer tokens on 2026-09-09 and moved access levels onto
+          Cloud projects. That post-dates the model's training data and was caught only because
+          the research pass ran. Anything in this table is a snapshot, and the ad platforms move
+          the most.</p></div>
+      <div class="limit"><h3>Two vendors defeated the research</h3>
+        <p><b>iPayX</b> — no documentation found at all; every result was a different company.
+          <b>Paygent Connect</b> — identifiable only as an NMI-powered gateway, with no Paygent
+          developer portal. Both are recorded as low confidence rather than filled with a
+          plausible guess.</p></div>
+      <div class="limit"><h3>One category boundary is arguable</h3>
+        <p>Plaid moved from self-serve to review-gated during the audit because sandbox keys are
+          instant but production access is a separate reviewed request. Several rows sit near that
+          line; the taxonomy, not the data, is what makes them debatable.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><strong>The 100-App Buildability Map</strong> · generated 2026-11-23 from
+      <span class="mono">data/findings.json</span> by <span class="mono">site/build.py</span>.</p>
+    <p style="margin-top:.5rem">
+      <a href="https://github.com/Vishal-bhandary/composio-app-research">Source repo &amp; research agent</a>
+      <a href="https://github.com/Vishal-bhandary/composio-app-research/blob/main/data/findings.json">findings.json</a>
+      <a href="https://github.com/Vishal-bhandary/composio-app-research/blob/main/data/verification.json">verification.json</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var tb=document.getElementById('tb'), rows=[].slice.call(tb.rows);
+  var q=document.getElementById('q'), fc=document.getElementById('fcat'),
+      fa=document.getElementById('facc'), fb=document.getElementById('fbuild'),
+      fk=document.getElementById('fck'), cnt=document.getElementById('count');
+  function apply(){
+    var s=q.value.trim().toLowerCase(), c=fc.value, a=fa.value, b=fb.value, k=fk.value, n=0;
+    rows.forEach(function(r){
+      var ok=(!s||r.dataset.q.indexOf(s)>-1)&&(!c||r.dataset.cat===c)&&
+             (!a||r.dataset.access===a)&&(!b||r.dataset.build===b)&&(!k||r.dataset.ck===k);
+      r.hidden=!ok; if(ok)n++;
+    });
+    cnt.textContent=n+' of 100 shown';
+  }
+  [q,fc,fa,fb,fk].forEach(function(el){el.addEventListener('input',apply)});
+  apply();
+})();
+</script>
+
+</body>
+</html>

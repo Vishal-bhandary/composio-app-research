@@ -1,0 +1,592 @@
+<title>The 100-App Buildability Map</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one column, documentation-density. Masthead states the answer; every
+   section below is evidence for it. Ordinal access scale runs cool -> warm. */
+:root{
+  --bg:#fbfaf8; --surface:#ffffff; --surface-2:#f4f2ee; --line:#e3dfd8; --line-2:#cfcac0;
+  --ink:#171614; --ink-2:#4b4740; --ink-3:#7d776c;
+  --accent:#0D9488; --accent-ink:#0b5f58;
+  --ss:#0D9488; --ssp:#2563EB; --rev:#D97706; --sales:#BE123C; --none:#78716C;
+  --good:#0D9488; --warn:#D97706; --bad:#BE123C;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121210; --surface:#1a1a18; --surface-2:#232320; --line:#2f2e2a; --line-2:#44423c;
+  --ink:#f2f0ec; --ink-2:#bdb9b1; --ink-3:#8b867c;
+  --accent:#2DD4BF; --accent-ink:#5eead4;
+  --ss:#0D9488; --ssp:#3B82F6; --rev:#D97706; --sales:#E11D48; --none:#78716C;
+  --good:#2DD4BF; --warn:#F59E0B; --bad:#FB7185;
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#121210; --surface:#1a1a18; --surface-2:#232320; --line:#2f2e2a; --line-2:#44423c;
+  --ink:#f2f0ec; --ink-2:#bdb9b1; --ink-3:#8b867c;
+  --accent:#2DD4BF; --accent-ink:#5eead4;
+  --ss:#0D9488; --ssp:#3B82F6; --rev:#D97706; --sales:#E11D48; --none:#78716C;
+  --good:#2DD4BF; --warn:#F59E0B; --bad:#FB7185;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;
+  -webkit-font-smoothing:antialiased;margin:0}
+.wrap{max-width:1140px;margin:0 auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));}
+h1,h2,h3{text-wrap:balance;margin:0;font-weight:600;letter-spacing:-.016em}
+p{margin:0}
+a{color:var(--accent-ink)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.dim{color:var(--ink-3)}
+.strong{font-weight:600}
+
+/* ---------- masthead ---------- */
+.hero{margin-top:calc(-1 * env(safe-area-inset-top,0px));
+  padding-top:calc(env(safe-area-inset-top,0px) + 2.6rem);
+  padding-bottom:2.2rem;background:var(--surface-2);border-bottom:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3)}
+h1{font-size:clamp(2rem,5.4vw,3.1rem);line-height:1.04;margin:.5rem 0 .7rem}
+.thesis{font-size:clamp(1rem,2.2vw,1.2rem);color:var(--ink-2);max-width:62ch}
+.thesis b{color:var(--ink);font-weight:600}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;
+  margin-top:1.8rem;background:var(--line);border:1px solid var(--line)}
+.kpi{background:var(--surface);padding:.85rem .95rem}
+.kpi .v{font-family:var(--mono);font-size:1.75rem;font-weight:600;line-height:1.1;
+  font-variant-numeric:tabular-nums}
+.kpi .l{font-size:11.5px;color:var(--ink-3);margin-top:.15rem;line-height:1.35}
+
+/* ---------- sections ---------- */
+section{padding-block:2.6rem;border-bottom:1px solid var(--line)}
+.shead{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;margin-bottom:.35rem}
+.snum{font-family:var(--mono);font-size:11px;color:var(--accent);font-weight:600;
+  letter-spacing:.1em}
+h2{font-size:clamp(1.3rem,3vw,1.65rem)}
+.lede{color:var(--ink-2);max-width:72ch;margin-bottom:1.5rem}
+
+/* ---------- patterns ---------- */
+.pats{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:1rem}
+.pat{background:var(--surface);border:1px solid var(--line);padding:1rem 1.05rem;
+  border-radius:3px;min-width:0}
+.pat .pn{font-family:var(--mono);font-size:2.05rem;font-weight:600;line-height:1;
+  color:var(--accent);font-variant-numeric:tabular-nums}
+.pat h3{font-size:.95rem;margin:.5rem 0 .3rem}
+.pat p{font-size:13px;color:var(--ink-2)}
+.pat.alert .pn{color:var(--warn)}
+
+/* ---------- gate matrix ---------- */
+.matrix{display:flex;flex-direction:column;gap:5px}
+.mrow{display:grid;grid-template-columns:minmax(96px,210px) 1fr 42px;gap:.7rem;align-items:center}
+.mlabel{font-size:12.5px;color:var(--ink-2);min-width:0;overflow-wrap:anywhere}
+.mbar{display:flex;height:24px;background:var(--surface-2);min-width:0;gap:2px}
+.seg{display:flex;align-items:center;justify-content:center;min-width:0}
+.seg span{font-family:var(--mono);font-size:10.5px;color:#fff;font-weight:600}
+.s-SS{background:var(--ss)} .s-SSP{background:var(--ssp)} .s-REV{background:var(--rev)}
+.s-SALES{background:var(--sales)} .s-NONE{background:var(--none)}
+.mpct{font-family:var(--mono);font-size:12.5px;text-align:right;font-variant-numeric:tabular-nums}
+.legend{display:flex;flex-wrap:wrap;gap:.45rem 1rem;margin-top:1.1rem;font-size:12px;
+  color:var(--ink-2)}
+.legend i{width:11px;height:11px;display:inline-block;margin-right:.35rem;
+  vertical-align:-1px;border-radius:1px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:2rem}
+
+/* ---------- auth bars ---------- */
+.abar{display:grid;grid-template-columns:minmax(90px,150px) 1fr 34px;gap:.7rem;
+  align-items:center;margin-bottom:6px}
+.alabel{font-size:12.5px;color:var(--ink-2);min-width:0}
+.atrack{background:var(--surface-2);height:20px;min-width:0}
+.afill{background:var(--accent);height:100%}
+.aval{font-family:var(--mono);font-size:12.5px;text-align:right;font-variant-numeric:tabular-nums}
+
+/* ---------- work queue ---------- */
+.wq{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.1rem}
+.wcard{border:1px solid var(--line);background:var(--surface);padding:1rem;border-radius:3px;
+  min-width:0}
+.wcard h3{font-size:.95rem;display:flex;align-items:baseline;gap:.5rem}
+.wcard h3 .c{font-family:var(--mono);color:var(--accent);font-size:1.3rem}
+.wcard.warn h3 .c{color:var(--sales)}
+.wcard p{font-size:12.5px;color:var(--ink-2);margin:.4rem 0 .7rem}
+.wchip{display:inline-block;font-family:var(--mono);font-size:11px;padding:2px 7px;
+  margin:0 4px 4px 0;background:var(--surface-2);border:1px solid var(--line);border-radius:2px}
+.wchip.warn{border-color:var(--sales);color:var(--sales)}
+
+/* ---------- pipeline ---------- */
+.pipe{display:grid;grid-template-columns:repeat(auto-fit,minmax(176px,1fr));gap:.75rem;
+  margin-bottom:1.3rem}
+.step{border:1px solid var(--line);background:var(--surface);padding:.8rem .85rem;
+  border-radius:3px;min-width:0}
+.step .sn{font-family:var(--mono);font-size:10.5px;color:var(--accent);letter-spacing:.1em}
+.step h4{margin:.3rem 0 .25rem;font-size:13.5px;font-weight:600}
+.step p{font-size:12px;color:var(--ink-2)}
+.step .auto{display:inline-block;margin-top:.5rem;font-family:var(--mono);font-size:10px;
+  padding:1px 6px;border-radius:2px;border:1px solid var(--line-2);color:var(--ink-3)}
+.step .auto.h{border-color:var(--rev);color:var(--rev)}
+
+/* ---------- verification ---------- */
+.loop{border:1px solid var(--line);background:var(--surface);border-radius:3px;
+  padding:1rem 1.05rem;margin-bottom:1rem}
+.loop h3{font-size:.95rem;display:flex;gap:.55rem;align-items:baseline;flex-wrap:wrap}
+.loop h3 .tag{font-family:var(--mono);font-size:10.5px;color:var(--accent);letter-spacing:.08em}
+.loop > p{font-size:13px;color:var(--ink-2);margin:.45rem 0 .9rem;max-width:74ch}
+.delta{display:flex;align-items:center;gap:.9rem;flex-wrap:wrap;
+  background:var(--surface-2);padding:.7rem .8rem;border-radius:3px}
+.dcol .dl{font-size:10.5px;color:var(--ink-3);font-family:var(--mono);letter-spacing:.08em;
+  text-transform:uppercase}
+.dcol .dv{font-family:var(--mono);font-size:1.3rem;font-weight:600;line-height:1.15;
+  font-variant-numeric:tabular-nums}
+.dcol.before .dv{color:var(--ink-3)}
+.dcol.after .dv{color:var(--good)}
+.arrow{color:var(--ink-3);font-size:1.1rem}
+.dnote{font-size:12px;color:var(--ink-2);margin-top:.6rem}
+table.t{width:100%;border-collapse:collapse;font-size:12.5px}
+table.t th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-3);font-weight:500;padding:.4rem .5rem;
+  border-bottom:1px solid var(--line-2);white-space:nowrap}
+table.t td{padding:.4rem .5rem;border-bottom:1px solid var(--line)}
+.miss{border-left:3px solid var(--bad);background:var(--surface);padding:.75rem .9rem;
+  margin-bottom:.7rem;border-radius:0 3px 3px 0}
+.miss.weak{border-left-color:var(--warn)}
+.mh{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin-bottom:.35rem}
+.vd{font-family:var(--mono);font-size:10px;font-weight:600;padding:1px 6px;border-radius:2px;
+  color:#fff;background:var(--bad)}
+.vd.WEAK{background:var(--warn)}
+.fld{font-size:11px;color:var(--ink-3)}
+.md{font-size:12px;margin-bottom:.15rem}
+.md .was,.md .now{font-family:var(--mono);font-size:10px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-3);margin-right:.35rem}
+.md code{font-family:var(--mono);font-size:11.5px;background:var(--surface-2);padding:1px 5px;
+  border-radius:2px;overflow-wrap:anywhere}
+.miss p{font-size:12.5px;color:var(--ink-2);margin-top:.45rem}
+
+/* ---------- chips & pills ---------- */
+.pill{display:inline-block;font-family:var(--mono);font-size:10.5px;padding:1.5px 6px;
+  border-radius:2px;color:#fff;white-space:nowrap}
+.p-SS{background:var(--ss)} .p-SSP{background:var(--ssp)} .p-REV{background:var(--rev)}
+.p-SALES{background:var(--sales)} .p-NONE{background:var(--none)}
+.tier{display:inline-block;font-family:var(--mono);font-size:10px;padding:1px 5px;
+  border-radius:2px;border:1px solid var(--line-2);color:var(--ink-3)}
+.t-grounded{border-color:var(--good);color:var(--good)}
+.t-catalog{border-color:var(--ssp);color:var(--ssp)}
+.t-prior{border-color:var(--warn);color:var(--warn)}
+.chip{font-family:var(--mono);font-size:10px;padding:1px 5px;border-radius:2px}
+.chip.ok{background:color-mix(in srgb,var(--good) 18%,transparent);color:var(--good)}
+.chip.no{background:var(--surface-2);color:var(--ink-3)}
+.bd{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:.45rem;
+  vertical-align:1px}
+.b-yes{background:var(--good)} .b-yes_with_caveats{background:var(--warn)}
+.b-blocked{background:var(--bad)}
+
+/* ---------- data table ---------- */
+.controls{display:flex;gap:.55rem;flex-wrap:wrap;margin-bottom:1rem;align-items:center}
+.controls input,.controls select{font-family:var(--sans);font-size:12.5px;padding:.42rem .55rem;
+  background:var(--surface);color:var(--ink);border:1px solid var(--line-2);border-radius:3px}
+.controls input{flex:1 1 190px;min-width:0}
+.count{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:3px;background:var(--surface)}
+table.d{width:100%;border-collapse:collapse;font-size:12.5px;min-width:960px}
+table.d th{position:sticky;top:0;background:var(--surface-2);text-align:left;
+  font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:500;padding:.5rem .6rem;border-bottom:1px solid var(--line-2);
+  white-space:nowrap;z-index:1}
+table.d td{padding:.5rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
+table.d tr:last-child td{border-bottom:0}
+td.num{color:var(--ink-3);width:34px}
+td.nm{min-width:190px}
+td.nm .sub{display:block;font-size:11.5px;color:var(--ink-3);line-height:1.35;margin-top:1px}
+td.sm{font-size:11.5px;color:var(--ink-2);max-width:230px}
+td.ctr{white-space:nowrap}
+td.ev a{display:inline-block;font-family:var(--mono);font-size:10px;width:16px;height:16px;
+  line-height:15px;text-align:center;border:1px solid var(--line-2);border-radius:2px;
+  margin-right:3px;text-decoration:none;color:var(--ink-3)}
+td.ev a:hover{border-color:var(--accent);color:var(--accent)}
+tr:hover td{background:var(--surface-2)}
+
+/* ---------- limits ---------- */
+.limits{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1rem}
+.limit{border:1px dashed var(--line-2);padding:.85rem .95rem;border-radius:3px;min-width:0}
+.limit h3{font-size:13px;margin-bottom:.3rem}
+.limit p{font-size:12.5px;color:var(--ink-2)}
+footer{padding-block:2rem;color:var(--ink-3);font-size:12.5px}
+footer a{margin-right:1rem}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:560px){
+  .mrow{grid-template-columns:1fr 38px;grid-template-areas:"l l" "b p"}
+  .mlabel{grid-area:l} .mbar{grid-area:b} .mpct{grid-area:p}
+}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Composio · AI Product Ops · take-home</div>
+    <h1>The 100-App Buildability Map</h1>
+    <p class="thesis">Across 100 apps, <b>auth is almost never the blocker — access is</b>.
+      Four in five expose a key you can get yourself. The ones you can't build are not
+      technically hard; they are behind a human who has to say yes.</p>
+    <div class="kpis">
+      <div class="kpi"><div class="v">{{OPEN}}<span class="dim" style="font-size:1rem">/100</span></div>
+        <div class="l">self-serve credentials<br>({{SS}} free · {{SSP}} paid plan)</div></div>
+      <div class="kpi"><div class="v">{{GATED}}</div>
+        <div class="l">behind a review or<br>sales gate</div></div>
+      <div class="kpi"><div class="v">{{BLOCKED}}</div>
+        <div class="l">cannot be built today<br>at any effort</div></div>
+      <div class="kpi"><div class="v">{{CX_FOUND}}</div>
+        <div class="l">already shipped as a<br>Composio toolkit</div></div>
+      <div class="kpi"><div class="v">{{AUD_LEN}}%</div>
+        <div class="l">audit accuracy on a<br>20-row hand check</div></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="shead"><span class="snum">01</span><h2>The patterns</h2></div>
+    <p class="lede">Five findings that hold across all 100. Every number here is a count over
+      <span class="mono">data/findings.json</span> and recomputable from the repo.</p>
+    <div class="pats">
+      <div class="pat">
+        <div class="pn">{{AUTH_KEY}}/{{AUTH_OAUTH}}</div>
+        <h3>API keys beat OAuth2, and that is the easy half</h3>
+        <p>{{AUTH_KEY}} apps lead with a static key or token, {{AUTH_OAUTH}} with OAuth2. A key is
+          a one-line integration; OAuth2 is a redirect, a token store and a refresh loop. Composio's
+          managed auth erases exactly that difference, so the auth split predicts build cost,
+          not feasibility.</p>
+      </div>
+      <div class="pat alert">
+        <div class="pn">50%</div>
+        <h3>Marketing &amp; Ads is the gated category</h3>
+        <p>Only half of the ad platforms are open. Google Ads, Meta Ads, LinkedIn Ads, Pinterest
+          and Threads each put a human review between you and a production token. No other
+          category comes close — Developer Infra and Productivity are 100% open.</p>
+      </div>
+      <div class="pat">
+        <div class="pn">{{SALES}}</div>
+        <h3>The real blocker is a sales call, not a spec</h3>
+        <p>{{SALES}} apps require a partnership, enterprise contract or booked call before any
+          credential exists. Every one of them has perfectly good public documentation. The
+          blocker is commercial, which means it is solved by outreach, not engineering.</p>
+      </div>
+      <div class="pat">
+        <div class="pn">{{CX_OPEN}}/{{CX_GATED}}</div>
+        <h3>Coverage already tracks openness</h3>
+        <p>Composio ships toolkits for {{CX_OPEN}}% of the self-serve apps but {{CX_GATED}}% of the
+          gated ones. The catalog has naturally grown along the path of least resistance —
+          which is where the remaining {{OUTREACH_N}}-app outreach list comes from.</p>
+      </div>
+      <div class="pat">
+        <div class="pn">{{NONEAPI}}</div>
+        <h3>Two apps are not apps</h3>
+        <p>Sherlock and Mermaid CLI are open-source command-line tools with no hosted service and
+          nothing to authenticate against. Listing them as "blocked" would be wrong: they need a
+          sandboxed exec wrapper, which is a different product decision entirely.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="shead"><span class="snum">02</span><h2>Where the gates are</h2></div>
+    <p class="lede">Each row is one category, 10 apps wide, sorted by how open it is. The number
+      on the right is the share with self-serve credentials.</p>
+    <div class="matrix">{{GATE_MATRIX}}</div>
+    <div class="legend">
+      <span><i style="background:var(--ss)"></i>Self-serve (free)</span>
+      <span><i style="background:var(--ssp)"></i>Self-serve (paid plan)</span>
+      <span><i style="background:var(--rev)"></i>Review / approval gate</span>
+      <span><i style="background:var(--sales)"></i>Sales / partnership gate</span>
+      <span><i style="background:var(--none)"></i>No public API</span>
+    </div>
+    <div class="two" style="margin-top:2.4rem">
+      <div>
+        <h3 style="font-size:.95rem;margin-bottom:.9rem">Primary auth method</h3>
+        {{AUTH_BARS}}
+      </div>
+      <div>
+        <h3 style="font-size:.95rem;margin-bottom:.9rem">What Composio already covers</h3>
+        <table class="t">
+          <tr><td>Toolkits in the catalog</td><td class="mono strong">{{CX_FOUND}}/100</td></tr>
+          <tr><td>Composio-managed auth</td><td class="mono strong">{{CX_MANAGED}}</td></tr>
+          <tr><td>Tools exposed in total</td><td class="mono strong">{{CX_TOOLS}}</td></tr>
+          <tr><td>Median tools per toolkit</td><td class="mono strong">{{CX_MED}}</td></tr>
+          <tr><td>Largest toolkit (GitHub)</td><td class="mono strong">{{CX_MAX}}</td></tr>
+          <tr><td>Apps with an official MCP</td><td class="mono strong">{{MCP}}</td></tr>
+        </table>
+        <p style="font-size:12px;color:var(--ink-3);margin-top:.6rem">Probed live from
+          <span class="mono">composio.dev/toolkits/&lt;slug&gt;.md</span> — not estimated.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="shead"><span class="snum">03</span><h2>What to do about it</h2></div>
+    <p class="lede">The map only matters if it changes a queue. It splits the 100 into three
+      piles with different owners.</p>
+    <div class="wq">
+      <div class="wcard">
+        <h3><span class="c">{{EASY_N}}</span> Easy wins — ship, don't ask</h3>
+        <p>Self-serve credentials, buildable today, no Composio toolkit yet. An engineer can
+          start any of these this afternoon without talking to the vendor.</p>
+        {{EASY_CHIPS}}
+      </div>
+      <div class="wcard warn">
+        <h3><span class="c">{{OUTREACH_N}}</span> Needs outreach, not engineering</h3>
+        <p>Sales or partnership gated. The work here is a conversation and a contract. Shipping
+          order should follow who answers the email, not who has the nicer API.</p>
+        {{OUTREACH_CHIPS}}
+      </div>
+      <div class="wcard">
+        <h3><span class="c">{{REV}}</span> Review gates — budget the wait</h3>
+        <p>Self-registration works, but production access needs an approval that takes days to
+          weeks: Amazon SP-API quotes 1–2 weeks, Pinterest wants a demo video, Meta needs 500
+          API calls in 15 days before you can even apply.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="shead"><span class="snum">04</span><h2>The agent</h2></div>
+    <p class="lede">A five-stage pipeline. Three stages are fully automated and reproducible from
+      the repo; two needed a human, and the page says which.</p>
+    <div class="pipe">
+      <div class="step"><div class="sn">STAGE 1</div><h4>Seed</h4>
+        <p>100 apps, 10 categories, parsed straight out of the brief into
+          <span class="mono">apps.json</span>.</p>
+        <span class="auto">automated</span></div>
+      <div class="step"><div class="sn">STAGE 2</div><h4>Catalog probe</h4>
+        <p>Async slug resolution against Composio's public toolkit pages; parses auth schemes,
+          tool counts, triggers. 100 apps in ~40s.</p>
+        <span class="auto">automated</span></div>
+      <div class="step"><div class="sn">STAGE 3</div><h4>Doc research</h4>
+        <p>Targeted search per app, returning primary documentation URLs for auth, pricing and
+          access gates.</p>
+        <span class="auto h">human in the loop</span></div>
+      <div class="step"><div class="sn">STAGE 4</div><h4>Verify</h4>
+        <p>Parser regression with ground truth, plus cross-source agreement between Composio's
+          classification and the vendor's own docs.</p>
+        <span class="auto">automated</span></div>
+      <div class="step"><div class="sn">STAGE 5</div><h4>Cluster &amp; render</h4>
+        <p>Deterministic counts into <span class="mono">patterns.json</span>; this page is
+          generated from it, so it cannot drift from the data.</p>
+        <span class="auto">automated</span></div>
+    </div>
+    <div class="two">
+      <div class="wcard">
+        <h3 style="margin-bottom:.5rem">Where a human was needed</h3>
+        <p style="margin-bottom:.6rem"><b>Slug resolution.</b> Composio's slugs are not derivable
+          from app names — <span class="mono">Zoho CRM → zoho</span>,
+          <span class="mono">Otter AI → otter_ai_mcp</span>. 41 of 100 needed a hand-written
+          alias. They live in one audited dict in
+          <span class="mono">agent/composio_catalog.py</span>.</p>
+        <p style="margin-bottom:.6rem"><b>Judging "gated".</b> No page says "we are partner-gated".
+          You infer it from a Request access button, a missing price, or a help article that
+          contradicts another one. Ahrefs publishes two articles that disagree about whether its
+          API needs Enterprise. A classifier picks one; a human records the conflict.</p>
+        <p><b>Knowing when to stop.</b> For iPayX, the correct output is "not found". Every search
+          returned a different company called iPay. The valuable behaviour was refusing to fill
+          the cell.</p>
+      </div>
+      <div class="wcard">
+        <h3 style="margin-bottom:.5rem">Design decisions worth defending</h3>
+        <p style="margin-bottom:.6rem"><b>No LLM in the scoring path.</b> Every number on this page
+          is a count, not a model output. The model's job was reading documentation; arithmetic is
+          Python's. That is why the patterns are reproducible.</p>
+        <p style="margin-bottom:.6rem"><b>Provenance per row, not per dataset.</b> Each row carries
+          the tier of evidence behind it. Averaging a confident row with a guess hides exactly the
+          thing a reviewer needs to see — and the audit showed the tiers really do predict accuracy.</p>
+        <p><b>Composio's catalog as a second opinion.</b> Using it as an independent source made the
+          cross-source loop possible and caught two bugs in my own normaliser.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="shead"><span class="snum">05</span><h2>Verification</h2></div>
+    <p class="lede">Three loops. Two have hard ground truth and show a measured first-pass to
+      second-pass gain; the third is a hand audit that found two real errors, both corrected in
+      the data above.</p>
+
+    <div class="loop">
+      <h3><span class="tag">LOOP A</span> Parser regression — {{A_PAGES}} pages, ground truth available</h3>
+      <p>Pass 1 matched auth keywords anywhere in a Composio toolkit page. Pass 2 reads only the
+        documented <span class="mono">## Authentication</span> section and its machine-readable
+        <span class="mono">Type:</span> lines, which are the ground truth. Pass 1 invented
+        {{A_FP}} auth schemes that do not exist across {{A_WRONG}} pages — Telegram came back with
+        four schemes when it has one, because the page's prose mentions the others.</p>
+      <div class="delta">
+        <div class="dcol before"><div class="dl">pass 1 · precision</div><div class="dv">{{A1_P}}</div></div>
+        <span class="arrow">→</span>
+        <div class="dcol after"><div class="dl">pass 2 · precision</div><div class="dv">{{A2_P}}</div></div>
+        <div class="dcol before" style="margin-left:1rem"><div class="dl">pass 1 · F1</div><div class="dv">{{A1_F}}</div></div>
+        <span class="arrow">→</span>
+        <div class="dcol after"><div class="dl">pass 2 · F1</div><div class="dv">{{A2_F}}</div></div>
+      </div>
+      <p class="dnote">Recall was already {{A1_R}}; the problem was never missing schemes, it was
+        confidently adding fake ones. Precision is the metric that matters when an agent writes
+        into a catalog.</p>
+    </div>
+
+    <div class="loop">
+      <h3><span class="tag">LOOP B</span> Cross-source agreement — {{B_N}} comparable rows</h3>
+      <p>Composio's published classification versus the auth method extracted from each vendor's
+        own documentation. Two independent sources; any disagreement is flagged for a human.</p>
+      <div class="delta">
+        <div class="dcol before"><div class="dl">normaliser v1</div><div class="dv">{{B1}}%</div></div>
+        <span class="arrow">→</span>
+        <div class="dcol after"><div class="dl">normaliser v2</div><div class="dv">{{B2}}%</div></div>
+      </div>
+      <p class="dnote">Three conflicts. Two (Plaid, higgsfield) were bugs in my own normaliser —
+        it only recognised the words "api key" and "token", so credential pairs like
+        <span class="mono">client_id + secret</span> normalised to nothing and produced phantom
+        disagreements. Fixing that left {{B_CONF}} real conflict: <b>Consensus</b>, where the REST
+        API uses an API key and the MCP server uses OAuth 2.1. Both sources are right about
+        different surfaces; the row now records both.</p>
+    </div>
+
+    <div class="loop">
+      <h3><span class="tag">LOOP C</span> Human audit — {{AUD_N}} of 100, stratified</h3>
+      <p>Sampled across evidence tier and access class, deliberately over-sampling the weakest
+        tier. Verdicts: {{AUD_OK}} OK, {{AUD_WEAK}} defensible-but-under-evidenced, {{AUD_MISS}}
+        wrong. Strict accuracy {{AUD_STRICT}}%; {{AUD_LEN}}% counting WEAK rows as acceptable.</p>
+      <table class="t" style="margin-bottom:1rem">
+        <thead><tr><th>Evidence tier</th><th>Sampled</th><th>OK</th><th>Weak</th><th>Miss</th>
+          <th>Strict</th></tr></thead>
+        <tbody>{{TIER_TABLE}}</tbody>
+      </table>
+      <p class="dnote" style="margin-bottom:1rem"><b>The tier predicts the error.</b> Both misses
+        came from <span class="tier t-prior">prior</span> — rows resting on model knowledge
+        anchored to a canonical URL rather than a page read during this run. Catalog rows, which
+        are re-fetched and machine-parsed, were 5/5. That is the argument for labelling provenance
+        per row instead of quoting one accuracy number for the dataset.</p>
+      {{MISSES}}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="shead"><span class="snum">06</span><h2>All 100</h2>
+      <span class="count" id="count"></span></div>
+    <p class="lede">Sortable and filterable. The numbered links in the last column are the
+      evidence behind that row.</p>
+    <div class="controls">
+      <input id="q" type="search" placeholder="Search app, auth, description…" aria-label="Search apps">
+      <select id="fcat" aria-label="Filter by category"><option value="">All categories</option>{{CAT_OPTIONS}}</select>
+      <select id="facc" aria-label="Filter by access">
+        <option value="">All access</option>
+        <option value="SS">Self-serve (free)</option>
+        <option value="SSP">Self-serve (paid)</option>
+        <option value="REV">Review gate</option>
+        <option value="SALES">Sales gate</option>
+        <option value="NONE">No public API</option>
+      </select>
+      <select id="fbuild" aria-label="Filter by buildability">
+        <option value="">All verdicts</option>
+        <option value="yes">Buildable today</option>
+        <option value="yes_with_caveats">With caveats</option>
+        <option value="blocked">Blocked</option>
+      </select>
+      <select id="fck" aria-label="Filter by Composio coverage">
+        <option value="">Any coverage</option>
+        <option value="0">No toolkit yet</option>
+        <option value="1">Toolkit exists</option>
+      </select>
+    </div>
+    <div class="scroll">
+      <table class="d">
+        <thead><tr>
+          <th>#</th><th>App</th><th>Primary auth</th><th>Access</th><th>Surface</th>
+          <th>Main blocker</th><th>Composio</th><th>Evidence tier</th><th>Src</th>
+        </tr></thead>
+        <tbody id="tb">{{TABLE_ROWS}}</tbody>
+      </table>
+    </div>
+    <div class="legend">
+      <span><span class="bd b-yes"></span>Buildable today</span>
+      <span><span class="bd b-yes_with_caveats"></span>Buildable with caveats</span>
+      <span><span class="bd b-blocked"></span>Blocked</span>
+      <span><span class="tier t-grounded">grou</span> re-researched this run ({{V_GROUNDED}})</span>
+      <span><span class="tier t-catalog">cata</span> machine-parsed from Composio ({{V_CATALOG}})</span>
+      <span><span class="tier t-prior">prio</span> model prior + canonical URL ({{V_PRIOR}})</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="shead"><span class="snum">07</span><h2>What this does not prove</h2></div>
+    <p class="lede">The brief asked for honesty about what defeated the agent. These are the
+      limits a reviewer should push on.</p>
+    <div class="limits">
+      <div class="limit"><h3>One host was reachable, not one hundred</h3>
+        <p>The sandbox this ran in allowed egress to composio.dev and github.com only. Composio's
+          catalog was fetched and parsed for real; vendor documentation was reached through a
+          search tool that returns primary URLs and quoted passages rather than by loading each
+          page. So evidence links are real and were returned by the research pass, but most were
+          not re-opened byte-for-byte at render time.</p></div>
+      <div class="limit"><h3>{{V_PRIOR}} rows rest on model prior</h3>
+        <p>They are labelled <span class="tier t-prior">prior</span> in the table and are the
+          first rows to re-check. The audit found both of its misses in exactly this tier, so the
+          label is doing real work rather than hedging.</p></div>
+      <div class="limit"><h3>"Official MCP" is under-counted</h3>
+        <p>{{MCP}} apps are marked as having an official MCP server, established from evidence
+          encountered during research. There was no way to probe every vendor's
+          <span class="mono">/.well-known</span> from this sandbox, so the true number is
+          probably higher. Absence here means "not found", never "does not exist".</p></div>
+      <div class="limit"><h3>Gating changes faster than docs</h3>
+        <p>Google sunset Google Ads developer tokens on 2026-09-09 and moved access levels onto
+          Cloud projects. That post-dates the model's training data and was caught only because
+          the research pass ran. Anything in this table is a snapshot, and the ad platforms move
+          the most.</p></div>
+      <div class="limit"><h3>Two vendors defeated the research</h3>
+        <p><b>iPayX</b> — no documentation found at all; every result was a different company.
+          <b>Paygent Connect</b> — identifiable only as an NMI-powered gateway, with no Paygent
+          developer portal. Both are recorded as low confidence rather than filled with a
+          plausible guess.</p></div>
+      <div class="limit"><h3>One category boundary is arguable</h3>
+        <p>Plaid moved from self-serve to review-gated during the audit because sandbox keys are
+          instant but production access is a separate reviewed request. Several rows sit near that
+          line; the taxonomy, not the data, is what makes them debatable.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><strong>The 100-App Buildability Map</strong> · generated {{DATE}} from
+      <span class="mono">data/findings.json</span> by <span class="mono">site/build.py</span>.</p>
+    <p style="margin-top:.5rem">
+      <a href="https://github.com/Vishal-bhandary/composio-app-research">Source repo &amp; research agent</a>
+      <a href="https://github.com/Vishal-bhandary/composio-app-research/blob/main/data/findings.json">findings.json</a>
+      <a href="https://github.com/Vishal-bhandary/composio-app-research/blob/main/data/verification.json">verification.json</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var tb=document.getElementById('tb'), rows=[].slice.call(tb.rows);
+  var q=document.getElementById('q'), fc=document.getElementById('fcat'),
+      fa=document.getElementById('facc'), fb=document.getElementById('fbuild'),
+      fk=document.getElementById('fck'), cnt=document.getElementById('count');
+  function apply(){
+    var s=q.value.trim().toLowerCase(), c=fc.value, a=fa.value, b=fb.value, k=fk.value, n=0;
+    rows.forEach(function(r){
+      var ok=(!s||r.dataset.q.indexOf(s)>-1)&&(!c||r.dataset.cat===c)&&
+             (!a||r.dataset.access===a)&&(!b||r.dataset.build===b)&&(!k||r.dataset.ck===k);
+      r.hidden=!ok; if(ok)n++;
+    });
+    cnt.textContent=n+' of 100 shown';
+  }
+  [q,fc,fa,fb,fk].forEach(function(el){el.addEventListener('input',apply)});
+  apply();
+})();
+</script>
