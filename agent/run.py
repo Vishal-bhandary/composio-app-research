@@ -45,7 +45,7 @@ def main() -> None:
         r = subprocess.run(cmd, cwd=ROOT)
         if r.returncode != 0:
             sys.exit(f"stage {name} failed with exit code {r.returncode}")
-    print("\npipeline complete — open site/index.html")
+    print("\npipeline complete — open index.html")
 
 
 if __name__ == "__main__":
